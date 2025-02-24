@@ -5,8 +5,8 @@
 (s:lattice.construct)=
 ## Constructing a Lattice
 
-A `Lattice` is essentially a set of branches. 
-Each branch is instantiated from a `BeamLine` which is called the a `root BeamLine`.
+A `Lattice` contains a set of branches. 
+Each branch is instantiated from a `BeamLine` that is called the `root BeamLine`.
 Example:
 ```{code} yaml
 Lattice:
@@ -42,7 +42,7 @@ The first lattice element of any root `BeamLine` line must be a `Beginning` elem
 branch line may only contain this one `Beginning` element. If a subline contains a `Beginning`
 element, this element must be dropped from the branch line.
 
-The last lattice element of a branch line be a `Marker` element.
+The last lattice element of a branch line must be a `Marker` element.
 
 Notes:
 - When a lattice is expanded, 
@@ -59,10 +59,10 @@ This mandate on element ordering ensures that the order of elements in a directi
 
 `Lattice expansion` is the process, starting from a `Lattice` structure instance, where:
 - The `root BeamLines` of the branches are expanded.
-- `Fork` elements in the Branches are used to construct new branches and, if these new branches
-have `Fork` elements, this process is repeated until no new branches need to be created.
-- The floor position along with the reference energy, species and time, of all the lattice elements 
-is computed.
+- `Fork` elements contained in the root branches are used to construct new branches and, 
+ if these new branches have `Fork` elements, 
+this process is repeated until no new branches need to be created.
+- The floor position along with the reference energy, species and time, of the lattice elements, is computed.
 - Mathematical expressions are evaluated.
 
 Notes:
@@ -96,10 +96,11 @@ is shown in figure {numref}`f:fork`.
 
 Example of how `Fork` and `Patch` elements can be used to describe even complicated machine geometries. 
 Shown is a section of the 8-pass (4 passes with increasing energy and 4 passes with decreasing energy) 
-Cornell/Brookhaven CBETA ERL/FFAG machine. `Fork` elements are used to connect the 
-injection line to the ERL and to connect the ERL to a diagnostic line. The geometry of the
-switchyard, used to correct the timings of the beams with differing energies from the FFAG arc, 
-is done using `Patch` elements.
+Cornell/Brookhaven CBETA ERL/FFAG machine. `Fork` elements were used to connect the 
+injection line to the ERL and to connect the ERL to a diagnostic line. 
+The ERL itself was modeled as a single branch which had 8 sections for the 8 passes.
+The geometry of the switchyard, used to correct the timings of the beams with differing energies 
+from the FFAG arc, is done using `Patch` elements.
 ```
 
 The `branch` containing a forking element is called the
@@ -142,8 +143,8 @@ the direction of travel is downstream (`+s`-direction) and vice versa if `direct
 `to-element` is the `Beginning` element. Similarly, it does not make sense to have `direction`
 set to `FORWARDS` if the `to-element` is the end element in the branch.
 
-The `ForkP` group of any given `Fork` element must contain one an only one of `to_BeamLine`
-or `to_Branch`. If `to_BeamLine` is present, A new branch is to be created and added to
+The `ForkP` group of any given `Fork` element must contain one and only one of `to_BeamLine`
+or `to_Branch`. If `to_BeamLine` is present, a new branch is to be created and added to
 the `Lattice` set of branches. In this case, `Branch_name` may be set giving the name
 of the branch. If `to_Branch` is present, the fork connects to an existing branch. In this case,
 `Branch_name` is ignored.

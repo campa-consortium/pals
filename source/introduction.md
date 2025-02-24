@@ -128,7 +128,7 @@ to the following:
 
 %---------------------------------------------------------------------------------------------------
 (s:name.matching)=
-## Lattice Element Name Matching
+## Element Name Matching
 
 Lattice element name matching is the process of finding the set of lattice elements that 
 are matched to a given string. Name matching is important in a number of instances including
@@ -137,7 +137,7 @@ expressions.
 
 The simplist form of name matching is if the string matches
 the `name` field of an element or elements. Regular expressions can be used. 
-Regular expressions must conform to the PCRE2 standard. 
+Regular expressions must conform to the [PCRE2](https://www.pcre.org/) standard. 
 
 The names of an element may be "qualified" by prepending a `branch` or `BeamLine` name to the string
 using the string `">>"` as a separator. For example, `"B1>>Qaf.*"` would match
@@ -147,6 +147,11 @@ Additionally, if the match string ends with the character `"#"` followed by an i
 this will match to the `N`{sup}`th` instance matched to in any `branch` or `BeamLine`.
 For example, `"Sd#3"` will match to the 3{sup}`rd` instance of all elements named
 `"Sd".
+
+Lattice elements can also be referred to by the index in which they appear in a branch
+with the first element having index one, etc. Branches do not get an index since the
+PALS standard does not mandate that the branches of a lattice be stored in an array (it
+could, for example, be a linked list).
 
 %---------------------------------------------------------------------------------------------------
 (s:units)=

@@ -1,11 +1,19 @@
 # Definitions
 
-- `Branch`: Essentially an ordered list of lattice elements that can be tracked through.
+```{figure} figures/lat-tree.svg
+:width: 80%
+:name: f:lat.tree
+
+An expanded lattice contains a set of branches (not necessarily in an array) and each
+branch holds an ordered array of lattice elements.
+```
+
+- `Branch`: Contains an ordered list of lattice elements that can be tracked through.
 A branch can describe such things as a storage ring or Linac.
 - `Branch expansion`: The process, starting from the `root` `BeamLine`
 of a branch, of constructing the ordered list of lattice elements contained in that branch.
 - `Element`: See `Lattice element`.
-- `Latttice`: The outermost structure that essentially holds a set of branches and
+- `Lattice`: The outermost structure that holds a set of branches and
 can be used to define an entire accelerator complex.
 - `Lattice expansion`: This includes `branch expansion` along with connecting branches
 together via `Fork` elements, expression evaluations, 

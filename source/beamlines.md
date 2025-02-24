@@ -45,7 +45,7 @@ Linac or any other line that is "single pass".
 Notice that a setting `periodic` to `True` does **not** mean that the downstream end of
 the last element of the `BeamLine` has the same [floor](#s:floor) coordinates as the floor
 coordinates at the beginning. Setting `periodic` to `True` simply signals to a program that
-it may be appropriate to calculate closed (periodic) orbits and Twiss parameters
+it may be appropriate to calculate periodic orbits and Twiss parameters
 as opposed to calculating orbits and Twiss
 parameters based upon orbit and Twiss parameters set by the User for the beginning of the `BeamLine`.  
 Indeed, it is sometimes convenient to treat `BeamLines` as periodic even though there is no 
