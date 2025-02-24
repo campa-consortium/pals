@@ -1,10 +1,10 @@
-[![Documentation Status](https://readthedocs.org/projects/lattice-standard/badge/?version=latest)](https://lattice-standard.readthedocs.io)
+[![Documentation Status](https://readthedocs.org/projects/pals-project/badge/?version=latest)](https://pals-project.readthedocs.io)
 
 # Particle Accelerator Lattice Standard (PALS)
 
 An effort to create a standard to promote lattice information exchange for particle accelerators.
 
-[Online documents.](https://lattice-standard.readthedocs.io)
+[Online documents.](https://pals-project.readthedocs.io)
 
 ## Scope
 
