@@ -1,9 +1,9 @@
-(c:construction)=
-# Constructing Lattices
+(c:beamlines)=
+# BeamLines
 
 %---------------------------------------------------------------------------------------------------
-(s:beamlines)=
-## BeamLines
+(s:beamline.components)=
+## BeamLine components
 
 A lattice [`branch`](#s:branches) is constructed from a `BeamLine`. A BeamLine is essentially 
 an ordered array of elements. 
@@ -20,12 +20,13 @@ length      # Optional. [m]: Length of the BeamLine.
 line        # Ordered list: List of elements.
 zero_point  # Optional. String: Name of a line item used as a reference point when
             #  the BeamLine is used as a subline.
+periodic    # Optional Bool. Are orbit and Twiss parameters periodic? Default is False.
 ```
 
 The `name` component is a string that can be used to reference the `BeamLine`.
 
 The optional `mutipass` component is a boolean describing whether the `BeamLine` is part of 
-a [`multipass`](#c:multipass) construct. The default is False.
+a [multipass construct](#c:multipass). The default is False.
 
 The optional `length` component gives the length of the `BeamLine`. 
 If `length` is not given, the BeamLine ends at the downstream end of the final
@@ -35,6 +36,28 @@ The optional `zero_point` component is used to position sublines.
 The value of `zero_point` is the name of a `line item` that marks the reference point. 
 To make things unambiguous, the reference `item` must have zero length.
 In most cases, this means that the `zero_point` cannot be a `BeamLine`.
+
+Setting optional `periodic` Boolean to `True` indicates that the `BeamLine` is something like a 
+storage ring where the particle beam recirculates through the `BeamLine` multiple times.
+Setting `periodic` to `False` is used to indicate that the `BeamLine` is something like a 
+Linac or any other line that is "single pass". 
+
+Notice that a setting `periodic` to `True` does **not** mean that the downstream end of
+the last element of the `BeamLine` has the same [floor](#s:floor) coordinates as the floor
+coordinates at the beginning. Setting `periodic` to `True` simply signals to a program that
+it may be appropriate to calculate closed (periodic) orbits and Twiss parameters
+as opposed to calculating orbits and Twiss
+parameters based upon orbit and Twiss parameters set by the User for the beginning of the `BeamLine`.  
+Indeed, it is sometimes convenient to treat `BeamLines` as periodic even though there is no 
+closure in the floor coordinate sense.
+For example, when a storage ring has a number of repeating "periods", it may be
+convenient, for speed reasons, to calculate the periodic functions using only use one period.
+
+The default value of `False` for a given `BeamLine` is not affected by any 
+setting of `periodic` in any subline of the `Beamline`. When constructing lattice `branches`,
+the setting of `periodic` in a [root](#s:lattice.construct) `BeamLine` can be overridden
+by setting the `periodic` component of the `branch`. See [](#s:lattice.construct) for
+details.
 
 The `line` component of a BeamLine holds an ordered list of `items`. 
 Each `item` represents one (or more if there is a `repeat` count) lattice element or
@@ -77,7 +100,7 @@ BeamLine:
 
 %---------------------------------------------------------------------------------------------------
 (s:line.construction)=
-### Constructing a BeamLine `line` 
+## Constructing a BeamLine `line` 
 
 A line item that is a lattice element can be specified by name if a lattice element
 of that name has been defined. Example:
@@ -128,7 +151,7 @@ For example, if BeamLine `B` is a subline of `A`, then BeamLine `A` may not be a
 
 %---------------------------------------------------------------------------------------------------
 (s:repetition)=
-### Repetition
+## Repetition
 
 For any line `item`, a `repetition` count component can be used to represent multiple copies
 of the item. Example:
@@ -170,7 +193,7 @@ at the downstream side.
 
 %---------------------------------------------------------------------------------------------------
 (s:direction)=
-### Direction reversal
+## Direction reversal
 
 The optional `direction` component of `item` can be used for true [direction reversal](#s:ref.construct).
 Possible values are `+1` and `-1`. The Default is `+1` which represents an unreversed element
@@ -202,7 +225,7 @@ in an element that is unreversed.
 
 %---------------------------------------------------------------------------------------------------
 (s:placement)=
-### Line item placement
+## Line item placement
 
 ```{figure} figures/superimpose.svg
 :width: 80%
@@ -266,7 +289,7 @@ The `from_point` of `thingA` is placed `37.5` meters from the `to_point` point w
 the `to_point` being at the exit end of `thingA`.
 
 The value of `offset` may be negative as well as positive. With negative offsets, 
-the lattice expansion calculation may become recursive but, in any case, plancement
+the [lattice expansion](#s:expansion) calculation may become recursive but, in any case, plancement
 must be computable. That is, situations where there in infinite recursion is forbidden.
 
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves
@@ -316,51 +339,7 @@ BeamLine:
 then the order of tracking will be `markerA` followed by `markerB`.
 
 %---------------------------------------------------------------------------------------------------
-(s:lattice.construct)=
-## Constructing a Lattice
+(s:superposition)=
+## Superposition
 
-A `Lattice` is essentially an array of ordered `Branches`. 
-Each branch is instantiated from a `root` `BeamLine`.
-Example:
-```{code} yaml
-Lattice:
-  - Branch: this_line
-  - Branch: 
-      name: that_ring
-      periodic: True
-```
-In this example, `this_line` and `that_ring` are the names of the root BeamLines
-for the two `Branches`.
-
-When the root BeamLines are expanded to form the branches, there may be `Fork` elements present
-which can either connect to lattice elements that exist in the lattice or may connect to new
-BeamLines. In the latter case, after expansion, `Branches` will be added as necessary to connect
-the `Fork` elements to. And these added `Branches` may themselves contain `Fork` elements which
-can lead to more `Branches` being added. In this way, an entire accelerator complex may be
-described by a single `Lattice`. Forking and `Fork` elements are described in detail in
-the [Forking](#c:forking) chapter.
-
-A `Branch` has the optional component
-```{code} yaml
-periodic    # Optional Bool. Default is False.
-```
-The optional `periodic` component of a `BeamLine` is a switch with possible settings
-```{code} yaml
-OPEN          # Default
-CLOSED
-```
-Setting `periodic` to `True` is used to indicate that the `Branch` is something like a 
-storage ring where the particle beam recirculates through the `Branch` multiple times.
-Setting `periodic` to `False` is used to indicate that the `Branch` is something like a 
-Linac or any other line that is "single pass". 
-
-Notice that a setting `periodic` to `True` does **not** mean that the downstream end of
-the last element of the `Branch` has the same [floor](#s:floor) coordinates as the floor
-coordinates at the beginning. Setting `periodic` to `True` simply signals to a program that
-it may be appropriate to calculate closed (periodic) orbits and Twiss parameters
-as opposed to calculating orbits and Twiss
-parameters based upon orbit and Twiss parameters set by the User for the beginning of the `Branch`.  
-Indeed, it is sometimes convenient to treat branches as periodic even though there is no 
-closure in the floor coordinate sense.
-For example, when a storage ring has a number of repeating "periods", it may be
-convenient, for speed reasons, to calculate the periodic functions using only use one period.
+In Construction...

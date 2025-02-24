@@ -12,7 +12,7 @@ interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 All `keywords` in this standard are case-sensitive.
 
 %---------------------------------------------------------------------------------------------------
-(s:elements)=
+(s:elements.intro)=
 ## Lattice Elements
 
 The basic building block used to describe an accelerator is the lattice \vn{element}. Typically,
@@ -20,12 +20,12 @@ a lattice element is something physical like a bending magnet or an electrostati
 quadrupole, or a diffracting crystal. A lattice element may define a region in space 
 distinguished by the presence of (possibly time-varying) electromagnetic fields,
 materials, apertures and other possible engineered structures. However, lattice elements
-are not restricted to being something physical and may, for example, just mark a particular point in space
-(EG: `Marker` elements), or may designate where beamlines intersect (`Fork` elements).
+are not restricted to being something physical and may, for example, just mark a particular point 
+in space (EG: `Marker` elements), or may designate where beamlines intersect (`Fork` elements).
 By convention, element names in PALS will be upper camel case.
 
 %---------------------------------------------------------------------------------------------------
-(s:branches)=
+(s:branches.intro)=
 ## Lattice Branches
 
 A lattice `branch` holds an ordered array of lattice elements
@@ -35,7 +35,7 @@ In the simplest case, a program can track through the elements one element at a 
 However, lattice elements may overlap which will naturally complicate tracking.
 
 %---------------------------------------------------------------------------------------------------
-(s:lattices)=
+(s:lattices.intro)=
 ## Lattices
 
 A `lattice` is the root structure holding the information about a
@@ -54,7 +54,7 @@ present and `multipass` information in the case where elements are transversed m
 as in an ERL or in opposite directions as in a colliding beam machine.
 
 %---------------------------------------------------------------------------------------------------
-(s:root)=
+(s:root.intro)=
 ## Root branch
 
 The `branch` from which other `branches` fork but is not forked to by any
@@ -63,12 +63,14 @@ A lattice may contain multiple `root` branches. For example, a pair of intersect
 rings will generally have two root branches, one for each ring.
 
 %---------------------------------------------------------------------------------------------------
-(s:expansion)=
+(s:expansion.intro)=
 ## Lattice Expansion
 
-An important concept is `lattice expansion`, which can also be called `branch expansion` or
-`beamline expansion`. Lattice expansion is the process, starting from the `root` `BeamLine`
+An important concept is [`lattice expansion`](#s:lattice.expand) and `branch expansion`.
+Branch expansion is the process, starting from the `root` `BeamLine`
 of a branch, of constructing the ordered list of lattice elements contained in that branch.
+`Lattice expansion` involves branch expansion along with things like
+calculating the reference energy for all elements.
 
 %---------------------------------------------------------------------------------------------------
 (s:syntax)=
@@ -123,6 +125,28 @@ to the following:
 - A name must start with a letter or the underscore character
 - A name cannot start with a number
 - A name can only contain alpha-numeric characters and underscores (A-Z, a-z, 0-9, and _ )
+
+%---------------------------------------------------------------------------------------------------
+(s:name.matching)=
+## Lattice Element Name Matching
+
+Lattice element name matching is the process of finding the set of lattice elements that 
+are matched to a given string. Name matching is important in a number of instances including
+lattice expansion where there are [`Fork`](#s:forking) elements and for evaluating mathematical
+expressions.
+
+The simplist form of name matching is if the string matches
+the `name` field of an element or elements. Regular expressions can be used. 
+Regular expressions must conform to the PCRE2 standard. 
+
+The names of an element may be "qualified" by prepending a `branch` or `BeamLine` name to the string
+using the string `">>"` as a separator. For example, `"B1>>Qaf.*"` would match
+to all elements in a branch or BeamLine named `"B1"` whose name begins with `"Qaf"`.
+
+Additionally, if the match string ends with the character `"#"` followed by an integer `N`,
+this will match to the `N`{sup}`th` instance matched to in any `branch` or `BeamLine`.
+For example, `"Sd#3"` will match to the 3{sup}`rd` instance of all elements named
+`"Sd".
 
 %---------------------------------------------------------------------------------------------------
 (s:units)=
