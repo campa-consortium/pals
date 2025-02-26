@@ -3,9 +3,9 @@
 The Particle Accelerator Lattice Standard (PALS) defines a standard for the sharing of lattice information to describe
 particle accelerators and storage rings. PALS aims to promote:
 
- - portability between various applications and differing algorithms
- - a unified open access description for scientific data (publishing and archiving)
- - a unified description for post-processing, visualization and analysis.
+ - Portability between various applications and differing algorithms
+ - A unified open access description for scientific data (publishing and archiving)
+ - A unified description for post-processing, visualization and analysis.
 
 PALS is able to describe the connections between various things
 from the connection of injection and extraction lines connected to a storage ring to the interaction region

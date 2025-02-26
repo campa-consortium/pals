@@ -1,3 +1,4 @@
+(c:element.parameters)=
 # Element Parameters
 
 Lattice elements parameters are organized into **parameter groups**. 
@@ -16,13 +17,13 @@ Any group can be given a **name** and the values can be used in another group of
 using **import**.
 For example:
 ```{code} yaml
-Aperture:
+ApertureP:
   name: ap1
   x_limit: [-0.03, 0.04]
 ```
 The above defines an aperture with the name **ap1**. 
 ```{code} yaml
-Aperture:
+ApertureP:
   name: ap2
   inherit: ap1
   y_limit: [-0.02, 0.05]
@@ -33,7 +34,7 @@ Naming a parameter group is only needed if the parameter group is defined outsid
 ```{code} yaml
 Element:
   name: q1
-  Aperture: 
+  ApertureP: 
     x_limit: [-0.03, 0.04]
     y_limit: [-0.02, 0.03]
 ```
@@ -41,8 +42,8 @@ And an element can inherit a parameter group from another element:
 ```{code} yaml
 Element:
   name: q2
-  Aperture:
-    inherit: q1.Aperture
+  ApertureP:
+    inherit: q1.ApertureP
 ```
 
 For an element to inherit all parameter groups from another element, just inherit the element itself:
@@ -52,9 +53,14 @@ Element:
   inherit: q2
 ```
 
-## Aperture Parameter Group
+---
 
-Components:
+%---------------------------------------------------------------------------------------------------
+(s:aperture.group)=
+## ApertureP Parameter Group
+
+The `ApertureP` parameter group contains parameters for describing an aperture. 
+The components of this group are:
 ```{code} yaml
 x_limit                      # [m] Vector of two real numbers
 y_limit                      # [m] Vector of two real numbers
@@ -66,7 +72,7 @@ material                     # String
 thickness                    # [m] Real number
 ```
 
-### location component
+### Location component
 
 The aperture location is set by the `location` parameter. Possible values are
 ```{code} yaml
@@ -79,7 +85,7 @@ EVERYWHERE     # Everywhere
 ```
 The default is `ENTRANCE_END`.
 
-### shape component
+### Shape component
 
 ```{figure} figures/apertures.svg
 :width: 90%
@@ -173,7 +179,7 @@ tilt        # [rad/2pi] Ellipse tilt angle.
 ```
 Example:
 ```{code} yaml
-Aperture:
+ApertureP:
   vertices:
     center: [-0.045, 0.011]
     absolute_vertices: True
@@ -241,3 +247,22 @@ and through the particle point intersects the aperture.
 particle point and the `center` point.
 ```
 
+%---------------------------------------------------------------------------------------------------
+(s:fork.group)=
+## ForkP Parameter Group
+
+The `ForkP` parameter group holds parameters for a `Fork` element.
+The components of this group are:
+```{code} yaml
+  to_line               # String: Beam line to fork to
+  to_ele                # String: Element forked to.
+  direction             # Switch: Longitudinal Direction of travel of injected beam.
+  propagate_reference   # Boolian: Propagate reference species and energy?
+```
+The possible values of the optional `direction` switch are:
+```{code} yaml
+FORWARD             # Injected particle propagates in forward direction. Default.
+BACKWARDS           # Injected particle propagates in reverse direction.
+```
+
+See the [](#s:forking) chapter for more details.
