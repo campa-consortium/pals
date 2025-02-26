@@ -94,13 +94,21 @@ is shown in figure {numref}`f:fork`.
 :width: 80%
 :name: f:fork
 
-Example of how `Fork` and `Patch` elements can be used to describe even complicated machine geometries. 
-Shown is a section of the 8-pass (4 passes with increasing energy and 4 passes with decreasing energy) 
-Cornell/Brookhaven CBETA ERL/FFAG machine. `Fork` elements were used to connect the 
-injection line to the ERL and to connect the ERL to a diagnostic line. 
-The ERL itself was modeled as a single branch which had 8 sections for the 8 passes.
-The geometry of the switchyard, used to correct the timings of the beams with differing energies 
-from the FFAG arc, is done using `Patch` elements.
+Example of how `Fork` and `Patch` elements can be used to describe even complicated machine geometries.
+In the upper right hand corner is shown the Cornell/Brookhaven CBETA machine.
+This machine includes an Energy Recovery Linac (ERL) with
+8-pass (4 passes with increasing energy and 4 passes with decreasing energy) along with
+an injection line, a diagnostic line, and a beam stop line.
+The ERL part of the machine includes the Linac, a Fixed Focusing Alternating 
+Gradient (FFAG) arc, and splitter sections.
+
+Shown in the main body of the figure is a blowup of the region where the injection line connects 
+to the Linac along with the diagnostic line and the end of the FFAG arc.
+The injection line and the ERL was modeled as a single lattice branch which contained all 8 passes.
+`Fork` elements were used to connect the injection line to the diagnostic line and ERL to the 
+beam stop line.
+The geometry of the splitter sections, used to correct the timings of the beams with 
+differing energies, is done using `Patch` elements.
 ```
 
 The `branch` containing a forking element is called the
@@ -118,16 +126,17 @@ To avoid ambiguities, the types of `to-elements` are restricted to be one of:
 - Beginning
 - FloorPosition
 - Fork
+
 Notice that these types of elements have zero length and unit transfer maps.
 
 A `Fork` element has zero length and must always have a [`ForkP`](#fork.group) parameter group.
 The components of the `ForkP` group are:
 ```{code} yaml
-  to_BeamLine           # String: Name of BeamLine to fork to.
-  to_Branch             # String: Name of Branch to fork to.
+  to_beamline           # String: Name of BeamLine to fork to.
+  to_branch             # String: Name of Branch to fork to.
   to_element            # Optional String: Element to fork to. Default is Beginning.
   direction             # Optional Switch: Longitudinal Direction of travel of injected beam.
-  Branch_name           # Optional String: Name to give created Branch.
+  branch_name           # Optional String: Name to give created Branch.
   propagate_reference   # Optional Boolian: Propagate reference species and energy? Default is False.
 ```
 The possible values of the optional `direction` switch are:
@@ -143,11 +152,11 @@ the direction of travel is downstream (`+s`-direction) and vice versa if `direct
 `to-element` is the `Beginning` element. Similarly, it does not make sense to have `direction`
 set to `FORWARDS` if the `to-element` is the end element in the branch.
 
-The `ForkP` group of any given `Fork` element must contain one and only one of `to_BeamLine`
-or `to_Branch`. If `to_BeamLine` is present, a new branch is to be created and added to
-the `Lattice` set of branches. In this case, `Branch_name` may be set giving the name
-of the branch. If `to_Branch` is present, the fork connects to an existing branch. In this case,
-`Branch_name` is ignored.
+The `ForkP` group of any given `Fork` element must contain one and only one of `to_beamline`
+or `to_branch`. If `to_beamline` is present, a new branch is to be created and added to
+the `Lattice` set of branches. In this case, `branch_name` may be set giving the name
+of the branch. If `to_branch` is present, the fork connects to an existing branch. In this case,
+`branch_name` is ignored.
 
 The optional `to_element` component of `ForkP` gives the name of the `to-element`. 
 If not present, the default is the `Beginning` element.
@@ -157,3 +166,18 @@ if and only if the `to-element` is the `Beginning` element and
 the `propagate_reference` component is set to `True` (the default is `False`).
 Reference propagation override any reference setting in the `to-element`.
 
+Example `Fork` element:
+```{code} yaml
+  Fork:
+    name: to_dump
+    ForkP:
+      to_beamline: generic_dump
+      to_element: dump_beginning
+      branch_name: this_dump
+      propagate_reference: True
+```
+In this example, a `Fork` element connects to a new branch which will be instantiated using
+a `BeamLine` called `generic_dump`. In the expanded lattice, the branch will be called
+`this_dump`. The reference properties at the `dump_beginning`, element that is forked to,
+assuming this is the `BeginningEle` element at the beginning of the branch., will inherit
+the reference properties at the `Fork` element.
