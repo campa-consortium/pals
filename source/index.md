@@ -1,23 +1,24 @@
-# Particle Accelerator Lattice Standard
+# Particle Accelerator Lattice Standard (PALS)
 
 This standard is an effort to create a standard to promote lattice information exchange for particle accelerators.
 
 ```{toctree}
-:maxdepth: 1
-:caption: Standard
+:maxdepth: 2
+:caption: PALS Standard
 
 overview.md
 introduction.md
+definitions.md
 coordinates.md
 element-parameters.md
 element-types.md
-constructing-lattices.md
-forking.md
+beamlines.md
+lattice-construction.md
 multipass.md
 ```
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 :caption: Back Matter
 
 governance.md
