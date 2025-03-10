@@ -9,8 +9,16 @@ By convention, group names use upper camel case and it is highly recommended tha
 be followed but it is not mandatory.
 
 There are two element parameters that are so common that they are not grouped. 
-These element parameters are `L` (element length) and `name` (name of element).
+These element parameters are `length` (element length) and `name` (name of element).
 
+For any given element, a given parameter group can only appear once. For example,
+the following is not allowed:
+```{code} yaml
+Quadrupole:
+  name: q10w
+  MetaP: ...
+  MetaP: ...    # Second instance not allowed!
+```
 
 ## Naming and Inheriting Parameterss
 
@@ -259,8 +267,8 @@ particle point and the `center` point.
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
-(s:emultipole.params)=
-## EMultipoleP  Parameters
+(s:elecmult.params)=
+## ElectricMultipoleP  Electric Multipole Parameters
 
 In Construction...
 
@@ -293,12 +301,6 @@ See the [](#s:forking) chapter for more details.
 %---------------------------------------------------------------------------------------------------
 (s:init.particle.params)=
 ## InitialParticleP Initial Particle Coordinates Parameters
-
-In Construction...
-
-%---------------------------------------------------------------------------------------------------
-(s:length.params)=
-## LengthP Length and S-position Parameters
 
 In Construction...
 
