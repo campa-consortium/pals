@@ -3,7 +3,8 @@
 
 Lattice elements parameters are organized into **parameter groups**. 
 All groups are organized as abstract syntax trees.
-At the top level, there are the groups with names like `MagMultipole`, `ElecMultipole`, `RF`, `Alignment`, etc. 
+At the top level, there are the groups with names like 
+`MagMultipole`, `ElecMultipole`, `RF`, `Alignment`, etc. 
 By convention, group names use upper camel case and it is highly recommended that this convention
 be followed but it is not mandatory.
 
@@ -53,11 +54,15 @@ Element:
   inherit: q2
 ```
 
----
+%---------------------------------------------------------------------------------------------------
+(s:ac.kicker.params)=
+## ACKickerP  AC-Kicker Parameter Group
+
+In Construction...
 
 %---------------------------------------------------------------------------------------------------
-(s:aperture.group)=
-## ApertureP Parameter Group
+(s:aperture.params)=
+## ApertureP Aperture Parameter Group
 
 The `ApertureP` parameter group contains parameters for describing an aperture. 
 The components of this group are:
@@ -108,8 +113,8 @@ CUSTOM_SHAPE  # Shape defined outside of the lattice standard.
 
 For `RECTANGULAR` and `ELLIPTICAL` shapes the `x_limit` and `y_limit` parameters are
 used to calculate the aperture as shown in {numref}`f:aperture`A. 
-For an `ELLIPTICAL` aperture, a particle with position {math}`(x, y)` is outside of the aperture if any 
-one of the following four conditions is true:
+For an `ELLIPTICAL` aperture, a particle with position {math}`(x, y)`
+is outside of the aperture if any one of the following four conditions is true:
 ```{code}
   1) x < 0 and y < 0 and (x/x_limit[1])^2 + (y/y_limit[1])^2 > 1 
   2) x < 0 and y > 0 and (x/x_limit[1])^2 + (y/y_limit[2])^2 > 1
@@ -248,7 +253,84 @@ particle point and the `center` point.
 ```
 
 %---------------------------------------------------------------------------------------------------
-(s:fork.group)=
+(s:bend.params)=
+## BendP Bend Parameter Group
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:bmultipole.params)=
+## BMultipoleP Magnetic Multipole Parameter Group
+
+The `BMultipoleP` parameter group describes magnetic multipoles associated with the lattice
+element. For a multipole of order `N`, the magnetic field {math}`(B_x, B_y)`
+at a point {math}`\bf r` in terms of the points polar coordinates {math}`(r, \theta)` is
+```{math}
+B_x({\bf r}) + i \, B_y({\bf r}) = 
+\frac{1}{N!}(B_n + B_s) \, e^{-i(N+1)T_N} \, e^{iN\theta} \, r^N
+```
+
+
+
+
+
+
+
+
+
+
+
+
+The syntax for the components of this group are:
+```{code} yaml
+tiltN     - Multipole tilt
+KnN       - Normalized normal multipole component
+KsN       - Normalized skew multipole component
+BnN       - Unnormalized normal multipole component 
+BsN       - Unnormalized skew multipole component
+```
+where `N` is an integer giving the order of the multipole with `0` designating  a dipolar multipole,
+`1` designating a qudrupolar multipole, etc.
+
+The above multipoles are not length integrated. Length integrated versions
+have the latter `L` appended at the end of the name. Example:
+```{code} yaml
+BMultipoleP:
+  tilt7: 0.7        - Tilt of 7th order multiple
+  Bn3L: 3.47e1      - Length integrated unnormalize
+```
+
+When specifying multipoles of a given order, all the multipoles
+
+%---------------------------------------------------------------------------------------------------
+(s:description.params)=
+## DescriptionP Description Parameter Group
+
+The `DescriptionP` parameter group can be used for metadata that describes the lattice element
+but is not part of the PALS standard. Such data is necessarily program dependent.
+Example metadata could be blueprint information, information on power supply connections, etc.
+
+Example:
+```{code} yaml
+DescriptionP:
+  alias:  an_alternative_name
+  description: Mark 4 quadrupole
+```
+
+%---------------------------------------------------------------------------------------------------
+(s:emultipole.params)=
+## EMultipoleP  Parameter Group
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:floor.params)=
+## FloorP Floor Parameter Group
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:fork.params)=
 ## ForkP Parameter Group
 
 The `ForkP` parameter group holds parameters for a `Fork` element.
@@ -266,3 +348,41 @@ BACKWARDS           # Injected particle propagates in reverse direction.
 ```
 
 See the [](#s:forking) chapter for more details.
+%---------------------------------------------------------------------------------------------------
+(s:reference.params)=
+## ReferenceP Reference Parameter Group
+
+In Construction...
+
+
+%---------------------------------------------------------------------------------------------------
+(s:init.particle.params)=
+## InitialParticleP Initial Particle Coordinates Parameter Group
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:length.params)=
+## LengthP Length and S-position Parameter Group
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:patch.params)=
+## PatchP  Patch Parameter Group
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:rf.params)=
+## RFP RF Parameter Group
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:.params)=
+## P  Parameter Group
+
+In Construction...
+
+
