@@ -266,56 +266,103 @@ The `BMultipoleP` parameter group describes magnetic multipoles associated with 
 element. For a multipole of order `N`, the magnetic field {math}`(B_x, B_y)`
 at a point {math}`\bf r` in terms of the points polar coordinates {math}`(r, \theta)` is
 ```{math}
+:label: bbmult
+
 B_x({\bf r}) + i \, B_y({\bf r}) = 
-\frac{1}{N!}(B_n + B_s) \, e^{-i(N+1)T_N} \, e^{iN\theta} \, r^N
+\frac{1}{N!}(B_n + B_s) \, e^{-i(N+1)T} \, e^{iN\theta} \, r^N
 ```
+where {math}`T` is the "tilt" of the `N`{sup}`th` multipole and {Math}`B_n` and {math}`B_s` are
+the normal and skew components of the field. `N` is defined such that 
+{math}`N = 0` describes a dipolar multipole, {math}`N = 1` describes a qudrupolar multipole, etc.
 
+The three parameters, {math}`T`, {Math}`B_n` and {math}`B_s` are not independent and only two
+are needed to specify a multipole. 
+However, it is sometimes convenient to use all three. 
+For example, {Math}`B_n` and {math}`B_s` with {math}`N=0` can be used to describe 
+an element with independent horizontal and vertical steerings can {math}`T` can be used
+to represent rotational errors.
 
-
-
-
-
-
-
-
-
-
-
-The syntax for the components of this group are:
+The components of `BMultipoleP` for specifying a multipolar field of order `N` is:
 ```{code} yaml
-tiltN     - Multipole tilt
-KnN       - Normalized normal multipole component
-KsN       - Normalized skew multipole component
-BnN       - Unnormalized normal multipole component 
-BsN       - Unnormalized skew multipole component
+tiltN     - Tilt
+BnN       - Normal component 
+BsN       - Skew component
 ```
-where `N` is an integer giving the order of the multipole with `0` designating  a dipolar multipole,
-`1` designating a qudrupolar multipole, etc.
 
-The above multipoles are not length integrated. Length integrated versions
-have the latter `L` appended at the end of the name. Example:
+Alternatively, the field components can be specified using normalized values
+```{code} yaml
+KnN       - Normalized normal component 
+KsN       - Normalized skew component
+```
+where the conversion between field and normalized components is:
+```{math}
+  (K_n, K_s) = \frac{q}{P_0} \, (B_n, B_s)
+```
+with {math}`q` being the charge of the reference particle and {math}`P_0` being the 
+reference momentum.
+
+Furthermore, the field and normalized values can be given in terms of the integrated strength.
+Integrated values are specified with the letter 
+`L` appended at the end of the name. Example:
 ```{code} yaml
 BMultipoleP:
   tilt7: 0.7        - Tilt of 7th order multiple
-  Bn3L: 3.47e1      - Length integrated unnormalize
+  Bn3: 27.3         - Normal multipole component of order 3.
+  Bn3L: 3.47e1      - Length integrated normal multipole component of order 3.
 ```
+The length integrated values are related to the non-integrated values via
+```{math}
+  (B_n, B_s, K_n, K_s) = L \, (B_n, B_s, K_n, K_s)
+```
+where `L` is the length of the element.
 
-When specifying multipoles of a given order, all the multipoles
+For a given element, when specifying a multipole of a given order, 
+the two strength components must be of the same type.
+That both must be length integrated or not, and both must be the field or normalized components.
+However, the multipole components of different order do not have to be of the same type.
+
+When multipoles are specified for a `Bend` element, the calculation of the field is
+complicated by the curvilinear coordinate system.
+the `geometry` component switch can be used to specify how to calculate fields. 
+Possible settings for this component are:
+```{code} yaml
+vertically_pure
+horizontally_pure
+entrance_tangent
+exit_tangent
+chord_tangent
+```
+The `entrance_tangent` setting is used when the reference coordinate system for the multipoles
+is the straight line tangent to the entrance coordinates of the bend. 
+Similarly, the `exit_tangent` setting is used when the  reference coordinates are the 
+straight line tangent to the exit coordinates of the bend and the `chord_tangent` setting is used
+when the reference coordinates are the straight line connecting the entrance point to the
+exit point. In all these three cases the coordinate system is a straight line so Eq. [](#bbmult)
+is valid.
+
+For `geometry` set to `vertically_pure` or `horizontally_pure` the referece coordinate system
+for the multipoles is the circular arc of the bend. This is discussed in detail
+in [](#c:multipole.bend).
+
 
 %---------------------------------------------------------------------------------------------------
-(s:description.params)=
-## DescriptionP Description Parameter Group
+(s:meta.params)=
+## MetaP Metadata Parameter Group
 
-The `DescriptionP` parameter group can be used for metadata that describes the lattice element
+The `MetaP` parameter group can be used for metadata that describes the lattice element
 but is not part of the PALS standard. Such data is necessarily program dependent.
 Example metadata could be blueprint information, information on power supply connections, etc.
-
 Example:
 ```{code} yaml
-DescriptionP:
+MetaP:
   alias:  an_alternative_name
-  description: Mark 4 quadrupole
+  Meta: Mark 4 quadrupole
 ```
+
+
+Components of `MetaP` are not limited to being simple strings or numbers but can be complex 
+structures. The information contained in `MetaP` should be restricted to information that 
+does not affect simulations. Custom, program specific information should be stored elsewhere.
 
 %---------------------------------------------------------------------------------------------------
 (s:emultipole.params)=
