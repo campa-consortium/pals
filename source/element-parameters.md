@@ -273,13 +273,13 @@ B_x({\bf r}) + i \, B_y({\bf r}) =
 ```
 where {math}`T` is the "tilt" of the `N`{sup}`th` multipole and {Math}`B_n` and {math}`B_s` are
 the normal and skew components of the field. `N` is defined such that 
-{math}`N = 0` describes a dipolar multipole, {math}`N = 1` describes a qudrupolar multipole, etc.
+{math}`N = 0` describes a dipolar multipole, {math}`N = 1` describes a quadrupolar multipole, etc.
 
 The three parameters, {math}`T`, {Math}`B_n` and {math}`B_s` are not independent and only two
 are needed to specify a multipole. 
 However, it is sometimes convenient to use all three. 
 For example, {Math}`B_n` and {math}`B_s` with {math}`N=0` can be used to describe 
-an element with independent horizontal and vertical steerings can {math}`T` can be used
+an element with independent horizontal and vertical steerings while {math}`T` can be used
 to represent rotational errors.
 
 The components of `BMultipoleP` for specifying a multipolar field of order `N` is:
@@ -318,12 +318,13 @@ where `L` is the length of the element.
 
 For a given element, when specifying a multipole of a given order, 
 the two strength components must be of the same type.
-That both must be length integrated or not, and both must be the field or normalized components.
+That is, it is not permitted for one component to be length integrated and the other not,
+as well as it is not permitted for one component to be a field and the other component to be normalized.
 However, the multipole components of different order do not have to be of the same type.
 
 When multipoles are specified for a `Bend` element, the calculation of the field is
 complicated by the curvilinear coordinate system.
-the `geometry` component switch can be used to specify how to calculate fields. 
+The `geometry` component switch can be used to specify how to calculate fields. 
 Possible settings for this component are:
 ```{code} yaml
 vertically_pure
@@ -340,7 +341,7 @@ when the reference coordinates are the straight line connecting the entrance poi
 exit point. In all these three cases the coordinate system is a straight line so Eq. [](#bbmult)
 is valid.
 
-For `geometry` set to `vertically_pure` or `horizontally_pure` the referece coordinate system
+For `geometry` set to `vertically_pure` or `horizontally_pure` the reference coordinate system
 for the multipoles is the circular arc of the bend. This is discussed in detail
 in [](#c:multipole.bend).
 
