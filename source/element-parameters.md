@@ -12,7 +12,7 @@ There are two element parameters that are so common that they are not grouped.
 These element parameters are `L` (element length) and `name` (name of element).
 
 
-## Naming and Inheriting Parameter Groups
+## Naming and Inheriting Parameterss
 
 Any group can be given a **name** and the values can be used in another group of the same type
 using **import**.
@@ -56,13 +56,13 @@ Element:
 
 %---------------------------------------------------------------------------------------------------
 (s:ac.kicker.params)=
-## ACKickerP  AC-Kicker Parameter Group
+## ACKickerP  AC-Kicker Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:aperture.params)=
-## ApertureP Aperture Parameter Group
+## ApertureP Aperture Parameters
 
 The `ApertureP` parameter group contains parameters for describing an aperture. 
 The components of this group are:
@@ -254,15 +254,59 @@ particle point and the `center` point.
 
 %---------------------------------------------------------------------------------------------------
 (s:bend.params)=
-## BendP Bend Parameter Group
+## BendP Bend Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
-(s:bmultipole.params)=
-## BMultipoleP Magnetic Multipole Parameter Group
+(s:emultipole.params)=
+## EMultipoleP  Parameters
 
-The `BMultipoleP` parameter group describes magnetic multipoles associated with the lattice
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:floor.params)=
+## FloorP Floor Parameters
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:fork.params)=
+## ForkP Parameters
+
+The `ForkP` parameter group holds parameters for a `Fork` element.
+The components of this group are:
+```{code} yaml
+  to_line               # String: Beam line to fork to
+  to_ele                # String: Element forked to.
+  direction             # Switch: Longitudinal Direction of travel of injected beam.
+  propagate_reference   # Boolian: Propagate reference species and energy?
+```
+The possible values of the optional `direction` switch are:
+```{code} yaml
+FORWARD             # Injected particle propagates in forward direction. Default.
+BACKWARDS           # Injected particle propagates in reverse direction.
+```
+
+See the [](#s:forking) chapter for more details.
+
+%---------------------------------------------------------------------------------------------------
+(s:init.particle.params)=
+## InitialParticleP Initial Particle Coordinates Parameters
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:length.params)=
+## LengthP Length and S-position Parameters
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:mag.mult.params)=
+## MagneticMultipoleP Magnetic Multipole Parameters
+
+The `MagneticMultipoleP` parameter group describes magnetic multipoles associated with the lattice
 element. For a multipole of order `N`, the magnetic field {math}`(B_x, B_y)`
 at a point {math}`\bf r` in terms of the points polar coordinates {math}`(r, \theta)` is
 ```{math}
@@ -282,7 +326,7 @@ For example, {Math}`B_n` and {math}`B_s` with {math}`N=0` can be used to describ
 an element with independent horizontal and vertical steerings while {math}`T` can be used
 to represent rotational errors.
 
-The components of `BMultipoleP` for specifying a multipolar field of order `N` is:
+The components of `MagneticMultipoleP` for specifying a multipolar field of order `N` is:
 ```{code} yaml
 tiltN     - Tilt
 BnN       - Normal component 
@@ -305,7 +349,7 @@ Furthermore, the field and normalized values can be given in terms of the integr
 Integrated values are specified with the letter 
 `L` appended at the end of the name. Example:
 ```{code} yaml
-BMultipoleP:
+MagneticMultipoleP:
   tilt7: 0.7        - Tilt of 7th order multiple
   Bn3: 27.3         - Normal multipole component of order 3.
   Bn3L: 3.47e1      - Length integrated normal multipole component of order 3.
@@ -324,7 +368,7 @@ However, the multipole components of different order do not have to be of the sa
 
 When multipoles are specified for a `Bend` element, the calculation of the field is
 complicated by the curvilinear coordinate system.
-The `geometry` component switch can be used to specify how to calculate fields. 
+The `geometry` component switch can be used to specify how to calculate the multipole fields. 
 Possible settings for this component are:
 ```{code} yaml
 vertically_pure
@@ -333,22 +377,23 @@ entrance_tangent
 exit_tangent
 chord_tangent
 ```
-The `entrance_tangent` setting is used when the reference coordinate system for the multipoles
-is the straight line tangent to the entrance coordinates of the bend. 
-Similarly, the `exit_tangent` setting is used when the  reference coordinates are the 
-straight line tangent to the exit coordinates of the bend and the `chord_tangent` setting is used
-when the reference coordinates are the straight line connecting the entrance point to the
-exit point. In all these three cases the coordinate system is a straight line so Eq. [](#bbmult)
-is valid.
+The `entrance_tangent` setting is used when the [reference curve](#s:coords) for the 
+multipole coordinate system is the straight line tangent to the entrance coordinates of the bend. 
+Similarly, the `exit_tangent` setting is used when the reference curve is the 
+straight line tangent to the exit coordinates of the bend. And the `chord_tangent` setting is used
+when the reference curve is the straight line connecting the entrance point to the
+exit point. In all these three cases, since the multipole reference curve is a straight line, 
+Eq. [](#bbmult) is valid.
+Note that for these cases, the multipole reference curve 
+is not the same as the [`branch` reference curve](#s:coords).
 
-For `geometry` set to `vertically_pure` or `horizontally_pure` the reference coordinate system
-for the multipoles is the circular arc of the bend. This is discussed in detail
-in [](#c:multipole.bend).
-
+If `geometry` is set to `vertically_pure` or `horizontally_pure`, the reference curve
+for the multipoles is the circular arc of the bend corresponding to the `branch` reference curve. 
+This is discussed in detail in [](#c:multipole.bend).
 
 %---------------------------------------------------------------------------------------------------
 (s:meta.params)=
-## MetaP Metadata Parameter Group
+## MetaP Metadata Parameters
 
 The `MetaP` parameter group can be used for metadata that describes the lattice element
 but is not part of the PALS standard. Such data is necessarily program dependent.
@@ -360,76 +405,31 @@ MetaP:
   Meta: Mark 4 quadrupole
 ```
 
-
 Components of `MetaP` are not limited to being simple strings or numbers but can be complex 
 structures. The information contained in `MetaP` should be restricted to information that 
 does not affect simulations. Custom, program specific information should be stored elsewhere.
 
 %---------------------------------------------------------------------------------------------------
-(s:emultipole.params)=
-## EMultipoleP  Parameter Group
+(s:patch.params)=
+## PatchP  Patch Parameters
 
 In Construction...
 
-%---------------------------------------------------------------------------------------------------
-(s:floor.params)=
-## FloorP Floor Parameter Group
-
-In Construction...
-
-%---------------------------------------------------------------------------------------------------
-(s:fork.params)=
-## ForkP Parameter Group
-
-The `ForkP` parameter group holds parameters for a `Fork` element.
-The components of this group are:
-```{code} yaml
-  to_line               # String: Beam line to fork to
-  to_ele                # String: Element forked to.
-  direction             # Switch: Longitudinal Direction of travel of injected beam.
-  propagate_reference   # Boolian: Propagate reference species and energy?
-```
-The possible values of the optional `direction` switch are:
-```{code} yaml
-FORWARD             # Injected particle propagates in forward direction. Default.
-BACKWARDS           # Injected particle propagates in reverse direction.
-```
-
-See the [](#s:forking) chapter for more details.
 %---------------------------------------------------------------------------------------------------
 (s:reference.params)=
-## ReferenceP Reference Parameter Group
-
-In Construction...
-
-
-%---------------------------------------------------------------------------------------------------
-(s:init.particle.params)=
-## InitialParticleP Initial Particle Coordinates Parameter Group
-
-In Construction...
-
-%---------------------------------------------------------------------------------------------------
-(s:length.params)=
-## LengthP Length and S-position Parameter Group
-
-In Construction...
-
-%---------------------------------------------------------------------------------------------------
-(s:patch.params)=
-## PatchP  Patch Parameter Group
+## ReferenceP Reference Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:rf.params)=
-## RFP RF Parameter Group
+## RFP RF Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:.params)=
-## P  Parameter Group
+## P  Parameters
 
 In Construction...
 
