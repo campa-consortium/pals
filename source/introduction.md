@@ -96,7 +96,7 @@ here `x_limit[1]` and `x_limit[2]` would refer to the first and second values of
 2. The standard defines the following symbols which can be used in place of a value: 
 - `Inf`    # Infinity
 - `-Inf`   # Negative infinity
-- `NaN`    # Not a number
+- `NaN`    # Not a number or value has not been set.
 
 Note: There is a difference between
 ```{code} yaml

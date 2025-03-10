@@ -15,6 +15,7 @@ element-types.md
 beamlines.md
 lattice-construction.md
 multipass.md
+bend-multipoles.md
 ```
 
 ```{toctree}

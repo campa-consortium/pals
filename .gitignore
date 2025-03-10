@@ -6,3 +6,4 @@ _build
 
 # Other
 server.sh
+.DS_Store
