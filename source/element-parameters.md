@@ -67,13 +67,13 @@ Element:
 
 %---------------------------------------------------------------------------------------------------
 (s:ac.kicker.params)=
-## ACKickerP  AC-Kicker Parameters
+## ACKickerP:  AC-Kicker Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:aperture.params)=
-## ApertureP Aperture Parameters
+## ApertureP: Aperture Parameters
 
 The `ApertureP` parameter group contains parameters for describing an aperture. 
 The components of this group are:
@@ -264,26 +264,32 @@ particle point and the `center` point.
 ```
 
 %---------------------------------------------------------------------------------------------------
+(s:beambeam.params)=
+## BeamBeamP: Beambeam Parameters
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
 (s:bend.params)=
-## BendP Bend Parameters
+## BendP: Bend Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:elecmult.params)=
-## ElectricMultipoleP  Electric Multipole Parameters
+## ElectricMultipoleP:  Electric Multipole Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:floor.params)=
-## FloorP Floor Parameters
+## FloorP: Floor Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:fork.params)=
-## ForkP Parameters
+## ForkP: Parameters
 
 The `ForkP` parameter group holds parameters for a `Fork` element.
 The components of this group are:
@@ -302,14 +308,20 @@ BACKWARDS           # Injected particle propagates in reverse direction.
 See the [](#s:forking) chapter for more details.
 
 %---------------------------------------------------------------------------------------------------
+(s:girder.params)=
+## GirderP: Girder Parameters
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
 (s:init.particle.params)=
-## InitialParticleP Initial Particle Coordinates Parameters
+## InitialParticleP: Initial Particle Coordinates Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:mag.mult.params)=
-## MagneticMultipoleP Magnetic Multipole Parameters
+## MagneticMultipoleP: Magnetic Multipole Parameters
 
 The `MagneticMultipoleP` parameter group describes magnetic multipoles associated with the lattice
 element. For a multipole of order `N`, the magnetic field {math}`(B_x, B_y)`
@@ -398,7 +410,7 @@ This is discussed in detail in [](#c:multipole.bend).
 
 %---------------------------------------------------------------------------------------------------
 (s:meta.params)=
-## MetaP Metadata Parameters
+## MetaP: Metadata Parameters
 
 The `MetaP` parameter group can be used for metadata that describes the lattice element
 but is not part of the PALS standard. Such data is necessarily program dependent.
@@ -416,19 +428,25 @@ does not affect simulations. Custom, program specific information should be stor
 
 %---------------------------------------------------------------------------------------------------
 (s:patch.params)=
-## PatchP  Patch Parameters
+## PatchP:  Patch Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:reference.params)=
-## ReferenceP Reference Parameters
+## ReferenceP: Reference Parameters
 
 In Construction...
 
 %---------------------------------------------------------------------------------------------------
 (s:rf.params)=
-## RFP RF Parameters
+## RFP: RF Parameters
+
+In Construction...
+
+%---------------------------------------------------------------------------------------------------
+(s:solenoid.params)=
+## SolenoidP: Solenoid Parameters
 
 In Construction...
 
