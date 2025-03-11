@@ -4,7 +4,7 @@
 Lattice elements parameters are organized into **parameter groups**. 
 All groups are organized as abstract syntax trees.
 At the top level, there are the groups with names like 
-`MagMultipole`, `ElecMultipole`, `RF`, `Alignment`, etc. 
+`MagneticMultipoleP`, `ElectricMultipoleP`, `MetaP`, `AlignmentP`, etc. 
 By convention, group names use upper camel case and it is highly recommended that this convention
 be followed but it is not mandatory.
 
@@ -428,11 +428,4 @@ In Construction...
 ## RFP RF Parameters
 
 In Construction...
-
-%---------------------------------------------------------------------------------------------------
-(s:.params)=
-## P  Parameters
-
-In Construction...
-
 

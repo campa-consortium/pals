@@ -1,10 +1,5 @@
 (c:ele.types)=
 # Element Types
-          
-
-Undulator           Undulator.
-Wiggler             Wiggler.
-
 
 %---------------------------------------------------------------------------------------------------
 (s:ackicker)=
