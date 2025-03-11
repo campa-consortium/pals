@@ -6,7 +6,10 @@ All groups are organized as abstract syntax trees.
 At the top level, there are the groups with names like 
 `MagneticMultipoleP`, `ElectricMultipoleP`, `MetaP`, `AlignmentP`, etc. 
 By convention, group names use upper camel case and it is highly recommended that this convention
-be followed but it is not mandatory.
+be followed but it is not mandatory. Also, by convention, parameter groups end with a `P`.
+This is to distinguish between element types and parameter groups which might
+have similar names. For example, `Fork` is the name of an element type and `ForkP`
+is the name of a parameter group which a `Fork` element will have.
 
 There are two element parameters that are so common that they are not grouped. 
 These element parameters are `length` (element length) and `name` (name of element).
@@ -20,7 +23,7 @@ Quadrupole:
   MetaP: ...    # Second instance not allowed!
 ```
 
-## Naming and Inheriting Parameterss
+## Naming and Inheriting Parameters
 
 Any group can be given a **name** and the values can be used in another group of the same type
 using **import**.
@@ -292,7 +295,7 @@ The components of this group are:
 ```
 The possible values of the optional `direction` switch are:
 ```{code} yaml
-FORWARD             # Injected particle propagates in forward direction. Default.
+FORWARDS            # Injected particle propagates in forward direction. Default.
 BACKWARDS           # Injected particle propagates in reverse direction.
 ```
 
@@ -315,7 +318,7 @@ at a point {math}`\bf r` in terms of the points polar coordinates {math}`(r, \th
 :label: bbmult
 
 B_x({\bf r}) + i \, B_y({\bf r}) = 
-\frac{1}{N!}(B_n + B_s) \, e^{-i(N+1)T} \, e^{iN\theta} \, r^N
+\frac{1}{N!}(B_n + i \, B_s) \, e^{-i(N+1)T} \, e^{iN\theta} \, r^N
 ```
 where {math}`T` is the "tilt" of the `N`{sup}`th` multipole and {Math}`B_n` and {math}`B_s` are
 the normal and skew components of the field. `N` is defined such that 
