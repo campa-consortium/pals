@@ -129,7 +129,7 @@ To avoid ambiguities, the types of `to-elements` are restricted to be one of:
 
 Notice that these types of elements have zero length and unit transfer maps.
 
-A `Fork` element has zero length and must always have a [`ForkP`](#fork.group) parameter group.
+A `Fork` element has zero length and must always have a [`ForkP`](#fork.params) parameter group.
 The components of the `ForkP` group are:
 ```{code} yaml
   to_beamline           # String: Name of BeamLine to fork to.
