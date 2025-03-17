@@ -13,7 +13,7 @@ Under Construction...
 (s:beambeam)=
 ## BeamBeam Element
 
-Colliding beam element.
+Element for simulating colliding beams.
 
 Under Construction...
 
