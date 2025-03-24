@@ -15,7 +15,7 @@ All `keywords` in this standard are case-sensitive.
 (s:elements.intro)=
 ## Lattice Elements
 
-The basic building block used to describe an accelerator is the lattice \vn{element}. Typically,
+The basic building block used to describe an accelerator is the lattice **element**. Typically,
 a lattice element is something physical like a bending magnet or an electrostatic
 quadrupole, or a diffracting crystal. A lattice element may define a region in space 
 distinguished by the presence of (possibly time-varying) electromagnetic fields,
