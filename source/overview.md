@@ -19,12 +19,59 @@ This custom information is generally not usable by other programs but can be use
 lattice files that it generated. 
 
 
+%---------------------------------------------------------------------------------------------------
 ## What PALS Is
 
-PALS is a schema that defines things like the names of various lattice element types, how to organize lattice
-elements into lines which beams of particles or X-rays can move through, etc. 
+PALS is a schema that defines things like the names of various lattice element types, 
+how to organize lattice elements into lines which beams of particles or X-rays can move through, etc. 
 
+%---------------------------------------------------------------------------------------------------
 ## What PALS Is Not
 
 PALS does not define how particles are to be tracked through a lattice. PALS is for describing machines and
 not for defining how to simulate particle motion. 
+
+%---------------------------------------------------------------------------------------------------
+(s:std.components)=
+## PALS components
+
+The general idea as to how a simulation program could use PALS to read and write lattice
+files is shown schematically below.
+```{figure} figures/translator.svg
+:width: 70%
+:name: f:trans
+
+Schematic showing how a simulation program can interact with a PALS complient lattice file.
+```
+The components here are:
+- **Simulation program:** A simulation program.
+- **Interface layer:** Code to interface between the structures defined by the program and the 
+lattice structure defined by the Translator. The program maintainer(s) must create the interface 
+layer since this code will be program specific. However, structure translation should (hopefully) be 
+relatively straight forward.
+- **Translator:** Package supplied with the lattice standard. The Translator has code to put 
+lattice information into a "expanded form". 
+This includes expanding beam lines, evaluating expressions, etc.
+- **Reader / Writer:** Package to read/write files of a standard format (JSON, YAML, etc). 
+Packages to do this are widely available.
+- **Lattice File:** A lattice file in a standard format such as JSON, YAML, etc.
+
+The PALS standard can be divided into several pieces:
+- **Schema standard:** The schema defines, in a language neutral manner, the information that 
+can appear in a lattice file. This includes standardized names of lattice elements and 
+lattice parameters, definitions of lattice parameters, how lattice elements can be organized
+into branches to describe the entire accelerator complex, etc.
+- **File format standards:** For various formats like YAML and Python there is a file format
+standard to ensure that different translators are able to read a PALS compliant lattice file.
+- **Translator standard:** After reading in a lattice file, a translator can present to
+a simulation program a data object that represents the lattice file. 
+There are two basic representations that a PALS compliant translator must be able construct.
+The **exact** representation is a direct translation of the contents of the lattice file
+without any lattice expansions or expression evaluations.
+The **expanded** representation has, among other things, all lines expanded into branches 
+and all expressions evaluated. 
+
+Note: The documentation for the file format part of the PALS standard is contained [here](#c:file.std).
+Since the schema and translator parts are logically intertwined, there has been no attempt
+to separate these in the documentation.
+
