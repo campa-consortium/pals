@@ -3,6 +3,16 @@
 
 Note: `name`, `Length`, and `s_position` parameters stand alone and not part of any parameter group.
 
+Example:
+```{code} yaml
+Element:
+  name: cleo
+  Length: 3.74
+  type: Solenoid
+  SolenoidP:
+    Ksol: -0.15
+```
+
 %---------------------------------------------------------------------------------------------------
 (s:ackicker)=
 ## ACKicker Element

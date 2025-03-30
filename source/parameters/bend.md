@@ -22,11 +22,10 @@ edge_int1         - Entrance end fringe field integral.
 edge_int2         - Exit end fringe field integral
 ```
 
-{centering
 ```{figure} figures/bend.svg
 :name: f:bend
 :width: 90%
-
+ 
 Bend geometry. Red dots are the entry and exit points that define the origin for the
 coordinate systems at the entry end {math}`(s_1, x_1)` and exit ends {math}`(s_2, x_2)` respectively.
 
@@ -37,9 +36,6 @@ B) Bend geometry with negative bend angle. For the geometry shown,
 `g`, `angle`, `rho`, `e1`, `e2`, `e1_rect`, and `e2_rect` are all negative.
 Note: The figures are drawn for zero `ref_tilt` where the rotation axis is parallel to the
 {math}`y`-axis.
-}
-:name: 
-}
 ```
 
 In detail:
@@ -55,7 +51,7 @@ a vector sum of
 `bend_field_ref` plus the value of the `Bn0`  and `Bs0` multipoles. If `tilt0` and `Bs0`
 are zero, the actual field is
   ```{code} yaml
-  B-field (total) = bend_field_ref + Bn0
+  B-field(total) = bend_field_ref + Bn0
   ```
   See the discussion of `g` and `Kn0` below for more details.
 %
@@ -170,7 +166,7 @@ length will be {math}`rho sinalpha`. If `fiducial_pt` is set to `none` or `cente
 %
 - **ref_tilt**
 The `ref_tilt` attribute rotates a bend about the longitudinal axis at the entrance face of the
-bend. A bend with `ref_tilt` of {math}`pi/2` and positive `g` bends the element in the {math}`-y`
+bend. A bend with `ref_tilt` of {math}`\pi/2` and positive `g` bends the element in the {math}`-y`
 direction ("downward"). See {numref}`f:tilt.bend`. It is important to understand that `ref_tilt`,
 unlike the `tilt` attribute of other elements, bends both the reference orbit along with the
 physical element. Note that the MAD `tilt` attribute for bends is equivalent to the Bmad
