@@ -51,8 +51,8 @@ MagneticMultipoleP:
   Bn3L: 3.47e1      - Length integrated normal multipole component of order 3.
 ```
 The length integrated values are related to the non-integrated values via
-```{math}
-  (B_n, B_s, K_n, K_s) = L \, (B_n, B_s, K_n, K_s)
+```{code} yaml
+  (BnL, BsL, KnL, KsL) = L * (Bn, Bs, Kn, Ks)
 ```
 where `L` is the length of the element.
 
