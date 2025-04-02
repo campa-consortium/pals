@@ -338,7 +338,7 @@ through them is a straight line, the corresponding {math}`\bf L` and {math}`\bf 
       0 & 0 & 1
   \end{pmatrix},
 ```
-Where {math}`L` is the length of the element. 
+Where {math}`Length` is the length of the element. 
 
 %-----------------------------------------------------------------------
 

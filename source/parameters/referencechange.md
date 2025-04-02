@@ -28,14 +28,14 @@ where `transit_time` is the time to transit the element assuming a straight line
 and a linear energy change throughout the element. The formula
 for the transit time is
 ```{code} yaml
-transit_time = L * (E_tot_ref(upstream) + E_tot_ref(downstream)) / 
+transit_time = Length * (E_tot_ref(upstream) + E_tot_ref(downstream)) / 
                             (c * (pc_ref(upstream) + pc_ref(downstream)))
 ```
-where `L` is the length of the element and `c` is the speed of light.
+where `Length` is the length of the element and `c` is the speed of light.
 For elements where there is no energy
 change (`dE_ref` = 0), the transit time calculation simplifies to
 ```{code} yaml
-transit_time = L / (β_ref * c)
+transit_time = Length / (β_ref * c)
 ```
 where `β_ref` is the normalized particle velocity
 
@@ -43,6 +43,6 @@ The `extra_dtime_ref` parameter in the above is ment as a correction to take int
 for particle motion that is not straight or acceleration that is not linear in energy. For example,
 in a wiggler, `extra_dtime_ref` can be used to correct for the oscillatory nature of the
 particle trajectories.
-Since AcceleratorLattice does not do tracking, `extra_dtime_ref` and `dE_ref`
+Since the PALS standard does not define how tracking is to be done, `extra_dtime_ref` and `dE_ref`
 must be calculated by the User.
 

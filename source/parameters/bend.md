@@ -2,24 +2,26 @@
 (s:bend.params)=
 ## BendP: Bend Parameters
 
-The `BendParams` stores the parameters that characterize the shape of a [`Bend`](#s:bend) element. 
-The only relavent shape parameter that is not in the `BendParams` is the
-length `L` which is in the `LengthParams`.
+The `BendP` group stores the parameters that characterize the shape of a [`Bend`](#s:bend) element. 
+The only relevant shape parameter that is not in the `BendP` is the
+length `Length` parameter.
 
 The parameters of this group are:
 ```{code} yaml
-bend_type         - Type of bend. Default: SECTOR.
 angle             - Reference bend angle.
-g                 - Reference bend strength = 1/radius.
 bend_field_ref    - Reference bend field.
-L_chord           - Chord length.
-tilt_ref          - Reference tilt.
+bend_type         - Type of bend. Default: SECTOR.
 e1                - Entrance end pole face rotation.
 e2                - Exit end pole face rotation.
 e1_rect           - Entrance end pole face rotation.
 e2_rect           - Exit end pole face rotation.
 edge_int1         - Entrance end fringe field integral.
 edge_int2         - Exit end fringe field integral
+g                 - Reference bend strength = 1/radius.
+h1                - Entrance end pole face curvature.
+h2                - Exit end pole face curvature.
+L_chord           - Chord length.
+tilt_ref          - Reference tilt.
 ```
 
 ```{figure} figures/bend.svg
@@ -33,7 +35,7 @@ A) Bend geometry with positive bend angle. For the geometry shown,
 `g`, `angle`, `rho`, `e1`, `e2`, `e1_rect`, and `e2_rect` are all positive.
 
 B) Bend geometry with negative bend angle. For the geometry shown,
-`g`, `angle`, `rho`, `e1`, `e2`, `e1_rect`, and `e2_rect` are all negative.
+`g`, `angle`, `rho`, `e1`, `e2` are all negative.
 Note: The figures are drawn for zero `ref_tilt` where the rotation axis is parallel to the
 {math}`y`-axis.
 ```
@@ -125,7 +127,7 @@ dipole magnetic field. `g` is related to the reference magnetic field `bend_fiel
   :label: gqpb
 
   \text{g} = \frac{q}{p_0} \cdot \text{bend_field_ref}
-end{equation}
+  ```
 where {math}`q` is the charge of the reference particle and {math}`p_0` is the reference momentum. It is
 important to keep in mind that changing `g` will change the Reference orbit ([](#s:coords.3)) and
 hence will move all downstream lattice elements in space.
@@ -178,15 +180,15 @@ a dipole by setting `ref_tilt` will affect the positions of all downstream eleme
 
 %---------------
 
-  The attributes `g`, `angle`, and `L` are mutually dependent. If any two are specified for
-an element AcceleratorLattice will calculate the appropriate value for the third.
+  The attributes `g`, `angle`, and `Length` are mutually dependent. If any two are specified for
+an element, the lattice expansion code will calculate the appropriate value for the third.
 
   In the local coordinate system ([](#s:ref)), looking from "above" (bend viewed from positive
 {math}`y`), and with `ref_tilt` = 0, a positive `angle` represents a particle rotating clockwise. In
 this case. `g` will also be positive. For counterclockwise rotation, both `angle` and `g`
-will be negative but the length `l` is always positive. Also, looking from above, a positive
+will be negative but the length `Length` is always positive. Also, looking from above, a positive
 `e1` represents a clockwise rotation of the entrance face and a positive `e2` represents a
-counterclockwise rotation of the exit face. This is true irregardless of the sign of `angle` and
+counterclockwise rotation of the exit face. This is true independent of the sign of `angle` and
 `g`. Also it is always the case that the pole faces will be parallel when
   ```{code} yaml
   e1 + e2 = angle
