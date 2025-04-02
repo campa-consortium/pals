@@ -36,7 +36,7 @@ A) Bend geometry with positive bend angle. For the geometry shown,
 
 B) Bend geometry with negative bend angle. For the geometry shown,
 `g`, `angle`, `rho`, `e1`, `e2` are all negative.
-Note: The figures are drawn for zero `ref_tilt` where the rotation axis is parallel to the
+Note: The figures are drawn for zero `tilt_ref` where the rotation axis is parallel to the
 {math}`y`-axis.
 ```
 
@@ -166,16 +166,16 @@ In this case, and in the case where `fiducial_pt` is set to `exit_end`, the rect
 length will be {math}`rho sinalpha`. If `fiducial_pt` is set to `none` or `center`,
 `l_rectangle` is the same as the chord length.
 %
-- **ref_tilt**
-The `ref_tilt` attribute rotates a bend about the longitudinal axis at the entrance face of the
-bend. A bend with `ref_tilt` of {math}`\pi/2` and positive `g` bends the element in the {math}`-y`
-direction ("downward"). See {numref}`f:tilt.bend`. It is important to understand that `ref_tilt`,
+- **tilt_ref**
+The `tilt_ref` attribute rotates a bend about the longitudinal axis at the entrance face of the
+bend. A bend with `tilt_ref` of {math}`\pi/2` and positive `g` bends the element in the {math}`-y`
+direction ("downward"). See {numref}`f:tilt.bend`. It is important to understand that `tilt_ref`,
 unlike the `tilt` attribute of other elements, bends both the reference orbit along with the
 physical element. Note that the MAD `tilt` attribute for bends is equivalent to the Bmad
-`ref_tilt`. Bends in Bmad do not have a `tilt` attribute.
+`tilt_ref`. Bends in Bmad do not have a `tilt` attribute.
 
-  Important! Do not use `ref_tilt` when doing misalignment studies for a machine. Trying to misalign
-a dipole by setting `ref_tilt` will affect the positions of all downstream elements! Rather, use the
+  Important! Do not use `tilt_ref` when doing misalignment studies for a machine. Trying to misalign
+a dipole by setting `tilt_ref` will affect the positions of all downstream elements! Rather, use the
 `tilt` parameter.
 
 %---------------
@@ -184,7 +184,7 @@ a dipole by setting `ref_tilt` will affect the positions of all downstream eleme
 an element, the lattice expansion code will calculate the appropriate value for the third.
 
   In the local coordinate system ([](#s:ref)), looking from "above" (bend viewed from positive
-{math}`y`), and with `ref_tilt` = 0, a positive `angle` represents a particle rotating clockwise. In
+{math}`y`), and with `tilt_ref` = 0, a positive `angle` represents a particle rotating clockwise. In
 this case. `g` will also be positive. For counterclockwise rotation, both `angle` and `g`
 will be negative but the length `Length` is always positive. Also, looking from above, a positive
 `e1` represents a clockwise rotation of the entrance face and a positive `e2` represents a
