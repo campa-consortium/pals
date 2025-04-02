@@ -5,8 +5,8 @@
 The `ApertureP` parameter group contains parameters for describing an aperture. 
 The components of this group are:
 ```{code} yaml
-x_limit                      # [m] Vector of two real numbers
-y_limit                      # [m] Vector of two real numbers
+x_limits                     # [m] Vector of two real numbers
+y_limits                     # [m] Vector of two real numbers
 shape                        # Switch
 location                     # Switch
 aperture_shifts_with_body    # Boolian
@@ -106,7 +106,7 @@ Using chemical formulas like `Cu` and `Fe` are the most portable.
 
 The `VERTICES` setting for `shape` is for defining an aperture using a 
 set of vertex points as illustrated in {numref}`f:aperture`B. 
-Between vertex points, the aperture can can follow a straight line or the arc of an ellipse. 
+Between vertex points, the aperture can follow a straight line or the arc of an ellipse. 
 The vertex points are specified by setting the `vertices` parameter. This parameter has three
 subcomponents
 ```{code} yaml
@@ -149,7 +149,7 @@ In between any two `point`s, there can optionally be a single `radius` element.
 If there is a `radius` element, there can also be a  single `tilt` element between
 the `point`s but `tilt` can only be present if there is a `radius` present.
 There can also be a `radius` element and `tilt` element after the last `point` in the `list`. 
-If these are present, they are considered to be between the last and fist `point`s in the list.
+If these are present, they are considered to be between the last and first `point`s in the list.
 
 The aperture is constructed by connecting consecutive `point`s in the `list` along with
 connecting the last `point` to the first. If there is no `radius` between consecutive `point`s,

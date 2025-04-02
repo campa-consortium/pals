@@ -11,10 +11,10 @@ The parameters of this group are:
 angle             - Reference bend angle.
 bend_field_ref    - Reference bend field.
 bend_type         - Type of bend. Default: SECTOR.
-e1                - Entrance end pole face rotation.
-e2                - Exit end pole face rotation.
-e1_rect           - Entrance end pole face rotation.
-e2_rect           - Exit end pole face rotation.
+e1                - Entrance end pole face rotation with respect to a sector geometry.
+e2                - Exit end pole face rotation with respect to a sector geometry.
+e1_rect           - Entrance end pole face rotation with respect to a rectangular geometry.
+e2_rect           - Exit end pole face rotation with respect to a rectangular geometry.
 edge_int1         - Entrance end fringe field integral.
 edge_int2         - Exit end fringe field integral
 g                 - Reference bend strength = 1/radius.
@@ -78,7 +78,7 @@ This parameter can take values of
   between `e1` and `e1_rect`, and `e2` and `e2_rect` satisfied as discussed below.
 %
 - **e1, e2**
-The values of `e1` and `e2` gives the rotation angle of the entrance and exit pole faces
+The values of `e1` and `e2` give the rotation angle of the entrance and exit pole faces
 respectively with respect to the radial {math}`x_1` and {math}`x_2` axes as shown in {numref}`f:bend`.
 Zero `e1` and `e2` gives a wedge shaped magnet.
 Also see `e1_rect` and `e2_rect`. The relationship is

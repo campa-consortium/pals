@@ -69,7 +69,7 @@ Element:
 ```
 
 %---------------------------------------------------------------------------------------------------
-## User Set (Input) and Dependent (Output) parameters.
+## User Settable (Input) and Dependent (Output) parameters.
 
 Some parameters are set in the lattice file. These parameters are called "User settable" or "input". 
 Some parameters will be computed by the Translator during lattice expansion. These parameters are called "dependent" or "output" parameters. There is a third class of parameters that can be an input

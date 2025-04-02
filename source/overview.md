@@ -23,7 +23,7 @@ lattice files that it generated.
 ## What PALS Is
 
 PALS is a schema that defines things like the names of various lattice element types, 
-how to organize lattice elements into lines which beams of particles or X-rays can move through, etc. 
+how to organize lattice elements into lines which beams of particles or photons can move through, etc. 
 
 %---------------------------------------------------------------------------------------------------
 ## What PALS Is Not
@@ -46,11 +46,11 @@ Schematic showing how a simulation program can interact with a PALS complient la
 The components here are:
 - **Simulation program:** A simulation program.
 - **Interface layer:** Code to interface between the structures defined by the program and the 
-lattice structure defined by the Translator. The program maintainer(s) must create the interface 
-layer since this code will be program specific. However, structure translation should (hopefully) be 
-relatively straight forward.
+lattice structure defined by the Translator. This code will be program specific and outside the
+scope of the standard. However, structure translation should (hopefully) be 
+relatively straightforward.
 - **Translator:** Package supplied with the lattice standard. The Translator has code to put 
-lattice information into a "expanded form". 
+lattice information into an "expanded form". 
 This includes expanding beam lines, evaluating expressions, etc.
 - **Reader / Writer:** Package to read/write files of a standard format (JSON, YAML, etc). 
 Packages to do this are widely available.
