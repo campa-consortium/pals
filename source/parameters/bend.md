@@ -10,7 +10,6 @@ The parameters of this group are:
 ```{code} yaml
 angle             - Reference bend angle.
 bend_field_ref    - Reference bend field.
-bend_type         - Type of bend. Default: SECTOR.
 e1                - Entrance end pole face rotation with respect to a sector geometry.
 e2                - Exit end pole face rotation with respect to a sector geometry.
 e1_rect           - Entrance end pole face rotation with respect to a rectangular geometry.
@@ -21,6 +20,7 @@ g                 - Reference bend strength = 1/radius.
 h1                - Entrance end pole face curvature.
 h2                - Exit end pole face curvature.
 L_chord           - Chord length.
+L_sagitta         - Sagitta length (output parameter).
 tilt_ref          - Reference tilt.
 ```
 
@@ -63,19 +63,6 @@ The relation between this and `bend_field_ref` is
   ```{code} yaml
   bend_field = bend_field_ref + Bn0 * cos(tilt0) + Bs0 * sin(tilt0)
   ```
-%
-- **bend_type**
-The `bend_type` parameter sets the "logical shape" of the bend.
-This parameter can take values of
-  ```{code} yaml
-  RECTANGULAR  - or
-  SECTOR       - the default
-  ```
-  The logical shape of a bend, in most situations, is irrelevant.
-  The only case where the logical shape is used is when the bend angle is varied.
-  In this case, for a `SECTOR` bend, the face angles `e1` and `e2` are
-  held constant and `e1_rect` and `e2_rect` are varied to keep the relationship
-  between `e1` and `e1_rect`, and `e2` and `e2_rect` satisfied as discussed below.
 %
 - **e1, e2**
 The values of `e1` and `e2` give the rotation angle of the entrance and exit pole faces
@@ -149,22 +136,12 @@ represents a field of opposite sign as the field due a positive `hkick`.
 - **h1, h2**
 The attributes `h1` and `h2` are the curvature of the entrance and exit pole faces.
 %
-- **L, L_arc, L_chord, L_sagitta (output param)** 
-The `Length` parameter, is the arc length of the reference trajectory through the bend.
+- **L_chord, L_sagitta** 
+`L_chord` is the chord length from entrance point to exit point.
 
-  `L_chord` is the chord length from entrance point to exit point.
-The `L_sagitta` parameter is the sagitta length (The sagitta is the distance
+  The `L_sagitta` parameter is the sagitta length (The sagitta is the distance
 from the midpoint of the arc to the midpoint of the chord). `L_sagitta` can be negative and will have
-the same sign as the `g` parameter.
-%
-- **L_rectangle**
-The `L_rectangle` parameter is the "rectangular" length defined to be the distance between the
-entrance and exit points. The coordinate system used for the calculation is defined by the setting
-of `fiducial_pt`. {numref}`f:rbend` shows `l_rectangle` for `fiducial_pt` set to
-`entrance_end` (the coordinate system corresponds to the entrance coordinate system of the bend).
-In this case, and in the case where `fiducial_pt` is set to `exit_end`, the rectangular
-length will be {math}`rho sinalpha`. If `fiducial_pt` is set to `none` or `center`,
-`l_rectangle` is the same as the chord length.
+the same sign as the `g` parameter. `L_sagitta` is an output parameter
 %
 - **tilt_ref**
 The `tilt_ref` attribute rotates a bend about the longitudinal axis at the entrance face of the

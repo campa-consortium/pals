@@ -71,14 +71,15 @@ The length of this element is considered to be zero so if `Length` is specified,
 
 %---------------------------------------------------------------------------------------------------
 (s:bend)=
-##  Bend Element
+##  Bend Elements: RBend and SBend
 
-Dipole bend.
-
-Under Construction...
+Dipole bend. There are two types of bends depending upon the "logical shape". 
+The `RBend` element has a "rectangular" logical shape and the `SBend` element has a "sector"
+logical shape.
 
 Element parameter groups associated with this element type are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
+- [**BendP**](#s:bend.params): Bend parameters
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -87,6 +88,19 @@ Element parameter groups associated with this element type are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
+
+`RBend` and `SBend` elements are parameterized exactly the same way by the `BendP` parameter group. 
+For example, `e1` and `e1_rect` have the same meaning for both types of bends.
+
+The logical shape of a bend, in most situations, is irrelevant.
+The only case where the logical shape can be used by a program is when the bend angle is varied.
+In this case, for a `SBend`, the face angles `e1` and `e2` can be
+held constant and `e1_rect` and `e2_rect` can be varied to keep the relationship
+between `e1` and `e1_rect`, and `e2` and `e2_rect` satisfied as discussing in the
+[`BendP`](#s:bend.params) documentation. Similarly, for a `RBend`,
+the face angles `e1_rect` and `e2_rect` can be
+held constant and `e1` and `e2` can be varied to keep the relationship
+between `e1` and `e1_rect`, and `e2` and `e2_rect` satisfied.
 
 %---------------------------------------------------------------------------------------------------
 (s:converter)=
