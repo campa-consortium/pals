@@ -22,7 +22,7 @@ lattice files that it generated.
 %---------------------------------------------------------------------------------------------------
 ## What PALS Is
 
-PALS is a schema that defines things like the names of various lattice element types, 
+PALS is a schema that defines things like the names of various lattice element kinds, 
 how to organize lattice elements into lines which beams of particles or photons can move through, etc. 
 
 %---------------------------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
-(c:ele.types)=
-# Element Types
+(c:ele.kinds)=
+# Element Kinds
 
 Note: `name`, `Length`, and `s_position` parameters stand alone and not part of any parameter group.
 
@@ -8,7 +8,7 @@ Example:
 Element:
   name: cleo
   Length: 3.74
-  type: Solenoid
+  kind: Solenoid
   SolenoidP:
     Ksol: -0.15
 ```
@@ -21,7 +21,7 @@ Time varying kicker element
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ACKickerP**](#s:ackicker.params): AC kicker parameters.
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
@@ -39,7 +39,7 @@ Element for simulating colliding beams.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BeamBeamP**](#s:beambeam.params): Beam-beam interaction parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
@@ -59,7 +59,7 @@ Initial element at start of a branch.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -73,11 +73,11 @@ The length of this element is considered to be zero so if `Length` is specified,
 (s:bend)=
 ##  Bend Elements: RBend and SBend
 
-Dipole bend. There are two types of bends depending upon the "logical shape". 
+Dipole bend. There are two kinds of bends depending upon the "logical shape". 
 The `RBend` element has a "rectangular" logical shape and the `SBend` element has a "sector"
 logical shape.
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BendP**](#s:bend.params): Bend parameters
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
@@ -90,7 +90,7 @@ Element parameter groups associated with this element type are:
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
 `RBend` and `SBend` elements are parameterized exactly the same way by the `BendP` parameter group. 
-For example, `e1` and `e1_rect` have the same meaning for both types of bends.
+For example, `e1` and `e1_rect` have the same meaning for both kinds of bends.
 
 The logical shape of a bend, in most situations, is irrelevant.
 The only case where the logical shape can be used by a program is when the bend angle is varied.
@@ -110,7 +110,7 @@ Target to produce new species. EG: Positron converter.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -131,7 +131,7 @@ RF crab cavity
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -150,7 +150,7 @@ Field free region.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -167,7 +167,7 @@ Electron gun.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -206,7 +206,7 @@ Global coordinates shift.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**MetaP**](#s:meta.params): Meta parameters.
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 
@@ -219,7 +219,7 @@ Will also cause energy loss and diffusion.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -238,7 +238,7 @@ Element used to connect lattice branches together.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -267,7 +267,7 @@ Measurement element.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -286,7 +286,7 @@ Particle kicker element.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -305,7 +305,7 @@ Zero length element to mark a particular position.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -324,7 +324,7 @@ Collimation element.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -343,7 +343,7 @@ Orbit, Twiss, and dispersion matching element.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -362,7 +362,7 @@ Multipole element.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -389,7 +389,7 @@ Octupole element.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -408,7 +408,7 @@ Crooked drift used to shift the reference orbit.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -423,7 +423,7 @@ Element parameter groups associated with this element type are:
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -440,7 +440,7 @@ Element parameter groups associated with this element type are:
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -461,7 +461,7 @@ helps focusing.
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -478,7 +478,7 @@ Element parameter groups associated with this element type are:
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles
@@ -498,7 +498,7 @@ Taylor map element
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
@@ -515,7 +515,7 @@ The length of this element is considered to be zero so if `Length` is specified,
 
 Under Construction...
 
-Element parameter groups associated with this element type are:
+Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**ElectricMultipoleP**](#s:elec.mult.params): Electric multipoles

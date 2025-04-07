@@ -121,13 +121,13 @@ in a `from-branch` to the `to-branch` of the `Fork` but travel cannot happen in
 the reverse direction. To get a bi-directional link between branches, use two `Forks` with
 the `to-element` of both `Forks` being the other `Fork`.
 
-To avoid ambiguities, the types of `to-elements` are restricted to be one of:
+To avoid ambiguities, the kinds of `to-elements` are restricted to be one of:
 - Marker
 - Beginning
 - FloorPosition
 - Fork
 
-Notice that these types of elements have zero length and unit transfer maps.
+Notice that these kinds of elements have zero length and unit transfer maps.
 
 A `Fork` element has zero length and must always have a [`ForkP`](#fork.params) parameter group.
 The components of the `ForkP` group are:

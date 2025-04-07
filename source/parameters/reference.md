@@ -30,5 +30,5 @@ See the [`ReferenceChangeP`](#s.ref.change.params) for details as how the refere
 energy and time is computed.
 
 For a `BeginningEle` element, parameters of this group are user settable.
-For all other element types, the parameters of this
+For all other element kinds, the parameters of this
 group are calculated by  and are not user settable.

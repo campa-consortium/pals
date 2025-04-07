@@ -7,8 +7,8 @@ At the top level, there are the groups with names like
 `MagneticMultipoleP`, `ElectricMultipoleP`, `MetaP`, `AlignmentP`, etc. 
 By convention, group names use upper camel case and it is highly recommended that this convention
 be followed but it is not mandatory. Also, by convention, parameter groups end with a `P`.
-This is to distinguish between element types and parameter groups which might
-have similar names. For example, `Fork` is the name of an element type and `ForkP`
+This is to distinguish between element kinds and parameter groups which might
+have similar names. For example, `Fork` is the name of an element kind and `ForkP`
 is the name of a parameter group which a `Fork` element will have.
 
 There are three element parameters that are so common, and do not fit into

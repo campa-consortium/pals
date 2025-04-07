@@ -81,7 +81,7 @@ See [xxx](#s:fiducial) for more details.
 Note that `Girder` elements ([xxx](#s:girder)) also only have a single coordinate frame but they
 are not included in any branch.
 
-Most element types have a "straight" geometry as shown in
+Most element kinds have a "straight" geometry as shown in
 {numref}`f:ele.coord.frame`A. That is, the reference curve through the element is a straight line
 segment with the {math}`x` and {math}`y` axes always pointing in the same direction.
 For a [Bend](#s:bend}) element the reference curve is a segment of a circular arc as shown in
