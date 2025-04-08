@@ -96,6 +96,8 @@ With `misalignment_moves_aperture` set to `True`, the computation order could be
   6) Convert from body coordinates to branch coordinates.
   7) End at downstream end of element.
 ```
+The difference between the two lists is simply that lines 2 and 3 are switched along with lines
+5 and 6.
 
 ### material
 

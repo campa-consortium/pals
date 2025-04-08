@@ -10,7 +10,7 @@ Each branch is instantiated from a `BeamLine` that is called the `root BeamLine`
 Example:
 ```{code} yaml
 Lattice:
-  - Branch: this_line    # Root beamline.
+  - Branch: this_line    # this_line is the root beamline for the branch.
   - Branch:
       name: some_name
       BeamLine: that_ring
