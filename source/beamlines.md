@@ -277,7 +277,7 @@ BeamLine:
     - item:
         name: this_line
         placement:
-          offset = 37.5
+          offset: 37.5
           base_item: thingA
           from_point: EXIT_END
           to_point: ZERO_POINT
