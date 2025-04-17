@@ -165,7 +165,7 @@ The lattice standard uses SI except for energy which uses `eV`.
 
 * - Quantity
   - Units
-* - Length
+* - length
   - meters
 * - time
   - seconds
@@ -175,14 +175,14 @@ The lattice standard uses SI except for energy which uses `eV`.
   - eV/c
 * - mass
   - eV/c^2
-* - Voltage
+* - voltage
   - Volts
 * - angles and phases
   - radians / 2 {math}`\pi`
-* - Magnetic field
+* - magnetic field
   - Tesla
 * - frequency
   - Hz
-* - Electric field
+* - electric field
   - Volts/m
 ```

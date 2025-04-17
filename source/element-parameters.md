@@ -13,7 +13,7 @@ is the name of a parameter group which a `Fork` element will have.
 
 There are three element parameters that are so common, and do not fit into
 any of the parameter groups, that they are not grouped. 
-These element parameters are `Length` (element length), `name` (name of element),
+These element parameters are `length` (element length), `name` (name of element),
 and `s_position` (the longitudinal position of the element).
 
 For any given element, a given parameter group can only appear once. For example,

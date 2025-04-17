@@ -43,18 +43,18 @@ reference momentum.
 
 Furthermore, the field and normalized values can be given in terms of the integrated strength.
 Integrated values are specified with the letter 
-`Length` appended at the end of the name. Example:
+`length` appended at the end of the name. Example:
 ```{code} yaml
 MagneticMultipoleP:
   tilt7: 0.7        - Tilt of 7th order multiple
   Bn3: 27.3         - Normal multipole component of order 3.
-  Bn3L: 3.47e1      - Length integrated normal multipole component of order 3.
+  Bn3L: 3.47e1      - length integrated normal multipole component of order 3.
 ```
 The length integrated values are related to the non-integrated values via
 ```{code} yaml
-  (BnL, BsL, KnL, KsL) = Length * (Bn, Bs, Kn, Ks)
+  (BnL, BsL, KnL, KsL) = length * (Bn, Bs, Kn, Ks)
 ```
-where `Length` is the length of the element.
+where `length` is the length of the element.
 
 For a given element, when specifying a multipole of a given order, 
 the two strength components must be of the same type.

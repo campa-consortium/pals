@@ -4,7 +4,7 @@
 
 The `BendP` group stores the parameters that characterize the shape of a [`Bend`](#s:bend) element. 
 The only relevant shape parameter that is not in the `BendP` is the
-length `Length` parameter.
+length `length` parameter.
 
 The parameters of this group are:
 ```{code} yaml
@@ -157,13 +157,13 @@ a dipole by setting `tilt_ref` will affect the positions of all downstream eleme
 
 %---------------
 
-  The attributes `g`, `angle`, and `Length` are mutually dependent. If any two are specified for
+  The attributes `g`, `angle`, and `length` are mutually dependent. If any two are specified for
 an element, the lattice expansion code will calculate the appropriate value for the third.
 
   In the local coordinate system ([](#s:ref)), looking from "above" (bend viewed from positive
 {math}`y`), and with `tilt_ref` = 0, a positive `angle` represents a particle rotating clockwise. In
 this case. `g` will also be positive. For counterclockwise rotation, both `angle` and `g`
-will be negative but the length `Length` is always positive. Also, looking from above, a positive
+will be negative but the length `length` is always positive. Also, looking from above, a positive
 `e1` represents a clockwise rotation of the entrance face and a positive `e2` represents a
 counterclockwise rotation of the exit face. This is true independent of the sign of `angle` and
 `g`. Also it is always the case that the pole faces will be parallel when

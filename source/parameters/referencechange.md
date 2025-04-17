@@ -28,14 +28,14 @@ where `transit_time` is the time to transit the element assuming a straight line
 and a linear energy change throughout the element. The formula
 for the transit time is
 ```{code} yaml
-transit_time = Length * (E_tot_ref(upstream) + E_tot_ref(downstream)) / 
+transit_time = length * (E_tot_ref(upstream) + E_tot_ref(downstream)) / 
                             (c * (pc_ref(upstream) + pc_ref(downstream)))
 ```
-where `Length` is the length of the element and `c` is the speed of light.
+where `length` is the length of the element and `c` is the speed of light.
 For elements where there is no energy
 change (`dE_ref` = 0), the transit time calculation simplifies to
 ```{code} yaml
-transit_time = Length / (β_ref * c)
+transit_time = length / (β_ref * c)
 ```
 where `β_ref` is the normalized particle velocity
 

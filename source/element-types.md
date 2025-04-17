@@ -1,13 +1,13 @@
 (c:ele.kinds)=
 # Element Kinds
 
-Note: `name`, `Length`, and `s_position` parameters stand alone and not part of any parameter group.
+Note: `name`, `length`, and `s_position` parameters stand alone and not part of any parameter group.
 
 Example:
 ```{code} yaml
 Element:
   name: cleo
-  Length: 3.74
+  length: 3.74
   kind: Solenoid
   SolenoidP:
     Ksol: -0.15
@@ -49,7 +49,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:beginningele)=
@@ -67,7 +67,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:bend)=
@@ -121,7 +121,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:crabcavity)=
@@ -186,7 +186,7 @@ Element used to simulate a feedback circuit.
 
 Under Construction...
 
-Note: This element does not have a `Length` nor an `s_position`.
+Note: This element does not have a `length` nor an `s_position`.
 
 %---------------------------------------------------------------------------------------------------
 (s:fiducial)=
@@ -196,7 +196,7 @@ Global coordinate system fiducial point.
 
 Under Construction...
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:floorshift)=
@@ -228,7 +228,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:fork)=
@@ -247,7 +247,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:girder)=
@@ -257,7 +257,7 @@ Element to support in space a group of other elements.
 
 Under Construction...
 
-Note: This element does not have a `Length` nor an `s_position`.
+Note: This element does not have a `length` nor an `s_position`.
 
 %---------------------------------------------------------------------------------------------------
 (s:instrument)=
@@ -314,7 +314,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:mask)=
@@ -352,7 +352,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:multipole)=
@@ -507,7 +507,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `Length` is specified, it must be zero.
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:wiggler)=
