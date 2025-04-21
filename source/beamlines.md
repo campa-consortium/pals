@@ -107,7 +107,7 @@ of that name has been defined. Example:
 ```{code} yaml
 Element: 
   name: q1w
-  type: Quadrupole
+  kind: Quadrupole
   ...
 
 BeamLine:
@@ -127,7 +127,7 @@ BeamLine:
     - item:
         Element:
           name: octA
-          type: Octupole
+          kind: Octupole
           Kn3L: 0.34
           ...
     ...
@@ -277,7 +277,7 @@ BeamLine:
     - item:
         name: this_line
         placement:
-          offset = 37.5
+          offset: 37.5
           base_item: thingA
           from_point: EXIT_END
           to_point: ZERO_POINT

@@ -81,11 +81,11 @@ See [xxx](#s:fiducial) for more details.
 Note that `Girder` elements ([xxx](#s:girder)) also only have a single coordinate frame but they
 are not included in any branch.
 
-Most element types have a "straight" geometry as shown in
+Most element kinds have a "straight" geometry as shown in
 {numref}`f:ele.coord.frame`A. That is, the reference curve through the element is a straight line
 segment with the {math}`x` and {math}`y` axes always pointing in the same direction.
 For a [Bend](#s:bend}) element the reference curve is a segment of a circular arc as shown in
-{numref}`f:ele.coord.frame`B. With the `ref_tilt` parameter of a bend set to zero, the rotation axis
+{numref}`f:ele.coord.frame`B. With the `tilt_ref` parameter of a bend set to zero, the rotation axis
 between the entrance and exit frames is parallel to the {math}`y`-axis ([xxx](#s:floor})).
 For [Patch](#s:patch}) and [floor_shift](#s:floorshift)
 elements ({numref}`f:ele.coord.frame`C), the exit face can be
@@ -230,7 +230,7 @@ A positive {math}`\psi` forms a right--handed screw with the {math}`z`--axis.
 By default, at {math}`s = 0`, the branch reference curve's origin coincides with the {math}`(X, Y, Z)` 
 origin and the {math}`x`, {math}`y`, and {math}`z` axes correspond to the 
 {math}`X`, {math}`Y`, and {math}`Z` axes respectively. If the lattice has no
-vertical bends (the [ref_tilt](#s:bend) parameter of all bends are zero), the {math}`y`--axis
+vertical bends (the [tilt_ref](#s:bend) parameter of all bends are zero), the {math}`y`--axis
 will always be in the vertical {math}`Y` direction and the {math}`x`--axis will lie in the 
 horizontal {math}`(X,Z)` plane.
 In this case, {math}`\theta` decreases as one follows the branch reference curve when going through a
@@ -346,23 +346,23 @@ Where {math}`L` is the length of the element.
 :width: 80%
 :name: f:tilt.bend
 
-A) Rotation axes (bold arrows) for four different `ref_tilt` angles of {math}`\theta_t = 0`, 
+A) Rotation axes (bold arrows) for four different `tilt_ref` angles of {math}`\theta_t = 0`, 
 {math}`\pm \pi/2`, and {math}`\pi`. 
 {math}`(x_0, y_0, z_0)` are the branch coordinates at the entrance end of the bend with
 the {math}`z_0` axis being directed into the page. Any rotation axis will be displaced by a distance of
 the bend radius `rho` from the origin. B) The {math}`(x, y, z)` coordinates at the exit end of the bend
-for the same four `ref_tilt` angles. In this case the bend angle is taken to be {math}`\pi/2`.
+for the same four `tilt_ref` angles. In this case the bend angle is taken to be {math}`\pi/2`.
 ```
 
 %-----------------------------------------------------------------------
 
-For a `bend`, the axis of rotation is dependent upon the bend's [`ref_tilt`](#s:offset) angle
+For a `bend`, the axis of rotation is dependent upon the bend's [`tilt_ref`](#s:offset) angle
 as shown in {numref}`f:tilt.bend`A. The axis of rotation points in the negative {math}`y_0`
-direction for `ref_tilt` = 0 and is offset by the bend radius `rho`. Here {math}`(x_0, y_0, z_0)`
+direction for `tilt_ref` = 0 and is offset by the bend radius `rho`. Here {math}`(x_0, y_0, z_0)`
 are the branch coordinates at the entrance end of the bend with the {math}`z_0` axis being directed into
-the page in the figure.  For a non-zero `ref_tilt`, the rotation axis is itself rotated about the
-`z_0` axis by the value of `ref_tilt`. {numref}`f:tilt.bend`B shows the exit coordinates for four
-different values of `ref_tilt` and for a bend angle `angle` of {math}`\pi/2`.  Notice that for a
+the page in the figure.  For a non-zero `tilt_ref`, the rotation axis is itself rotated about the
+`z_0` axis by the value of `tilt_ref`. {numref}`f:tilt.bend`B shows the exit coordinates for four
+different values of `tilt_ref` and for a bend angle `angle` of {math}`\pi/2`.  Notice that for a
 bend in the horizontal {math}`X-Z` plane, a positive bend `angle` will result in a decreasing azimuth
 angle {math}`\theta`.
 
@@ -374,7 +374,7 @@ For a bend, {math}`\bf S` is given using Eq. [](#wctux2) with
   \beta &= \alpha_b
 \end{align}
 ```
-where {math}`\theta_t` is the `ref_tilt` angle. The {math}`\bf L` vector for a `bend` is given by 
+where {math}`\theta_t` is the `tilt_ref` angle. The {math}`\bf L` vector for a `bend` is given by 
 ```{math}
 :label: lrztt
   {\bf L} = {\bf R}_{z}(\theta_t) \; {\bf \tilde L}, \quad
