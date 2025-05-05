@@ -92,7 +92,7 @@ BeamLine:
     - kind: Quadrupole: # This item contains a Quadrupole that is reversed.
         direction: -1
           ...
-    - kind: Beamline:   # This item contains a BeamLine repeated three times    
+    - kind: BeamLine:   # This item contains a BeamLine repeated three times    
         repetition: 3
           ...
 ```
