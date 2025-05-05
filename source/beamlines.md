@@ -34,7 +34,7 @@ element in the `line` and with this the length of the BeamLine can be calculated
 
 The optional `zero_point` component is used to position sublines.
 The value of `zero_point` is the name of a `line item` that marks the reference point. 
-To make things unambiguous, the reference `item` must have zero length.
+To make things unambiguous, the reference `line item` must have zero length.
 In most cases, this means that the `zero_point` cannot be a `BeamLine`.
 
 Setting optional `periodic` Boolean to `True` indicates that the `BeamLine` is something like a 
@@ -77,24 +77,23 @@ direction       # +1 or -1. Longitudinal orientation of element. Default is +1.
 placement       # Structure. Shifts element or subline longitudinally.
 ```
 
-Example:
+Example with four `items` in `line`:
 ```{code} yaml
 BeamLine:
   name: inj_line
   multipass: True
   length: 37.8
   zero_point: thingC
-  line:
-    - item: thingB      # Name of an element or BeamLine defined elsewhere.
-    - item:             # Another way of specifying the name of an element or BeamLine.
+  - kind: Line
+    name: line
+    - thingB            # This item refers to the name of an element or BeamLine defined elsewhere.
+    - kind: Drift:      # Another way of specifying the name of an element or BeamLine as an item.
         name: thingC
-    - item:             # This item contains an Element that is reversed.
+    - kind: Quadrupole: # This item contains a Quadrupole that is reversed.
         direction: -1
-        Element:
           ...
-    - item:             # This item contains a BeamLine repeated three times    
+    - kind: BeamLine:   # This item contains a BeamLine repeated three times    
         repetition: 3
-        BeamLine:
           ...
 ```
 
@@ -105,17 +104,14 @@ BeamLine:
 A line item that is a lattice element can be specified by name if a lattice element
 of that name has been defined. Example:
 ```{code} yaml
-Element: 
+Quadrupole: 
   name: q1w
-  kind: Quadrupole
   ...
 
 BeamLine:
-  line:
-    - item: q1w       # Line item is element q1w.
-    - item:           # Line item is element q1w the same as the previous item.
-        Element:
-            inherit: q1w
+  - kind: Line 
+    name: line
+    - q1w       # Line item is element q1w.
     ...
 ```
 
@@ -123,13 +119,12 @@ A line item which is a lattice element can also be specified by defining the lat
 "in place" in the line. Example:
 ```{code} yaml
 BeamLine:
-  line:
-    - item:
-        Element:
-          name: octA
-          kind: Octupole
-          Kn3L: 0.34
-          ...
+  - kind: Line 
+    name: line
+    - kind: Octupole
+        name: octA
+        Kn3L: 0.34
+        ...
     ...
 ```
 
@@ -137,12 +132,13 @@ Similarly, a line item which is a BeamLine can either be referred to by name or 
 be defined "in place". Example:
 ```{code} yaml
 BeamLine:
-  line:
-    - item: inj_line          # Refer by name to a previously defined BeamLine
-    - item:
-        BeamLine:             # Define a subline in place
-          line:
-           ...
+  - kind: Line 
+    name: line
+    - inj_line          # Refer by name to a previously defined BeamLine
+    - kind: BeamLine    # Define a subline in place
+        - kind: Line
+          name: subline1
+        ...
     ...
 ```
 
@@ -158,9 +154,10 @@ of the item. Example:
 ```{code} yaml
 BeamLine:
   name: full_line
-  line:
-    - item:
-        name: short_line
+  - kind: Line 
+    name: line
+    - kind: Line
+      name: short_line
         repetition: 3
 ```
 In this case, `short_line` is repeated three times when the BeamLine is expanded to form a lattice
@@ -168,10 +165,11 @@ branch. For example, if `short_line` is defined by:
 ```{code} yaml
 BeamLine:
   name: short_line
-  line:
-    - item: A
-    - item: B
-    - item: C
+  - kind: Line 
+    name: line
+    - A
+    - B
+    - C
 ```
 then the expanded `full_line` will look like:
 ```{code} yaml
@@ -202,18 +200,18 @@ the individual line items. Example:
 ```{code} yaml
 BeamLine:
   name: lineA
-  line:
-    - item: 
+  - kind: Line 
+    name: line
+    - lineB: 
         direction: -1
-        name: lineB
 
 BeamLine:
   name: lineB
-  line:
-    - item: ele1
-    - item:
+  - kind: Line 
+    name: line
+    - ele1
+    - ele2:
         direction: -1
-        name: ele2
 ```
 The expanded `lineA` has elements:
 ```{code} yaml
@@ -272,15 +270,16 @@ Example:
 ```{code} yaml
 BeamLine:
   name: position_line
-  line:
-    - item: thingA
-    - item:
-        name: this_line
-        placement:
-          offset: 37.5
-          base_item: thingA
-          from_point: EXIT_END
-          to_point: ZERO_POINT
+  - kind: Line 
+    name: line
+    - thingA
+    - kind: Line 
+      name: this_line
+      placement:
+        offset: 37.5
+        base_item: thingA
+        from_point: EXIT_END
+        to_point: ZERO_POINT
         ...
     ...
 ```
@@ -302,9 +301,9 @@ thingA, thingB, thingC
 then the following 
 ```{code} yaml
 BeamLine:
-  line:
-  - item:
-      name: position_line
+  - kind: Line 
+    name: line
+    position_line
       repetition: -1
 ```
 Would expand to
@@ -314,9 +313,9 @@ thingC, thingB, thingA
 with the same relative distances between elements. Similarly, this:
 ```{code} yaml
 BeamLine:
-  line:
-  - item:
-      name: position_line
+  - kind: Line 
+    name: line
+    position_line
       direction: -1
 ```
 Would expand to
@@ -332,9 +331,10 @@ elements determines the order in which they should tracked through. For example,
 if a line contains the two zero length elements:
 ```{code} yaml
 BeamLine:
-  line:
-  - item: markerA
-  - item: markerB
+  - kind: Line 
+    name: line
+  - markerA
+  - markerB
 ```
 then the order of tracking will be `markerA` followed by `markerB`.
 
