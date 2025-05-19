@@ -13,11 +13,12 @@ author = 'Jean-Luc Vay, David Sagan, Chad Mitchell, Axel Huebl, David Bruhwihler
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser', 'sphinx_design']
+extensions = ['myst_parser', 'sphinx_design', 'sphinxcontrib.bibtex']
 myst_enable_extensions = ["colon_fence", "amsmath"]
 numfig = True
 
 templates_path = ['_templates']
+bibtex_bibfiles = ['bibliography.bib']
 
 # exclude_patterns is set to get around bug in referencing figures in included files.
 # See <https://github.com/sphinx-doc/sphinx/issues/9779> for some details.
