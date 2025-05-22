@@ -90,7 +90,6 @@ This is discussed in detail in [](#c:multipole.bend).
 "Tapering parmeters" account for the fact that, due to synchrotron radiation, the energy of a 
 beam at a particular point can be different from the reference value. There is an
 associated tapering parameter for all of the field parameters:
-are:
 ```{code} yaml
 Parameter       Associated Tapering Parameter
   BnN             BtapnN
@@ -98,7 +97,7 @@ Parameter       Associated Tapering Parameter
   KnN             KtapnN
   KsN             KtapsN
 ```
-Also there are four length length integrated tapering parameters corresponding to the four
+Additionally, there are four length length integrated tapering parameters corresponding to the four
 length integrated field parameters. The actual (total) field is the sum of the field plus
 the tapering field. For example:
 ```{code} yaml
