@@ -25,8 +25,8 @@ tilt_ref          - Reference tilt.
 ```
 
 ```{figure} figures/bend.svg
-:name: f:bend
 :width: 90%
+:name: f:bend
  
 Bend geometry. Red dots are the entry and exit points that define the origin for the
 coordinate systems at the entry end {math}`(s_1, x_1)` and exit ends {math}`(s_2, x_2)` respectively.
@@ -79,7 +79,7 @@ Also see `e1_rect` and `e2_rect`. The relationship is
 - **e1_rect, e2_rect**
 Face angle rotations like `e1` and `e2` except angles are measured with respect to
 fiducial lines that are parallel to each other and rotated by `angle`/2 from the radial
-{math}`x_1` and {math}`x_2` axes as shown in {numref}`f:sbend`.
+{math}`x_1` and {math}`x_2` axes as shown in {numref}`f:bend`.
 Zero `e1_rect` and `e2_rect` gives a rectangular magnet shape.
 %
 - **edge_int1, edge_int2**
@@ -108,7 +108,7 @@ The field integral for the entrance pole face `edge_int1` is given by
 %
 - **g, rho (output param)**
 The Reference bending radius which determines the reference coordinate system is `rho` (see
-[](#s:ref)). `g` = `1/rho` is the "bend strength" and is proportional to the Reference
+[](#s:coords)). `g` = `1/rho` is the "bend strength" and is proportional to the Reference
 dipole magnetic field. `g` is related to the reference magnetic field `bend_field_ref` via
   ```{math}
   :label: gqpb
@@ -160,7 +160,7 @@ a dipole by setting `tilt_ref` will affect the positions of all downstream eleme
   The attributes `g`, `angle`, and `length` are mutually dependent. If any two are specified for
 an element, the lattice expansion code will calculate the appropriate value for the third.
 
-  In the local coordinate system ([](#s:ref)), looking from "above" (bend viewed from positive
+  In the local coordinate system ([](#s:coords)), looking from "above" (bend viewed from positive
 {math}`y`), and with `tilt_ref` = 0, a positive `angle` represents a particle rotating clockwise. In
 this case. `g` will also be positive. For counterclockwise rotation, both `angle` and `g`
 will be negative but the length `length` is always positive. Also, looking from above, a positive

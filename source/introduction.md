@@ -114,7 +114,16 @@ this_group:
   - key3: value3
 ```
 The first represents an unordered dictionary of key-value pairs and the second represents an ordered 
-dictionary of key-value pairs.
+dictionary of key-value pairs. 
+
+Note: the actual syntax in some particular language that is used to 
+represent an unordered dictionary may be an ordered dictionary. That is, the standard does not
+prohibit ordered dictionaries being used in place of unordered dictionaries. However, ordered
+dictionaries must always be used for things that the standard defines as an ordered dictionary.
+In fact, when there is a choice of using an ordered or an unordered dictionary,
+an ordered dictionary may be preferred to maintain human readability. An example of this is with
+lattice element attribute dictionaries where having the name of the element as the first attribute
+enhances legibility. 
 
 %---------------------------------------------------------------------------------------------------
 (s:names)=
