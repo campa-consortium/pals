@@ -126,6 +126,16 @@ lattice element attribute dictionaries where having the name of the element as t
 enhances legibility. 
 
 %---------------------------------------------------------------------------------------------------
+(s:includefiles)=
+## Include Files
+
+A lattice file can include other lattice files using an include statement.
+```{code} yaml
+include: <file-name>
+```
+where `<file-name>` is the name of the file to be included.
+
+%---------------------------------------------------------------------------------------------------
 (s:names)=
 ## Names
 
