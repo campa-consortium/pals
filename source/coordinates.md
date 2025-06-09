@@ -340,7 +340,7 @@ through them is a straight line, the corresponding {math}`\bf L` and {math}`\bf 
 ```
 Where {math}`L` is the length of the element. 
 
-%-----------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 ```{figure} figures/tilt-bend.svg
 :width: 80%
@@ -354,7 +354,7 @@ the bend radius `rho` from the origin. B) The {math}`(x, y, z)` coordinates at t
 for the same four `tilt_ref` angles. In this case the bend angle is taken to be {math}`\pi/2`.
 ```
 
-%-----------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------
 
 For a `bend`, the axis of rotation is dependent upon the bend's [`tilt_ref`](#s:offset) angle
 as shown in {numref}`f:tilt.bend`A. The axis of rotation points in the negative {math}`y_0`
@@ -407,3 +407,25 @@ the {math}`Y`-axis as it does by default).
 For {math}`\theta_t = \pm\pi/2`, the bend axis is the {math}`x`-axis. 
 A value of {math}`\theta_t = +\pi/2` represents a downward pointing bend.
 
+%---------------------------------------------------------------------------------------------------
+(s:lab.body.transform)=
+### Transformation Between Branch and Element Body Coordinates
+
+The `element body` coordinates are the coordinate system attached to an element. Without any
+alignment shifts, the `branch` coordinates ([](#s:ref) and `element body` coordinates
+are the same. With alignment shifts, the transformation between `branch` and `element body`
+coordinates depends upon whether the branch coordinate system is straight ([](#s:straight.mis) or
+bent ([](#s:bend.mis).
+
+When tracking a particle through an element, the particle starts at the `nominal`
+([](#s:coords) upstream end of the element with the particle's position expressed in branch
+coordinates. Tracking from the the nominal upstream end to the actual upstream face of the element
+involves first transforming to element body coordinates (with {math}`s = 0` in the equations below) and
+then propagating the particle as in a field free drift space from the particle's starting position
+to the actual element face. Depending upon the element's orientation, this tracking may involve
+tracking backwards. Similarly, after a particle has been tracked through the physical element to the
+actual downstream face, the tracking to the nominal downstream end involves transforming to
+branch coordinates (using {math}`s = L` in the equations below) and then propagating the particle as
+in a field free drift space to the nominal downstream edge.
+
+In construction...

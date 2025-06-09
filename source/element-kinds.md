@@ -530,6 +530,26 @@ Any contained element can be shifted from the nominal position by setting the co
 `BodyShiftP` parameters. The entire collection of elements can be oriented using the `UnionEle`'s
 `BodyShiftP` parameters.
 
+Example:
+```{code} yaml
+UnionEle:
+  name: MMM
+  length: 2.1
+  Solenoid:
+    name: Sa      # Contained elements can be named.
+    length: 1.3
+    BodyShiftP:          # Orient the Solenoid
+      x_offset: 0.03
+      ...
+  RFCavity:
+    name: Ra
+    BodyShiftP:          # Orient the RFCavity
+      y_rot: 0.012
+      ...
+  BodyShiftP:           # The UnionEle itself can be oriented.
+    ...
+```
+
 Besides using a `UnionEle` when elements overlap physically, the other ways of handling this
 situation is to position elements in a beamline to overlap using the [`placement`](#s:placement) 
 construct or to use [`superposition`](#s:superposition).

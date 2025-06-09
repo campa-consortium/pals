@@ -79,16 +79,20 @@ placement       # Structure. Shifts element or subline longitudinally.
 
 Example with four `items` in `line`:
 ```{code} yaml
+Sextupole:
+  name: thingB
+
 BeamLine:
   name: inj_line
   multipass: True
   length: 37.8
   zero_point: thingC
   line:
-    - thingB             # This item refers to the name of an element or BeamLine defined elsewhere.
-    - lineitem:          # Another way of specifying the name of an element or BeamLine as an item.
-        inherit: thingC
-    - lineitem: Quadrupole # This item contains a Quadrupole that is reversed.
+    - thingB               # This item refers to the name of an element or BeamLine defined elsewhere.
+    - lineitem:
+        inherit: thingB    # Another way of referring to thingC
+    - lineitem: Quadrupole # Define an element in place
+        name: Q1a
         direction: -1
         ...
     - lineitem:          # This item contains a BeamLine called a_subline repeated three times    
@@ -132,8 +136,25 @@ BeamLine:
     ...
 ```
 
+A line item may be a subline:
+```{code} yaml
+BeamLine:
+  name: linac_line
+  line:
+    ...
+
+BeamLine:
+  name: main_line
+  line:
+    - linac_line      # linac_line is used as a subline
+    - lineitem:
+        inherit: linac_line   # Same as above except here...
+        direction: -1         #  parameters like reflection, etc can be use.
+```
+
 Restriction: Infinite recursion of sublines is not allowed. 
 For example, if BeamLine `B` is a subline of `A`, then BeamLine `A` may not be a subline of `B`.
+Also sublines must be defined externally and not in place.
 
 %---------------------------------------------------------------------------------------------------
 (s:repetition)=
