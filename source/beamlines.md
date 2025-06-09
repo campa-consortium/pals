@@ -90,7 +90,7 @@ BeamLine:
   line:
     - thingB               # This item refers to the name of an element or BeamLine defined elsewhere.
     - lineitem:
-        inherit: thingB    # Another way of referring to thingC
+        inherit: thingB    # Another way of referring to thingB
     - lineitem: Quadrupole # Define an element in place
         name: Q1a
         direction: -1
@@ -353,12 +353,10 @@ then the order of tracking will be `markerA` followed by `markerB`.
 ## Superposition
 
 The superposition construct is used to add elements to a beamline after the beamline has been defined.
-This allows, for example, modifications to the lattice created from an existing lattice file,
-without having to modify the existing lattice file itself, by creating a new file that 
-[includes](#s:includefiles) the original file and then uses superposition to modify the lattice.
+Superposition does not change the length of the beamline.
 
-A superposition specifies an element to `insert` and a [`placement`](#s:placement) construct
-to position the element. Example:
+A superposition specifies an element to place on the beamline and a [`placement`](#s:placement) construct
+to position the element within the beamline. Example:
 ```{code} yaml
 BeamLine:
   name: this_line
@@ -368,18 +366,18 @@ BeamLine:
     ...
 
 superimpose:
-  insert: q10w
+  place: q10w
   placement:
     base_item: markerA
     ...
 ```
-In this example, the superposition inserts an element named `q10w` with respect to the
+In this example, the superposition places an element named `q10w` with respect to the
 element `markerA`. This superposition will apply to any `markerA` elements that exist in
 any beamline. To restrict where the superposition is applied, the appropriate 
 [qualified name](#s:name.matching). For example:
 ```{code} yaml
 superimpose:
-  insert: q10w
+  place: q10w
   placement:
     base_item: this_line>>markerA
     ...
@@ -392,4 +390,5 @@ A common use case is to superimpose a `Marker` element in the middle of another 
 The two other ways of describing elements that overlap physically are to use a
 [`UnionEle`](#s:unionele) type element or to use the [`placement`](#s:placement) 
 construct in a `BeamLine. 
+
 

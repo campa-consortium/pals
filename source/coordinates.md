@@ -411,15 +411,15 @@ A value of {math}`\theta_t = +\pi/2` represents a downward pointing bend.
 (s:lab.body.transform)=
 ### Transformation Between Branch and Element Body Coordinates
 
-The `element body` coordinates are the coordinate system attached to an element. Without any
-alignment shifts, the `branch` coordinates ([](#s:ref) and `element body` coordinates
+The `element body` coordinate system is the coordinate system attached to an element. Without any
+alignment shifts, the [`branch` coordinates](#s:ref) and `element body` coordinates
 are the same. With alignment shifts, the transformation between `branch` and `element body`
-coordinates depends upon whether the branch coordinate system is straight ([](#s:straight.mis) or
-bent ([](#s:bend.mis).
+coordinates depends upon whether the branch coordinate system is [straight](#s:straight.mis) or
+[bent](#s:bend.mis).
 
-When tracking a particle through an element, the particle starts at the `nominal`
-([](#s:coords) upstream end of the element with the particle's position expressed in branch
-coordinates. Tracking from the the nominal upstream end to the actual upstream face of the element
+When tracking a particle through an element, the particle starts at the [`nominal`](#s:coords) 
+upstream end of the element with the particle's position expressed in branch
+coordinates. Tracking from the nominal upstream end to the actual upstream face of the element
 involves first transforming to element body coordinates (with {math}`s = 0` in the equations below) and
 then propagating the particle as in a field free drift space from the particle's starting position
 to the actual element face. Depending upon the element's orientation, this tracking may involve

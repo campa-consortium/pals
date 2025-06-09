@@ -1,3 +1,24 @@
+## ApertureP: Aperture Parameters
+
+The `ApertureP` parameter group contains parameters for describing an aperture. 
+The components of this group are:
+```{code} yaml
+x_limits                     # [m] Vector of two real numbers
+y_limits                     # [m] Vector of two real numbers
+shape                        # Switch
+location                     # Switch
+aperture_shifts_with_body    # Boolian
+vertices                     # Structure
+material                     # String
+thickness                    # [m] Real number
+```
+
+```{figure} figures/apertures.svg
+:width: 90%
+:name: f:aperture
+```
+
+
 (s:aperture.params)=
 ## ApertureP: Aperture Parameters
 

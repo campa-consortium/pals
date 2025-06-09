@@ -512,7 +512,7 @@ The length of this element is considered to be zero so if `length` is specified,
 (s:unionele)=
 ## UnionEle Element
 
-The `UnionEle` element holds a holds a set of overlapping elements.
+The `UnionEle` element holds a set of overlapping elements.
 
 Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
@@ -550,7 +550,7 @@ UnionEle:
     ...
 ```
 
-Besides using a `UnionEle` when elements overlap physically, the other ways of handling this
+Besides using a `UnionEle` when elements overlap physically, the other way of handling this
 situation is to position elements in a beamline to overlap using the [`placement`](#s:placement) 
 construct or to use [`superposition`](#s:superposition).
 
