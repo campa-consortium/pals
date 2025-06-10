@@ -550,10 +550,9 @@ UnionEle:
     ...
 ```
 
-Besides using a `UnionEle` when elements overlap physically, the other way of handling this
-situation is to position elements in a beamline to overlap using the [`placement`](#s:placement) 
-construct or to use [`superposition`](#s:superposition).
-
+Note: `UnionEle` shares the feature of describing elements that overlap physically, 
+together with the [`placement`](#s:placement) construct within a `BeamLine` and the
+[`superposition`](#s:superposition) construct.
 
 %---------------------------------------------------------------------------------------------------
 (s:wiggler)=

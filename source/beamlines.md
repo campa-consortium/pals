@@ -387,8 +387,8 @@ the beamline `this_line`.
 
 Superposition can be used to position elements to physically overlap other elements.
 A common use case is to superimpose a `Marker` element in the middle of another element.
-The two other ways of describing elements that overlap physically are to use a
-[`UnionEle`](#s:unionele) type element or to use the [`placement`](#s:placement) 
-construct in a `BeamLine. 
+Note: superposition shares the feature of describing elements that overlap physically, 
+together with the [`UnionEle`](#s:unionele) type element and the use of the
+[`placement`](#s:placement) construct in a BeamLine.
 
 
