@@ -509,6 +509,52 @@ Element parameter groups associated with this element kind are:
 The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
+(s:unionele)=
+## UnionEle Element
+
+The `UnionEle` element holds a set of overlapping elements.
+
+Element parameter groups associated with this element kind are:
+- [**ApertureP**](#s:aperture.params): Aperture parameters.
+- [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
+- [**FloorP**](#s:floor.params): Floor position and orientation.
+- [**MetaP**](#s:meta.params): Meta parameters.
+- [**ReferenceP**](#s:ref.params): Reference parameters.
+- [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
+- [**TrackingP**](#s:tracking.params): Tracking parameters.
+
+For each element contained in the `UnionEle`, the nominal position of the contained element is
+such that the center of the contained element is at the center of the `UnionEle` with the
+body coordinates of the contained element aligned with the body coordinates of the `UnionEle`.
+Any contained element can be shifted from the nominal position by setting the contained element's
+`BodyShiftP` parameters. The entire collection of elements can be oriented using the `UnionEle`'s
+`BodyShiftP` parameters.
+
+Example:
+```{code} yaml
+UnionEle:
+  name: MMM
+  length: 2.1
+  Solenoid:
+    name: Sa      # Contained elements can be named.
+    length: 1.3
+    BodyShiftP:          # Orient the Solenoid
+      x_offset: 0.03
+      ...
+  RFCavity:
+    name: Ra
+    BodyShiftP:          # Orient the RFCavity
+      y_rot: 0.012
+      ...
+  BodyShiftP:           # The UnionEle itself can be oriented.
+    ...
+```
+
+Note: `UnionEle` shares the feature of describing elements that overlap physically, 
+together with the [`placement`](#s:placement) construct within a `BeamLine` and the
+[`superposition`](#s:superposition) construct.
+
+%---------------------------------------------------------------------------------------------------
 (s:wiggler)=
 ## Wiggler Element
 

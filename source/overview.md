@@ -7,6 +7,9 @@ particle accelerators and storage rings. PALS aims to promote:
  - A unified open access description for scientific data (publishing and archiving)
  - A unified description for post-processing, visualization and analysis.
 
+Additionally, associated PALS code will be usable from within simulation programs to read and write
+lattice files thus relieving programmers from reinventing the wheel.
+
 PALS is able to describe the connections between various things
 from the connection of injection and extraction lines connected to a storage ring to the interaction region
 of colliding beam storage rings where particles are moving through magnets in opposite directions. A PALS

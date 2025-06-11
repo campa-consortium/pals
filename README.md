@@ -3,6 +3,7 @@
 # Particle Accelerator Lattice Standard (PALS)
 
 An effort to create a standard to promote lattice information exchange for particle accelerators.
+Associated PALS code will be usable in a program to read/write lattice files.
 
 [Online documents.](https://pals-project.readthedocs.io)
 
