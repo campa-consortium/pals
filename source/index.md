@@ -11,7 +11,7 @@ introduction.md
 definitions.md
 coordinates.md
 element-parameters.md
-element-types.md
+element-kinds.md
 beamlines.md
 lattice-construction.md
 multipass.md
