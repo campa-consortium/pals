@@ -1,7 +1,8 @@
+(c:impl.fileformats)=
 # File Formats
 
 The Particle Accelerator Lattice Standard (PALS) documents objects and their properties.
-For readability, this standard uses YAML-style examples, but the PALS schema can be implemented in a variety of file formats.
+For readability, [this standard uses YAML-style](c:introduction) examples, but the PALS schema can be implemented in a variety of file formats.
 
 
 ## File Endings
@@ -16,5 +17,6 @@ When storing a PALS lattice in a file, please use the following self-describing 
 
 ## Schema Files
 
-We have not yet developed schema files for validation.
-So far, we develop a tool for file validation that is based on the pydantic, see the *Libraries* section.
+Schema files for validation have not yet been developed.
+A validation tool based on pydantic is in development.
+See the [Libraries](#c:impl.libs) section.

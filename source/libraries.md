@@ -1,8 +1,7 @@
+(c:impl.libs)=
 # Libraries
 
-The Particle Accelerator Lattice Standard (PALS) documents objects and their properties.
-For readability, this standard uses YAML-style examples.
-We exchange PALS lattices often via text files, and PALS can also directly be implemented in-memory in object-oriented programming languages.
+PALS can also be implemented in-memory in programming languages.
 
 
 ## Python
@@ -10,7 +9,8 @@ We exchange PALS lattices often via text files, and PALS can also directly be im
 The [PALS-Python](https://github.com/campa-consortium/pals-python) project implements the PALS schema in a file-agnostic way, mirrored in data objects.
 
 PALS-Python provides interfaces to:
-* generate lattices,
+* define lattices,
+* expand & evaluate expressions on lattices,
 * write and read from/to files,
 * convert files and
 * validate existing files.
