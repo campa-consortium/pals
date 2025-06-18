@@ -5,7 +5,7 @@ The documentation uses the [MyST](https://mystmd.org/) markup language and rende
 In order to build the documentation locally, from your particle-accelerator-lattice-standard directory, 
 create a software environment using the commands
 ```{code} bash
-conda env create -y -f conda.yml  # This only needs to be done once.
+conda env create -y -f conda.yaml  # This only needs to be done once.
 conda activate lattice-standard   # Do this with any new window.
 ```
 
