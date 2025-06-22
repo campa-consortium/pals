@@ -22,5 +22,6 @@ dependencies:
   - sphinx-copybutton
   - sphinx-design
   - sphinxcontrib-bibtex
+  - sphinxcontrib-svg2pdfconverter-with-all
   - sphinxcontrib-napoleon
 # - sphinx_rtd_theme

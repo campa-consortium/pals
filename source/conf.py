@@ -13,7 +13,7 @@ author = 'Jean-Luc Vay, David Sagan, Chad Mitchell, Axel Huebl, David Bruhwihler
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['myst_parser', 'sphinx_design', 'sphinxcontrib.bibtex']
+extensions = ['myst_parser', 'sphinx_design', 'sphinxcontrib.bibtex', 'sphinxcontrib.inkscapeconverter']
 myst_enable_extensions = ["colon_fence", "amsmath"]
 numfig = True
 
