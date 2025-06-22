@@ -85,7 +85,7 @@ Zero `e1_rect` and `e2_rect` gives a rectangular magnet shape.
 - **edge_int1, edge_int2**
 The field integral for the entrance pole face `edge_int1` is given by
   ```{math}
-  \text{edge_int1} = \int_{pole} \!\! ds \frac{B_y(s) (B_{y0} - B_y(s))}
+  \text{edge\_int1} = \int_{pole} \!\! ds \frac{B_y(s) (B_{y0} - B_y(s))}
   {2 , B_{y0}^2}
   ```
   For the exit pole face there is a similar equation for `edge_int2`
@@ -103,7 +103,7 @@ The field integral for the entrance pole face `edge_int1` is given by
   The {math}`C_0` term simply shifts where the edge of the bend is. If all the {math}`C_n` are zero except for
   {math}`C_0` and {math}`C_1` then
   ```{math}
-  C_1 = \frac{1}{2 \cdot \text{field_int}}
+  C_1 = \frac{1}{2 \cdot \text{field\_int}}
   ```
 %
 - **g, rho (output param)**
@@ -113,7 +113,7 @@ dipole magnetic field. `g` is related to the reference magnetic field `bend_fiel
   ```{math}
   :label: gqpb
 
-  \text{g} = \frac{q}{p_0} \cdot \text{bend_field_ref}
+  \text{g} = \frac{q}{p_0} \cdot \text{bend\_field\_ref}
   ```
 where {math}`q` is the charge of the reference particle and {math}`p_0` is the reference momentum. It is
 important to keep in mind that changing `g` will change the Reference orbit ([](#s:coords.3)) and
