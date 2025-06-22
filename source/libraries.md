@@ -1,7 +1,7 @@
 (c:impl.libs)=
 # Libraries
 
-There are reference implementations of PALS planned/in-development for various programming languages.
+There are reference implementations of PALS parsers.
 
 
 ## Python
