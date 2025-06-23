@@ -45,4 +45,3 @@ in a wiggler, `extra_dtime_ref` can be used to correct for the oscillatory natur
 particle trajectories.
 Since the PALS standard does not define how tracking is to be done, `extra_dtime_ref` and `dE_ref`
 must be calculated by the User.
-

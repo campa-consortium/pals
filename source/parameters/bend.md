@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:bend.params)=
 ## BendP: Bend Parameters
 
@@ -69,9 +68,7 @@ The values of `e1` and `e2` give the rotation angle of the entrance and exit pol
 respectively with respect to the radial {math}`x_1` and {math}`x_2` axes as shown in {numref}`f:bend`.
 Zero `e1` and `e2` gives a wedge shaped magnet.
 Also see `e1_rect` and `e2_rect`. The relationship is
-  ```{code} python
-  :label: eeaeea
-
+  ```{code} yaml
   e1 = e1_rect + angle/2 
   e2 = e2_rect + angle/2
   ```

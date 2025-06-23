@@ -203,9 +203,14 @@ The length of this element is considered to be zero so if `length` is specified,
 
 Global coordinates shift.
 
-Under Construction...
+A `FloorShift` element shifts the reference curve in the global coordinate system without
+affecting particle tracking. That is, in terms of tracking, a `FloorShift` element is equivalent
+to a `Marker` element where a particle's position is unchanged going through the element.
+
+Also see [`patch`](#s:patch) and [`fiducial`](#s:fiducial) elements.
 
 Element parameter groups associated with this element kind are:
+- [**FloorShiftP**](#s:floor.shift.params): Floor shift parameters.
 - [**MetaP**](#s:meta.params): Meta parameters.
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 
@@ -403,7 +408,7 @@ Element parameter groups associated with this element kind are:
 (s:patch)=
 ## Patch Element
 
-Crooked drift used to shift the reference orbit.
+Crooked drift used to shift the reference curve.
 
 Under Construction...
 
@@ -412,9 +417,13 @@ Element parameter groups associated with this element kind are:
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
 - [**MetaP**](#s:meta.params): Meta parameters.
+- [**PatchP**](#s:meta.params): Exit coordinates with respect to entrance coordinates.
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
+
+Important: By convention, any energy shift is applied after a particle reaches the exit face.
+This matters when the speed of the reference particle is less than the speed of light.
 
 %---------------------------------------------------------------------------------------------------
 (s:quadrupole)=
