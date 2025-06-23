@@ -1,0 +1,26 @@
+kind: Line
+line:
+- alias_drift1:
+  kind: Drift
+  length: 0.25
+  name: drift1
+- alias_quad1:
+  MagneticMultipoleP:
+    Bn1: 1.0
+  kind: Quadrupole
+  length: 1.0
+  name: quad1
+- alias_drift2:
+  kind: Drift
+  length: 0.5
+  name: drift2
+- alias_quad2:
+  MagneticMultipoleP:
+    Bn1: -1.0
+  kind: Quadrupole
+  length: 1.0
+  name: quad2
+- alias_drift3:
+  kind: Drift
+  length: 0.5
+  name: drift3
