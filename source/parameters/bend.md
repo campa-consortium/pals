@@ -85,8 +85,7 @@ Zero `e1_rect` and `e2_rect` gives a rectangular magnet shape.
 - **edge_int1, edge_int2**
 The field integral for the entrance pole face `edge_int1` is given by
   ```{math}
-  \text{edge\_int1} = \int_{pole} \!\! ds \frac{B_y(s) (B_{y0} - B_y(s))}
-  {2 , B_{y0}^2}
+  \text{edge\_int1} = \int_{pole} \!\! ds \frac{B_y(s) (B_{y0} - B_y(s))}{2 B_{y0}^2}
   ```
   For the exit pole face there is a similar equation for `edge_int2`
 

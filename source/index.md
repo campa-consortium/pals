@@ -20,6 +20,15 @@ bend-multipoles.md
 
 ```{toctree}
 :maxdepth: 2
+:caption: Implementations
+
+fileformats.md
+libraries.md
+simulations.md
+```
+
+```{toctree}
+:maxdepth: 2
 :caption: Back Matter
 
 governance.md
