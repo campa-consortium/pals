@@ -197,7 +197,8 @@ around the {math}`x`-axis by 180{math}`^o`  would also produce a plausible geome
 
 The branch coordinate system (purple), which is a function of {math}`s` along the branch reference
 curve, is described in the floor coordinate system (black) by a position {math}`(X(s), Y(s), Z(s))` and
-and by angles {math}`\theta(s)`, {math}`\phi(s)`, and {math}`\psi(s)`.
+and by angles {math}`\theta(s)`, {math}`\phi(s)`, and {math}`\psi(s)`. The figure shows an
+orientation with positive {math}`\theta(s)` and {math}`\psi(s)` but with negative {math}`\phi(s)`.
 ```
 
 The Cartesian `floor` coordinate system is the
@@ -220,7 +221,7 @@ A positive angle of
 - **{math}`\phi(s)` Pitch (elevation) angle:**
 Angle between the {math}`z`-axis and the {math}`(X,Z)` plane. 
 A positive angle of {math}`\phi = \pi/2` corresponds to the {math}`z`--axis pointing in the
-positive {math}`Y` direction.
+positive {math}`-Y` direction.
 %
 - **{math}`\psi(s)` Roll angle:**
 Angle of the {math}`x`--axis with respect to the line formed by the intersection of the 
@@ -253,14 +254,14 @@ the order {math}`(x, y, z)`. {math}`\bf W` can be expressed in terms of the
 orientation angles {math}`\theta`, {math}`\phi`, and {math}`\psi` via the formula
 ```{math}
 :label: www
-  {\bf W} &= {\bf R}_{y}(\theta) \; {\bf R}_{x}(-\phi) \; {\bf R}_{z}(\psi) \\
+  {\bf W} &= {\bf R}_{y}(\theta) \; {\bf R}_{x}(\phi) \; {\bf R}_{z}(\psi) \\
   &= \begin{pmatrix}
-    \cos\theta \cos\psi - \sin\theta \sin\phi \sin\psi & 
-        -\cos\theta \sin\psi - \sin\theta \sin\phi \cos\psi & 
+    \cos\theta \cos\psi + \sin\theta \sin\phi \sin\psi & 
+        -\cos\theta \sin\psi + \sin\theta \sin\phi \cos\psi & 
          \sin\theta \cos\phi \\
-    \cos\phi \sin\psi & \cos\phi \cos\psi & \sin\phi \\
-   -\cos\theta \sin\phi \sin\psi - \sin\theta \cos\psi & 
-         \sin\theta \sin\psi - \cos\theta \sin\phi \cos\psi & 
+    \cos\phi \sin\psi & \cos\phi \cos\psi & -\sin\phi \\
+   \cos\theta \sin\phi \sin\psi - \sin\theta \cos\psi & 
+         \sin\theta \sin\psi + \cos\theta \sin\phi \cos\psi & 
          \cos\theta \cos\phi 
   \end{pmatrix}
 ```
