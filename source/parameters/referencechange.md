@@ -35,9 +35,9 @@ where `length` is the length of the element and `c` is the speed of light.
 For elements where there is no energy
 change (`dE_ref` = 0), the transit time calculation simplifies to
 ```{code} yaml
-transit_time = length / (β_ref * c)
+transit_time = length / (beta_ref * c)
 ```
-where `β_ref` is the normalized particle velocity
+where `beta_ref` is the normalized particle velocity
 
 The `extra_dtime_ref` parameter in the above is ment as a correction to take into account
 for particle motion that is not straight or acceleration that is not linear in energy. For example,
