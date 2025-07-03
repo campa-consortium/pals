@@ -83,15 +83,15 @@ BeamLine:
   length: 37.8
   zero_point: thingC
   line:
-    - thingB               # This item refers to the name of an element or BeamLine defined elsewhere.
-    - thingZ               # thingZ inherits parameters from thingB 
+    - thingB                # This item refers to the name of an element or BeamLine defined elsewhere.
+    - thingZ:               # thingZ inherits parameters from thingB
         inherit: thingB    
-    - Q1a                  # Define an element in place called Q1a
+    - Q1a:                  # Define an element in place called Q1a
         type: Quadrupole 
         length: 1.03
         direction: -1
         ...
-    - a_subline          # Item a_subline is repeated three times    
+    - a_subline:            # Item a_subline is repeated three times
         repetition: 3
         ...
 ```
@@ -110,7 +110,7 @@ Quadrupole:
 BeamLine:
   line:
     - q1w               # Line item is element q1w.
-    - q1w_01            # q1w_01 interits parameters from q1
+    - q1w_01:           # q1w_01 interits parameters from q1
       inherit: q1
       BodyShiftP:       #   and the parameters for q1w_01 can be modified...
         ...
@@ -123,7 +123,7 @@ A line item which is a lattice element can also be specified by defining the lat
 BeamLine:
   name: a_line
   line:
-    - octA              # This is a new element not previously defined.
+    - octA:              # This is a new element not previously defined.
         type: Octupole    
         Kn3L: 0.34
         ...
@@ -140,8 +140,8 @@ BeamLine:
 BeamLine:
   name: main_line
   line:
-    - linac_line      # linac_line is used as a subline
-        direction: -1         #  parameters like reflection, etc can be use.
+    - linac_line:          # linac_line is used as a subline
+        direction: -1      #  parameters like reflection, etc can be use.
 ```
 
 Restriction: Infinite recursion of sublines is not allowed. 
@@ -158,7 +158,7 @@ of the item. Example:
 BeamLine:
   name: full_line
   line:
-    - short_line
+    - short_line:
         repetition: 3
 ```
 In this case, `short_line` is repeated three times when the BeamLine is expanded to form a lattice
@@ -201,7 +201,7 @@ the individual line items. Example:
 BeamLine:
   name: lineA
   line:
-    - lineB
+    - lineB:
         direction: -1
     ...
 
@@ -271,7 +271,7 @@ BeamLine:
   name: position_line
   line:
     - thingA
-    - extract_line
+    - extract_line:
         placement:
           offset: 37.5
           base_item: thingA
@@ -302,7 +302,7 @@ then the following
 ```{code} yaml
 BeamLine:
   line:
-    - this_line
+    - this_line:
         repetition: -1
 ```
 Would expand to
@@ -313,7 +313,7 @@ with the same relative distances between elements. Similarly, this:
 ```{code} yaml
 BeamLine:
   line:
-    - position_line
+    - position_line:
         direction: -1
 ```
 Would expand to
