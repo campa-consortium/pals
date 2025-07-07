@@ -237,7 +237,7 @@ items are not reversed in orientation.
 ```
 
 By default,
-a line item is placed such that the entrance end of the item is flush with the exit end
+a line item is placed such that the entrance end of the item is aligned with the exit end
 of the preceding item as explained in the [Branch Coordinates Construction](#s:ref.construct) section.
 To adjust the longitudinal placement of an item, 
 the `placement` component of an item can be used.
