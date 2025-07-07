@@ -64,11 +64,11 @@ BeamLine.
 
 A line item can have components
 ```{code} yaml
-repetion        # Integer. Repetition count. Default is 1.
+repeat          # Integer. Repetition count. Default is 1.
 direction       # +1 or -1. Longitudinal orientation of element. Default is +1.
 placement       # Structure. Shifts element or subline longitudinally.
 inherit         # Name of lattice element or subline defined outside the line
-name            # Name of lattice element or sublin.
+name            # Name of lattice element or subline.
 type            # Type of element.
 ```
 
@@ -92,7 +92,7 @@ BeamLine:
         direction: -1
         ...
     - a_subline:            # Item a_subline is repeated three times
-        repetition: 3
+        repeat: 3
         ...
 ```
 
@@ -141,7 +141,7 @@ BeamLine:
   name: main_line
   line:
     - linac_line:          # linac_line is used as a subline
-        direction: -1      #  parameters like reflection, etc can be use.
+        direction: -1      #  parameters like reflection, etc can be used.
 ```
 
 Restriction: Infinite recursion of sublines is not allowed. 
@@ -152,14 +152,14 @@ Also sublines must be defined externally and not in place.
 (s:repetition)=
 ## Repetition
 
-For any line item, a `repetition` count component can be used to represent multiple copies
+For any line item, a `repeat` count component can be used to represent multiple copies
 of the item. Example:
 ```{code} yaml
 BeamLine:
   name: full_line
   line:
     - short_line:
-        repetition: 3
+        repeat: 3
 ```
 In this case, `short_line` is repeated three times when the BeamLine is expanded to form a lattice
 branch. For example, if `short_line` is a beamline defined by:
@@ -177,7 +177,7 @@ A, B, C, A, B, C, A, B, C
 ```
 
 repetition counts can be negative. In this case, the elements are taken to occur in reverse order.
-Thus, in the above example, if the `repetition` count was `-3`, the expanded `full_line` will
+Thus, in the above example, if the `repeat` count was `-3`, the expanded `full_line` will
 look like:
 ```{code} yaml
 C, B, A, C, B, A, C, B, A
@@ -303,7 +303,7 @@ then the following
 BeamLine:
   line:
     - this_line:
-        repetition: -1
+        repeat: -1
 ```
 Would expand to
 ```{code} yaml
