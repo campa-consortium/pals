@@ -193,7 +193,7 @@ at the downstream side.
 (s:direction)=
 ## Direction reversal
 
-The optional `direction` component of item can be used for true [direction reversal](#s:ref.construct).
+The optional `direction` component of an item can be used for true [direction reversal](#s:ref.construct).
 Possible values are `+1` and `-1`. The Default is `+1` which represents an unreversed element
 or BeamLine. BeamLine reversal involves both reversed order of the line and direction reversal of
 the individual line items. Example:
