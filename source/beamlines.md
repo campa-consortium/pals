@@ -33,9 +33,8 @@ If `length` is not given, the BeamLine ends at the downstream end of the final
 element in the `line` and with this the length of the BeamLine can be calculated.
 
 The optional `zero_point` component is used to position sublines.
-The value of `zero_point` is the name of a `line item` that marks the reference point. 
-To make things unambiguous, the reference `line item` must have zero length.
-In most cases, this means that the `zero_point` cannot be a `BeamLine`.
+The value of `zero_point` is the name of a line element that marks the reference point. 
+To make things unambiguous, the reference line element must have zero length.
 
 Setting optional `periodic` Boolean to `True` indicates that the `BeamLine` is something like a 
 storage ring where the particle beam recirculates through the `BeamLine` multiple times.
@@ -60,24 +59,20 @@ by setting the `periodic` component of the `branch`. See [](#s:lattice.construct
 details.
 
 The `line` component of a BeamLine holds an ordered list of `items`. 
-Each `item` represents one (or more if there is a `repeat` count) lattice element or
+Each item represents one (or more if there is a `repeat` count) lattice element or
 BeamLine. 
 
-A line `item` can have a value that is the name of a lattice element or `BeamLine`, 
-or the `item` can have a component that is one of
+A line item can have components
 ```{code} yaml
-name                # Name of lattice element or BeamLine.
-Element             # Lattice element definition.
-BeamLine            # subline definition.
-```
-In addition, a line `item` has optional components
-```{code} yaml
-repetion        # Integer. Repetition count. Default is 1.
+repeat          # Integer. Repetition count. Default is 1.
 direction       # +1 or -1. Longitudinal orientation of element. Default is +1.
 placement       # Structure. Shifts element or subline longitudinally.
+inherit         # Name of lattice element or subline defined outside the line
+name            # Name of lattice element or subline.
+type            # Type of element.
 ```
 
-Example with four `items` in `line`:
+Example with four items in `line`:
 ```{code} yaml
 Sextupole:
   name: thingB
@@ -88,16 +83,16 @@ BeamLine:
   length: 37.8
   zero_point: thingC
   line:
-    - thingB               # This item refers to the name of an element or BeamLine defined elsewhere.
-    - lineitem:
-        inherit: thingB    # Another way of referring to thingB
-    - lineitem: Quadrupole # Define an element in place
-        name: Q1a
+    - thingB                # This item refers to the name of an element or BeamLine defined elsewhere.
+    - thingZ:               # thingZ inherits parameters from thingB
+        inherit: thingB    
+    - Q1a:                  # Define an element in place called Q1a
+        type: Quadrupole 
+        length: 1.03
         direction: -1
         ...
-    - lineitem:          # This item contains a BeamLine called a_subline repeated three times    
-        inherit: a_subline
-        repetition: 3
+    - a_subline:            # Item a_subline is repeated three times
+        repeat: 3
         ...
 ```
 
@@ -115,10 +110,9 @@ Quadrupole:
 BeamLine:
   line:
     - q1w               # Line item is element q1w.
-    -lineitem:          # Same as previous line...
-      inherit: q1w
-      name: q1w_01      # But now element parameters may be modified including the name.
-      BodyShiftP:       
+    - q1w_01:           # q1w_01 interits parameters from q1
+      inherit: q1
+      BodyShiftP:       #   and the parameters for q1w_01 can be modified...
         ...
     ...
 ```
@@ -129,8 +123,8 @@ A line item which is a lattice element can also be specified by defining the lat
 BeamLine:
   name: a_line
   line:
-    - lineitem: Octupole    # This is a new element not previously defined.
-        name: octA
+    - octA:              # This is a new element not previously defined.
+        type: Octupole    
         Kn3L: 0.34
         ...
     ...
@@ -146,10 +140,8 @@ BeamLine:
 BeamLine:
   name: main_line
   line:
-    - linac_line      # linac_line is used as a subline
-    - lineitem:
-        inherit: linac_line   # Same as above except here...
-        direction: -1         #  parameters like reflection, etc can be use.
+    - linac_line:          # linac_line is used as a subline
+        direction: -1      #  parameters like reflection, etc can be used.
 ```
 
 Restriction: Infinite recursion of sublines is not allowed. 
@@ -160,15 +152,14 @@ Also sublines must be defined externally and not in place.
 (s:repetition)=
 ## Repetition
 
-For any line `item`, a `repetition` count component can be used to represent multiple copies
+For any line item, a `repeat` count component can be used to represent multiple copies
 of the item. Example:
 ```{code} yaml
 BeamLine:
   name: full_line
   line:
-    - lineitem:
-        name: short_line
-        repetition: 3
+    - short_line:
+        repeat: 3
 ```
 In this case, `short_line` is repeated three times when the BeamLine is expanded to form a lattice
 branch. For example, if `short_line` is a beamline defined by:
@@ -186,7 +177,7 @@ A, B, C, A, B, C, A, B, C
 ```
 
 repetition counts can be negative. In this case, the elements are taken to occur in reverse order.
-Thus, in the above example, if the `repetition` count was `-3`, the expanded `full_line` will
+Thus, in the above example, if the `repeat` count was `-3`, the expanded `full_line` will
 look like:
 ```{code} yaml
 C, B, A, C, B, A, C, B, A
@@ -202,7 +193,7 @@ at the downstream side.
 (s:direction)=
 ## Direction reversal
 
-The optional `direction` component of `item` can be used for true [direction reversal](#s:ref.construct).
+The optional `direction` component of an item can be used for true [direction reversal](#s:ref.construct).
 Possible values are `+1` and `-1`. The Default is `+1` which represents an unreversed element
 or BeamLine. BeamLine reversal involves both reversed order of the line and direction reversal of
 the individual line items. Example:
@@ -210,8 +201,7 @@ the individual line items. Example:
 BeamLine:
   name: lineA
   line:
-    - lineitem:
-        inherit: lineB: 
+    - lineB:
         direction: -1
     ...
 
@@ -247,31 +237,31 @@ items are not reversed in orientation.
 ```
 
 By default,
-a line `item` is placed such that the entrance end of the `item` is flush with the exit end
-of the preceding `item` as explained in the [Branch Coordinates Construction](#s:ref.construct) section.
-To adjust the longitudinal placement of an `item`, 
-the `placement` component of an `item` can be used.
-When there is a `placement` component, figure {numref}`f:superposition` shows how the line `item` 
-is positioned with respect to a `"base"` line `item`. 
+a line item is placed such that the entrance end of the item is aligned with the exit end
+of the preceding item as explained in the [Branch Coordinates Construction](#s:ref.construct) section.
+To adjust the longitudinal placement of an item, 
+the `placement` component of an item can be used.
+When there is a `placement` component, figure {numref}`f:superposition` shows how the line item 
+is positioned with respect to a `"base"` line item. 
 
 The components of `placement` are:
 ```{code} yaml
 offset       # Optional Real [m]. Longitudinal offset of the line item. Default is zero.
-to_point     # Optional switch. Line `item` offset end point. Default is ENTRANCE_END.
-base_item    # Optional string. Line `item` containing the `from_point`.  
-from_point   # Optional switch. Base line `item` offset beginning point. Default is EXIT_END.
+to_point     # Optional switch. Line item offset end point. Default is ENTRANCE_END.
+base_item    # Optional string. Line item containing the `from_point`.  
+from_point   # Optional switch. Base line item offset beginning point. Default is EXIT_END.
 ```
 If the `base_item` is not specified, the default is the previous element or the beginning 
 of the `line` if there is no previous element.
 
-The `from_point` is the reference point on the base line `item` and `to_point` is the
+The `from_point` is the reference point on the base line item and `to_point` is the
 reference point on the element being positioned. The distance between these points is set by 
 the value of `offset`.
 The values of `from_point` and `to_point` can be one of the following:
 ```{code} yaml
-ENTRANCE_END       # Entrance end of the `item`. Default for the `to_point` component.
-CENTER             # Center of the `item`.
-EXIT_END           # Exit end of the `item`. Default for the `from_point` component.
+ENTRANCE_END       # Entrance end of the item. Default for the `to_point` component.
+CENTER             # Center of the item.
+EXIT_END           # Exit end of the item. Default for the `from_point` component.
 ZERO_POINT         # Used with sublines that define a `zero_point`.
 ```
 
@@ -281,8 +271,7 @@ BeamLine:
   name: position_line
   line:
     - thingA
-    - lineitem:
-        inherit: subline
+    - extract_line:
         placement:
           offset: 37.5
           base_item: thingA
@@ -290,11 +279,11 @@ BeamLine:
           to_point: ZERO_POINT
 
 BeamLine:
-  name: subline
+  name: extract_subline
   line:
       ...
 ```
-In this example, the `to_point` is the `zero_point` of `subline`.
+In this example, the `to_point` is the `zero_point` of `extract_subline`.
 The `from_point` of `thingA` is placed `37.5` meters from the `to_point` point with
 the `to_point` being at the exit end of `thingA`.
 
@@ -313,9 +302,8 @@ then the following
 ```{code} yaml
 BeamLine:
   line:
-    - lineitem:
-        inherit: this_line
-        repetition: -1
+    - this_line:
+        repeat: -1
 ```
 Would expand to
 ```{code} yaml
@@ -325,8 +313,7 @@ with the same relative distances between elements. Similarly, this:
 ```{code} yaml
 BeamLine:
   line:
-    - lineitem:
-        inherit: position_line
+    - position_line:
         direction: -1
 ```
 Would expand to
