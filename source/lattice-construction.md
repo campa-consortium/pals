@@ -9,26 +9,26 @@ A `Lattice` contains a set of branches.
 Each branch is instantiated from a `BeamLine` that is called the `root BeamLine`.
 Example:
 ```{code} yaml
-Lattice:
-  - Branch: this_line    # this_line is the root beamline for the branch.
-  - Branch:
-      name: some_name
-      BeamLine: that_ring
-      periodic: True
+- Lattice:
+    - branches:
+        - this_line    # this_line is the root beamline for the branch.
+        - that_line:
+            inherit: that_ring    # Inherit from that_ring BeamLine
+            periodic: True
 ```
-In this example, `this_line` and `that_ring` are the names of the root BeamLines
+In this example, `this_line` and `that_line` are the names of the root BeamLines
 for the two `Branches` that will be created when the lattice is [expanded](#s:expansion).
 Branches created due to `Fork` elements also have root `BeamLines`. `Branches` specified
 in the `Lattice` structure are called `root branches` of the `lattice`. Non-root branches
 are those branches created due to `Fork` elements.
 
-A `Branch` has the optional components
+A branch has the optional components
 ```{code} yaml
-name      # Optional String. Name of the branch. Default is the name of the root BeamLine.
+inherit   # Optional String. Name of the root BeamLine for the branch. Default is the name of the Branch.
 periodic  # Optional Bool. Are orbit and Twiss parameters periodic? 
           #   Default is the setting of the root BeamLine.
 ```
-The setting of `periodic` or `name` for a `Branch` overrides the setting of `periodic` or `name`
+The setting of `periodic` for a `Branch` overrides the setting of `periodic`
 set in the root `BeamLine`. See [](#s:beamline.components) for documentation of `periodic`.
 
 %---------------------------------------------------------------------------------------------------
