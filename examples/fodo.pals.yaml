@@ -1,21 +1,40 @@
-kind: Line
-line:
+# This is a PALS example of beamline with three identical FODO cells.
+#
+# This example demonstrates:
+# - definition of individual elements
+# - definition of a short line (fodo_cell) that:
+#   - uses pre-defined elements (drift1, quad1)
+#   - inherits & changes an element (quad2)
+#   - reuses elements with the same name (drift1)
+# - definition of a FODO channel that:
+#   - repeats a line (fodo_cell) three times
+#
 - drift1:
-  kind: Drift
-  length: 0.25
+    kind: Drift
+    length: 0.25
+
 - quad1:
-  MagneticMultipoleP:
-    Bn1: 1.0
-  kind: Quadrupole
-  length: 1.0
-- drift2:
-  kind: Drift
-  length: 0.5
-- quad2:
-  MagneticMultipoleP:
-    Bn1: -1.0
-  kind: Quadrupole
-  length: 1.0
-- drift3:
-  kind: Drift
-  length: 0.5
+    kind: Quadrupole
+    MagneticMultipoleP:
+      Bn1: 1.0
+    length: 1.0
+
+- fodo_cell:
+    kind: BeamLine
+    line:
+    - drift1
+    - quad1
+    - drift2:
+        kind: Drift
+        length: 0.5
+    - quad2:
+        inherit: quad1
+        MagneticMultipoleP:
+          Bn1: -1.0
+    - drift1
+
+- fodo_channel:
+    kind: BeamLine
+    line:
+    - fodo_cell:
+        repeat: 3

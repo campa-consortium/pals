@@ -69,31 +69,32 @@ direction       # +1 or -1. Longitudinal orientation of element. Default is +1.
 placement       # Structure. Shifts element or subline longitudinally.
 inherit         # Name of lattice element or subline defined outside the line
 name            # Name of lattice element or subline.
-type            # Type of element.
+kind            # Type of element.
 ```
 
 Example with four items in `line`:
 ```{code} yaml
-Sextupole:
-  name: thingB
+- thingB:
+    kind: Sextupole
+    ...
 
-BeamLine:
-  name: inj_line
-  multipass: True
-  length: 37.8
-  zero_point: thingC
-  line:
-    - thingB                # This item refers to the name of an element or BeamLine defined elsewhere.
-    - thingZ:               # thingZ inherits parameters from thingB
-        inherit: thingB    
-    - Q1a:                  # Define an element in place called Q1a
-        type: Quadrupole 
-        length: 1.03
-        direction: -1
-        ...
-    - a_subline:            # Item a_subline is repeated three times
-        repeat: 3
-        ...
+- inj_line:
+    kind: BeamLine
+    multipass: True
+    length: 37.8
+    zero_point: thingC
+    line:
+      - thingB                # This item refers to the name of an element or BeamLine defined elsewhere.
+      - thingZ:               # thingZ inherits parameters from thingB
+          inherit: thingB
+      - Q1a:                  # Define an element in place called Q1a
+          kind: Quadrupole
+          length: 1.03
+          direction: -1
+          ...
+      - a_subline:            # Item a_subline is repeated three times
+          repeat: 3
+          ...
 ```
 
 %---------------------------------------------------------------------------------------------------
@@ -103,45 +104,46 @@ BeamLine:
 A line item that is a lattice element can be specified by name if a lattice element
 of that name has been defined. Example:
 ```{code} yaml
-Quadrupole: 
-  name: q1w
-  ...
-
-BeamLine:
-  line:
-    - q1w               # Line item is element q1w.
-    - q1w_01:           # q1w_01 interits parameters from q1
-      inherit: q1
-      BodyShiftP:       #   and the parameters for q1w_01 can be modified...
-        ...
+- q1w
+    kind: Quadrupole
     ...
+
+- my_line:
+    kind: BeamLine
+    line:
+      - q1w               # Line item is element q1w.
+      - q1w_01:           # q1w_01 interits parameters from q1
+          inherit: q1
+          BodyShiftP:       #   and the parameters for q1w_01 can be modified...
+          ...
+      ...
 ```
 
 A line item which is a lattice element can also be specified by defining the lattice element
 "in place" in the line. Example:
 ```{code} yaml
-BeamLine:
-  name: a_line
-  line:
-    - octA:              # This is a new element not previously defined.
-        type: Octupole    
-        Kn3L: 0.34
-        ...
+- a_line
+    kind: BeamLine
+    line:
+      - octA:              # This is a new element not previously defined.
+          kind: Octupole    
+          Kn3L: 0.34
+          ...
     ...
 ```
 
 A line item may be a subline:
 ```{code} yaml
-BeamLine:
-  name: linac_line
-  line:
-    ...
+- linac_line
+    kind: BeamLine
+    line:
+      ...
 
-BeamLine:
-  name: main_line
-  line:
-    - linac_line:          # linac_line is used as a subline
-        direction: -1      #  parameters like reflection, etc can be used.
+- main_line:
+    kind: BeamLine
+    line:
+      - linac_line:          # linac_line is used as a subline
+          direction: -1      #  parameters like reflection, etc can be used.
 ```
 
 Restriction: Infinite recursion of sublines is not allowed. 
@@ -155,21 +157,21 @@ Also sublines must be defined externally and not in place.
 For any line item, a `repeat` count component can be used to represent multiple copies
 of the item. Example:
 ```{code} yaml
-BeamLine:
-  name: full_line
-  line:
-    - short_line:
-        repeat: 3
+- full_line
+    kind: BeamLine
+    line:
+      - short_line:
+          repeat: 3
 ```
 In this case, `short_line` is repeated three times when the BeamLine is expanded to form a lattice
 branch. For example, if `short_line` is a beamline defined by:
 ```{code} yaml
-BeamLine:
-  name: short_line
-  line:
-    - A
-    - B
-    - C
+- short_line
+    kind: BeamLine
+    line:
+      - A
+      - B
+      - C
 ```
 then the expanded `full_line` will look like:
 ```{code} yaml
@@ -198,19 +200,19 @@ Possible values are `+1` and `-1`. The Default is `+1` which represents an unrev
 or BeamLine. BeamLine reversal involves both reversed order of the line and direction reversal of
 the individual line items. Example:
 ```{code} yaml
-BeamLine:
-  name: lineA
-  line:
-    - lineB:
-        direction: -1
-    ...
+- lineA
+    kind: BeamLine
+    line:
+      - lineB:
+          direction: -1
+      ...
 
-BeamLine:
-  name: lineB
-  line:
-    - ele1
-    - ele2:
-        direction: -1
+- lineB
+    kind: BeamLine
+    line:
+      - ele1
+      - ele2:
+          direction: -1
 ```
 The expanded `lineA` has elements:
 ```{code} yaml
@@ -267,21 +269,22 @@ ZERO_POINT         # Used with sublines that define a `zero_point`.
 
 Example:
 ```{code} yaml
-BeamLine:
-  name: position_line
-  line:
-    - thingA
-    - extract_line:
-        placement:
-          offset: 37.5
-          base_item: thingA
-          from_point: EXIT_END
-          to_point: ZERO_POINT
+- position_line
+    kind: BeamLine
+    line:
+      - thingA
+      - extract_line:
+          placement:
+            offset: 37.5
+            base_item: thingA
+            from_point: EXIT_END
+            to_point: ZERO_POINT
 
-BeamLine:
-  name: extract_subline
-  line:
-      ...
+
+- extract_subline
+    kind: BeamLine
+    line:
+        ...
 ```
 In this example, the `to_point` is the `zero_point` of `extract_subline`.
 The `from_point` of `thingA` is placed `37.5` meters from the `to_point` point with
@@ -294,16 +297,17 @@ must be computable. That is, situations where there in infinite recursion is for
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves
 the element being placed downstream. If there is reversal, a positive `offset` moves
 the element being placed upstream. That is, placement will not affect the relative distances
-of items if a line is reversed. In the above example, if `this_line` expandeds to:
+of items if a line is reversed. In the above example, if `ABC_line` expandeds to:
 ```{code} yaml
 thingA, thingB, thingC
 ```
 then the following 
 ```{code} yaml
-BeamLine:
-  line:
-    - this_line:
-        repeat: -1
+- z_line
+    kind: BeamLine
+    line:
+     - ABC_line:
+         repeat: -1
 ```
 Would expand to
 ```{code} yaml
@@ -311,10 +315,11 @@ thingC, thingB, thingA
 ```
 with the same relative distances between elements. Similarly, this:
 ```{code} yaml
-BeamLine:
-  line:
-    - position_line:
-        direction: -1
+- my_line:
+    kind: BeamLine
+    line:
+      - ABC_line:
+          direction: -1
 ```
 Would expand to
 ```{code} yaml
@@ -328,10 +333,11 @@ To remove an ambiguity, if two zero length elements are next to each other in a 
 elements determines the order in which they should tracked through. For example,
 if a line contains the two zero length elements:
 ```{code} yaml
-BeamLine:
-  line:
-    - markerA
-    - markerB
+- d_line
+    kind: BeamLine
+    line:
+      - markerA
+      - markerB
 ```
 then the order of tracking will be `markerA` followed by `markerB`.
 
@@ -345,18 +351,18 @@ Superposition does not change the length of the beamline.
 A superposition specifies an element to place on the beamline and a [`placement`](#s:placement) construct
 to position the element within the beamline. Example:
 ```{code} yaml
-BeamLine:
-  name: this_line
-  line:
-    ...
-    - markerA
-    ...
+- this_line
+    kind: BeamLine:
+    line:
+      - ...
+      - markerA
+      - ...
 
-superimpose:
-  place: q10w
-  placement:
-    base_item: markerA
-    ...
+- superimpose:
+    place: q10w
+    placement:
+      base_item: markerA
+      ...
 ```
 In this example, the superposition places an element named `q10w` with respect to the
 element `markerA`. This superposition will apply to any `markerA` elements that exist in
