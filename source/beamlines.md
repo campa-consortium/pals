@@ -79,22 +79,22 @@ Example with four items in `line`:
     ...
 
 - inj_line:
-  kind: BeamLine
-  multipass: True
-  length: 37.8
-  zero_point: thingC
-  line:
-    - thingB                # This item refers to the name of an element or BeamLine defined elsewhere.
-    - thingZ:               # thingZ inherits parameters from thingB
-        inherit: thingB    
-    - Q1a:                  # Define an element in place called Q1a
-        kind: Quadrupole 
-        length: 1.03
-        direction: -1
-        ...
-    - a_subline:            # Item a_subline is repeated three times
-        repeat: 3
-        ...
+    kind: BeamLine
+    multipass: True
+    length: 37.8
+    zero_point: thingC
+    line:
+      - thingB                # This item refers to the name of an element or BeamLine defined elsewhere.
+      - thingZ:               # thingZ inherits parameters from thingB
+          inherit: thingB
+      - Q1a:                  # Define an element in place called Q1a
+          kind: Quadrupole
+          length: 1.03
+          direction: -1
+          ...
+      - a_subline:            # Item a_subline is repeated three times
+          repeat: 3
+          ...
 ```
 
 %---------------------------------------------------------------------------------------------------
@@ -113,8 +113,8 @@ of that name has been defined. Example:
     line:
       - q1w               # Line item is element q1w.
       - q1w_01:           # q1w_01 interits parameters from q1
-        inherit: q1
-        BodyShiftP:       #   and the parameters for q1w_01 can be modified...
+          inherit: q1
+          BodyShiftP:       #   and the parameters for q1w_01 can be modified...
           ...
       ...
 ```
@@ -273,7 +273,7 @@ Example:
     kind: BeamLine
     line:
       - thingA
-     - extract_line:
+      - extract_line:
           placement:
             offset: 37.5
             base_item: thingA
@@ -354,9 +354,9 @@ to position the element within the beamline. Example:
 - this_line
     kind: BeamLine:
     line:
-      ...
+      - ...
       - markerA
-      ...
+      - ...
 
 - superimpose:
     place: q10w
