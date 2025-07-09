@@ -207,7 +207,7 @@ the individual line items. Example:
           direction: -1
       ...
 
--lineB
+- lineB
     kind: BeamLine
     line:
       - ele1
@@ -307,7 +307,7 @@ then the following
     kind: BeamLine
     line:
      - ABC_line:
-          repeat: -1
+         repeat: -1
 ```
 Would expand to
 ```{code} yaml
