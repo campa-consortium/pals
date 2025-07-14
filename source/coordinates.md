@@ -221,7 +221,7 @@ A positive angle of
 - **{math}`\phi(s)` Pitch (elevation) angle:**
 Angle between the {math}`z`-axis and the {math}`(X,Z)` plane. 
 A positive angle of {math}`\phi = \pi/2` corresponds to the {math}`z`--axis pointing in the
-positive {math}`-Y` direction.
+negative {math}`Y` direction.
 %
 - **{math}`\psi(s)` Roll angle:**
 Angle of the {math}`x`--axis with respect to the line formed by the intersection of the 
@@ -260,7 +260,7 @@ orientation angles {math}`\theta`, {math}`\phi`, and {math}`\psi` via the formul
         -\cos\theta \sin\psi + \sin\theta \sin\phi \cos\psi & 
          \sin\theta \cos\phi \\
     \cos\phi \sin\psi & \cos\phi \cos\psi & -\sin\phi \\
-   \cos\theta \sin\phi \sin\psi - \sin\theta \cos\psi & 
+    \cos\theta \sin\phi \sin\psi - \sin\theta \cos\psi & 
          \sin\theta \sin\psi + \cos\theta \sin\phi \cos\psi & 
          \cos\theta \cos\phi 
   \end{pmatrix}

@@ -3,16 +3,17 @@
 # Particle Accelerator Lattice Standard (PALS)
 
 An effort to create a standard to promote lattice information exchange for particle accelerators.
-PALS can also serve as the language for new simulation programs and 
+PALS can also serve as the language format for new simulation programs and 
 the associated code that comes
-with PALS will be usable to read/write lattice files thus saving considerable programming time.
+with PALS will be usable to read/validate/write lattice files thus saving considerable programming time.
 
 [Online documents.](https://pals-project.readthedocs.io)
 
 ## Scope
 
-PALS is a standard for describing  focus on the physical layout and properties of a machine.
-The tracking of particles is not part of PALS although some tracking related parameters that
+PALS is a standard for describing particle accelerator lattices, with focus on
+the physical layout and properties of a machine.
+The tracking of particles is not part of PALS, although some tracking related parameters that
 can be useful to share will be described by the standard.
 
 ## Participation
@@ -27,10 +28,10 @@ please contact [Jean-Luc Vay](https://github.com/jlvay) to be put on the mailing
 1. **Community outreach:** Through papers, talks and other avenues, inform the accelerator community
 about PALS. Additionally, seek involvement from the community.
 
-2. **Develop the PALS standard:** 
+2. **Develop the PALS standard.** 
 
-3. **[Develop parsing code to read/write/manipulate PALS lattices](https://pals-project.readthedocs.io/en/latest/lattice.html)**
+3. **[Develop Libraries and tools to read/write/visualize/manipulate PALS lattices.](https://pals-project.readthedocs.io/en/latest/lattice.html)**
 
-4. **Develop translators between PALS and other simulation formats**
+4. **Develop translators between PALS and other simulation formats.**
 
-5. **Document how various accelerator modeling codes parameterize lattices:**
+5. **Document how various accelerator modeling codes parameterize lattices.**

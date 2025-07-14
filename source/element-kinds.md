@@ -422,8 +422,8 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-Important: By convention, any energy shift is applied after a particle reaches the exit face.
-This matters when the speed of the reference particle is less than the speed of light.
+Important: By convention, the energy shift is applied after a particle reaches the exit face.
+This matters due to the dependence of the reference velocity on the the reference energy.
 
 %---------------------------------------------------------------------------------------------------
 (s:quadrupole)=

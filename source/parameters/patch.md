@@ -21,9 +21,9 @@ The components of `PatchP` are:
   x_offset          - Offset in x-direction.
   y_offset          - Offset in y-direction.
   z_offset          - Offset in z-direction.
-  x_rot             - Offset in x-direction.
-  y_rot             - Offset in x-direction.
-  z_rot             - Offset in x-direction.
+  x_rot             - Rotation around x-axis.
+  y_rot             - Rotation around y-axis.
+  z_rot             - Rotation around z-axis.
   flexible          - Default is False.
                         True -> User sets offsets and rot. 
                         False -> Offsets and rot from branch layout. 
@@ -52,12 +52,15 @@ with respect to one another as shown in {numref}`f:patch`A.
 
 There are two different ways the orientation of the exit face is determined. Which way is used is
 determined by the setting of the `flexible` attribute.  With the `flexible` attribute set to
-`False`, the default, The exit face of the `Patch` will be determined from the offset, and rot
+`False`, the default, the exit face of the `Patch` will be determined from the offset, and rot
 parameters. This type of `Patch` is called
 "rigid" or "inflexible" since the geometry of the `Patch` is solely determined by the
 `Patch`'s attributes as set in the lattice file and is independent of everything else. Example:
 ```{code} yaml
-pt: patch, z_offset = 3.2   ! Equivalent to a drift
+- pt
+    kind: Patch
+    PatchP:
+      z_offset: 3.2   # Equivalent to a drift.
 ```
 
 With `flexible` set to `True`, the exit face is taken to be the reference frame of the
