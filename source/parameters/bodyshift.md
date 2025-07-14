@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:bodyshift.params)=
 ## BodyShiftP: Element Body Orientation and Position Parameters
 

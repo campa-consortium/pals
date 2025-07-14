@@ -1,6 +1,7 @@
 # How to Write Documentation
 
-The documentation uses the [MyST](https://mystmd.org/) markup language and renders to [Sphinx](https://www.sphinx-doc.org) as HTML, PDF or EPUB documents.
+The documentation uses the [MyST](https://mystmd.org/) markup language and renders to 
+[Sphinx](https://www.sphinx-doc.org) as HTML, PDF or EPUB documents.
 
 In order to build the documentation locally, from your particle-accelerator-lattice-standard directory, 
 create a software environment using the commands
