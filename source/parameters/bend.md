@@ -8,7 +8,7 @@ length `length` parameter.
 ```{code} yaml
 fork1:               # [string] user-defined name
   kind: BendP
-  angle              # [degree] Reference bend angle
+  angle: 0           # [degree] Reference bend angle
   bend_field_ref: 0  # [T] Reference bend field
   e1: 0              # [degree] Entrance end pole face rotation with respect to a sector geometry
   e2: 0              # [degree] Exit end pole face rotation with respect to a sector geometry
