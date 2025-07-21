@@ -64,7 +64,7 @@ q2:
 For an element to inherit all parameter groups from another element, just inherit the element itself:
 ```{code} yaml
 q3:
-  kind: Quatrupole  # TODO: do we need to list the kind in inheritance again?
+  kind: Quadrupole  # TODO: do we need to list the kind in inheritance again?
   inherit: q2
 ```
 
