@@ -130,7 +130,8 @@ enhances legibility.
 ## Parameters
 
 All parameters are optional unless explicitly stated otherwise.
-All real-valued optional parameters have a default value of zero unless stated otherwise.
+Optional real or integer parameters have a default value of zero unless otherwise stated.
+Optional string parameters have a default value of blank unless otherwise stated.
 
 %---------------------------------------------------------------------------------------------------
 (s:includefiles)=
