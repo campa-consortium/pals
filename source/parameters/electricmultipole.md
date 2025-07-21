@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:elecmult.params)=
 ## ElectricMultipoleP:  Electric Multipole Parameters
 
@@ -23,9 +22,9 @@ to represent rotational errors.
 
 The components of `ElectricMultipoleP` for specifying a multipolar field of order `N` is:
 ```{code} yaml
-tiltN     - Tilt
-EnN       - Normal component 
-EsN       - Skew component
+tiltN     # Tilt
+EnN       # Normal component 
+EsN       # Skew component
 ```
 
 The field and normalized values can be given in terms of the integrated strength.
@@ -33,9 +32,9 @@ Integrated values are specified with the letter
 `length` appended at the end of the name. Example:
 ```{code} yaml
 ElectricMultipoleP:
-  tilt7: 0.7        - Tilt of 7th order multiple
-  En3: 27.3         - Normal multipole component of order 3.
-  En3L: 3.47e1      - length integrated normal multipole component of order 3.
+  tilt7: 0.7        # Tilt of 7th order multiple
+  En3: 27.3         # Normal multipole component of order 3.
+  En3L: 3.47e1      # length integrated normal multipole component of order 3.
 ```
 The length integrated values are related to the non-integrated values via
 ```{code} yaml

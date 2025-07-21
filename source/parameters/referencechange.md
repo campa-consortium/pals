@@ -6,8 +6,8 @@ The `ReferenceChangeP` parameter group contains parameters for describing how th
 and time deviate from the nominal values from one end of an element to the other end.
 The components of this group are:
 ```{code} yaml
-extra_dtime_ref      - Reference time deviation from nominal.
-dE_ref               - Change in reference energy.
+extra_dtime_ref      # Reference time deviation from nominal.
+dE_ref               # Change in reference energy.
 ```
 The reference energy and time are stored in the [`ReferenceP`](#s:ref.params) group.
 
@@ -45,4 +45,3 @@ in a wiggler, `extra_dtime_ref` can be used to correct for the oscillatory natur
 particle trajectories.
 Since the PALS standard does not define how tracking is to be done, `extra_dtime_ref` and `dE_ref`
 must be calculated by the User.
-

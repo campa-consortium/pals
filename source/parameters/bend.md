@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:bend.params)=
 ## BendP: Bend Parameters
 
@@ -8,20 +7,20 @@ length `length` parameter.
 
 The parameters of this group are:
 ```{code} yaml
-angle             - Reference bend angle.
-bend_field_ref    - Reference bend field.
-e1                - Entrance end pole face rotation with respect to a sector geometry.
-e2                - Exit end pole face rotation with respect to a sector geometry.
-e1_rect           - Entrance end pole face rotation with respect to a rectangular geometry.
-e2_rect           - Exit end pole face rotation with respect to a rectangular geometry.
-edge_int1         - Entrance end fringe field integral.
-edge_int2         - Exit end fringe field integral
-g                 - Reference bend strength = 1/radius.
-h1                - Entrance end pole face curvature.
-h2                - Exit end pole face curvature.
-L_chord           - Chord length.
-L_sagitta         - Sagitta length (output parameter).
-tilt_ref          - Reference tilt.
+angle             # Reference bend angle.
+bend_field_ref    # Reference bend field.
+e1                # Entrance end pole face rotation with respect to a sector geometry.
+e2                # Exit end pole face rotation with respect to a sector geometry.
+e1_rect           # Entrance end pole face rotation with respect to a rectangular geometry.
+e2_rect           # Exit end pole face rotation with respect to a rectangular geometry.
+edge_int1         # Entrance end fringe field integral.
+edge_int2         # Exit end fringe field integral
+g                 # Reference bend strength = 1/radius.
+h1                # Entrance end pole face curvature.
+h2                # Exit end pole face curvature.
+L_chord           # Chord length.
+L_sagitta         # Sagitta length (output parameter).
+tilt_ref          # Reference tilt.
 ```
 
 ```{figure} figures/bend.svg
@@ -69,9 +68,7 @@ The values of `e1` and `e2` give the rotation angle of the entrance and exit pol
 respectively with respect to the radial {math}`x_1` and {math}`x_2` axes as shown in {numref}`f:bend`.
 Zero `e1` and `e2` gives a wedge shaped magnet.
 Also see `e1_rect` and `e2_rect`. The relationship is
-  ```{code} python
-  :label: eeaeea
-
+  ```{code} yaml
   e1 = e1_rect + angle/2 
   e2 = e2_rect + angle/2
   ```

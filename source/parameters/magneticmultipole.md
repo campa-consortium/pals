@@ -24,15 +24,15 @@ to represent rotational errors.
 
 The components of `MagneticMultipoleP` for specifying a multipolar field of order `N` is:
 ```{code} yaml
-tiltN     - Tilt
-BnN       - Normal component 
-BsN       - Skew component
+tiltN     # Tilt
+BnN       # Normal component 
+BsN       # Skew component
 ```
 
 Alternatively, the field components can be specified using normalized values
 ```{code} yaml
-KnN       - Normalized normal component 
-KsN       - Normalized skew component
+KnN       # Normalized normal component 
+KsN       # Normalized skew component
 ```
 where the conversion between field and normalized components is:
 ```{math}
@@ -46,9 +46,9 @@ Integrated values are specified with the letter
 `length` appended at the end of the name. Example:
 ```{code} yaml
 MagneticMultipoleP:
-  tilt7: 0.7        - Tilt of 7th order multiple
-  Bn3: 27.3         - Normal multipole component of order 3.
-  Bn3L: 3.47e1      - length integrated normal multipole component of order 3.
+  tilt7: 0.7        # Tilt of 7th order multiple
+  Bn3: 27.3         # Normal multipole component of order 3.
+  Bn3L: 3.47e1      # length integrated normal multipole component of order 3.
 ```
 The length integrated values are related to the non-integrated values via
 ```{code} yaml
