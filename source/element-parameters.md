@@ -2,7 +2,7 @@
 # Element Parameters
 
 Lattice elements parameters are organized into **parameter groups**. 
-All groups are organized as abstract syntax trees.
+All groups are organized as dictionaries (structures).
 At the top level, there are the groups with names like 
 `MagneticMultipoleP`, `ElectricMultipoleP`, `MetaP`, `AlignmentP`, etc. 
 By convention, group names use upper camel case and it is highly recommended that this convention
@@ -21,8 +21,8 @@ the following is not allowed:
 ```{code} yaml
 q10w:
   kind: Quadrupole
-  MetaP: ...
-  MetaP: ...    # Second instance not allowed!
+  ApertureP: ...
+  ApertureP: ...    # Second instance not allowed!
 ```
 
 %---------------------------------------------------------------------------------------------------
@@ -39,11 +39,19 @@ ap1:
 The above defines an aperture with the name **ap1**. 
 ```{code} yaml
 ap2:
-  kind: ApertureP  # TODO: do we need to list the kind in inheritance again?
+  kind: ApertureP
   inherit: ap1
   y_limit: [-0.02, 0.05]
 ```
 And the above defines a new aperture group which inherits from **ap1**.
+
+Now we can use the aperture parameter group as follows:
+```{code} yaml
+q0:
+  kind: Quadrupole
+  ApertureP:
+    inherit: ap2
+```
 
 Naming a parameter group is only needed if the parameter group is defined outside of an element.
 ```{code} yaml
@@ -64,7 +72,7 @@ q2:
 For an element to inherit all parameter groups from another element, just inherit the element itself:
 ```{code} yaml
 q3:
-  kind: Quadrupole  # TODO: do we need to list the kind in inheritance again?
+  kind: Quadrupole
   inherit: q2
 ```
 
