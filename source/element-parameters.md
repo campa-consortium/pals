@@ -19,8 +19,8 @@ and `s_position` (the longitudinal position of the element).
 For any given element, a given parameter group can only appear once. For example,
 the following is not allowed:
 ```{code} yaml
-Quadrupole:
-  name: q10w
+q10w:
+  kind: Quadrupole
   MetaP: ...
   MetaP: ...    # Second instance not allowed!
 ```
@@ -32,14 +32,14 @@ Any group can be given a **name** and the values can be used in another group of
 using **import**.
 For example:
 ```{code} yaml
-ApertureP:
-  name: ap1
+ap1:
+  kind: ApertureP
   x_limit: [-0.03, 0.04]
 ```
 The above defines an aperture with the name **ap1**. 
 ```{code} yaml
-ApertureP:
-  name: ap2
+ap2:
+  kind: ApertureP  # TODO: do we need to list the kind in inheritance again?
   inherit: ap1
   y_limit: [-0.02, 0.05]
 ```
@@ -47,24 +47,24 @@ And the above defines a new aperture group which inherits from **ap1**.
 
 Naming a parameter group is only needed if the parameter group is defined outside of an element.
 ```{code} yaml
-Quatrupole:
-  name: q1
+q1:
+  kind: Quadrupole
   ApertureP: 
     x_limit: [-0.03, 0.04]
     y_limit: [-0.02, 0.03]
 ```
 And an element can inherit a parameter group from another element:
 ```{code} yaml
-Quatrupole:
-  name: q2
+q2:
+  kind: Quadrupole
   ApertureP:
     inherit: q1.ApertureP
 ```
 
 For an element to inherit all parameter groups from another element, just inherit the element itself:
 ```{code} yaml
-Quatrupole:
-  name: q3
+q3:
+  kind: Quatrupole  # TODO: do we need to list the kind in inheritance again?
   inherit: q2
 ```
 
