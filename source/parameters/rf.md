@@ -2,16 +2,18 @@
 (s:rf.params)=
 ## RFP: RF Parameters
 
-The components of this group are:
+The components of this group and their defaults are:
 ```{code} yaml
-frequency         # RF frequency.
-harmon            # RF frequency harmonic number.
-voltage           # RF voltage.
-gradient          # RF gradient.
-phase             # RF phase.
-multipass_phase   # RF Phase added to multipass elements.
-cavity_type       # Cavity type. Default is STANDING_WAVE.
-n_cell            # Number of cavity cells. Default is 1.
+sol1:                           # [string] user-defined name
+  kind: Solenoid
+  frequency: 0                  # [Hz] RF frequency
+  harmon: 0                     # [unitless] RF frequency harmonic number
+  voltage: 0                    # [V] RF voltage
+  gradient: 0                   # [V/m] RF gradient
+  phase: 0                      # [unitless] RF phase in 0 to 2*pi
+  multipass_phase: 0            # [unitless] RF Phase added to multipass elements
+  cavity_type: STANDING_WAVE    # [string] Cavity type
+  n_cell: 1                     # [unitles] Number of cavity cells
 ```
 
 Whether `voltage` or `gradient` is kept constant with length changes is determined by
