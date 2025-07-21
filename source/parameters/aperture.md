@@ -9,7 +9,7 @@ refp1:                            # [string] user-defined name
   x_limits: 0                     # [m] Vector of two real numbers
   y_limits: 0                     # [m] Vector of two real numbers
   shape: ""                       # [string] Aperture shape switch
-  location: "ENTRANCE_END"        # [string] Aperture location switch
+  location: ENTRANCE_END          # [string] Aperture location switch
   aperture_shifts_with_body: ...  # [Boolean] ... TODO: describe ... TODO: default
   vertices: {}                    # [Dictionary] ... TODO: describe ...
   material: ""                    # [string] Material of the Aperture
