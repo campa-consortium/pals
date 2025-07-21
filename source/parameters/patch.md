@@ -18,17 +18,17 @@ Also see [`ReferenceChangeP`](#s:ref.change.params) for the parameter group that
 to change reference time and/or energy. 
 The components of `PatchP` are:
 ```{code} yaml
-  x_offset          - Offset in x-direction.
-  y_offset          - Offset in y-direction.
-  z_offset          - Offset in z-direction.
-  x_rot             - Rotation around x-axis.
-  y_rot             - Rotation around y-axis.
-  z_rot             - Rotation around z-axis.
-  flexible          - Default is False.
-                        True -> User sets offsets and rot. 
-                        False -> Offsets and rot from branch layout. 
-  ref_coords        - Coordinate system defining the length
-  user_sets_length  - Default is False. Is the element length User set? 
+  x_offset          # Offset in x-direction.
+  y_offset          # Offset in y-direction.
+  z_offset          # Offset in z-direction.
+  x_rot             # Rotation around x-axis.
+  y_rot             # Rotation around y-axis.
+  z_rot             # Rotation around z-axis.
+  flexible          # Default is False.
+                    #    True -> User sets offsets and rot. 
+                    #    False -> Offsets and rot from branch layout. 
+  ref_coords        # Coordinate system defining the length
+  user_sets_length  # Default is False. Is the element length User set? 
 ```
 
 The transformation from `Patch` entrance coordinates to exit coordinates is given by [](#wws)
@@ -98,8 +98,8 @@ coordinates. For this, the `ref_coords`
 parameter of a patch can be used. Possible settings are:
 `ref_coords` are:
 ```{code} yaml
-entrance_end  !
-exit_end      ! Default
+entrance_end  #
+exit_end      # Default
 ```
 The default setting of `ref_coords` is `exit_end` and with this the reference coordinates are
 set by the exit end coordinate system (see {numref}`f:patch`). If `ref_coords` is set to

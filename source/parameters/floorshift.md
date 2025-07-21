@@ -14,3 +14,10 @@ The components of `FloorShiftP` are:
   z_rot
 ```
 
+Example:
+```{code} yaml
+FloorShiftP:
+  x_offset:  0.34
+  z_offset: 1.7
+  z_rot: 0.23
+```

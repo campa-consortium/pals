@@ -126,6 +126,13 @@ lattice element attribute dictionaries where having the name of the element as t
 enhances legibility. 
 
 %---------------------------------------------------------------------------------------------------
+(s:parameters)
+## Parameters
+
+All parameters are optional unless explicitly stated otherwise.
+All real-valued optional parameters have a default value of zero unless stated otherwise.
+
+%---------------------------------------------------------------------------------------------------
 (s:includefiles)=
 ## Include Files
 

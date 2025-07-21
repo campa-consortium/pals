@@ -7,20 +7,20 @@ length `length` parameter.
 
 The parameters of this group are:
 ```{code} yaml
-angle             - Reference bend angle.
-bend_field_ref    - Reference bend field.
-e1                - Entrance end pole face rotation with respect to a sector geometry.
-e2                - Exit end pole face rotation with respect to a sector geometry.
-e1_rect           - Entrance end pole face rotation with respect to a rectangular geometry.
-e2_rect           - Exit end pole face rotation with respect to a rectangular geometry.
-edge_int1         - Entrance end fringe field integral.
-edge_int2         - Exit end fringe field integral
-g                 - Reference bend strength = 1/radius.
-h1                - Entrance end pole face curvature.
-h2                - Exit end pole face curvature.
-L_chord           - Chord length.
-L_sagitta         - Sagitta length (output parameter).
-tilt_ref          - Reference tilt.
+angle             # Reference bend angle.
+bend_field_ref    # Reference bend field.
+e1                # Entrance end pole face rotation with respect to a sector geometry.
+e2                # Exit end pole face rotation with respect to a sector geometry.
+e1_rect           # Entrance end pole face rotation with respect to a rectangular geometry.
+e2_rect           # Exit end pole face rotation with respect to a rectangular geometry.
+edge_int1         # Entrance end fringe field integral.
+edge_int2         # Exit end fringe field integral
+g                 # Reference bend strength = 1/radius.
+h1                # Entrance end pole face curvature.
+h2                # Exit end pole face curvature.
+L_chord           # Chord length.
+L_sagitta         # Sagitta length (output parameter).
+tilt_ref          # Reference tilt.
 ```
 
 ```{figure} figures/bend.svg

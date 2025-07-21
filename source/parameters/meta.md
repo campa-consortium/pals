@@ -4,10 +4,10 @@
 
 `MetaP` has four standard components
 ```{code} yaml
-  alias         - String
-  ID            - String
-  label         - String
-  description   - String
+  alias         # String
+  ID            # String
+  label         # String
+  description   # String
 ```
 In addition to an element's name, these strings can be used for pattern matching
 when trying to locate all elements of a given type.
