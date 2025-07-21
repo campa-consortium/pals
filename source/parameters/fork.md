@@ -3,17 +3,19 @@
 ## ForkP: Fork Parameters
 
 The `ForkP` parameter group holds parameters for a `Fork` element.
-The components of this group are:
+The components of this group and their defaults are:
 ```{code} yaml
-  to_line               # String: Beam line to fork to
-  to_ele                # String: Element forked to.
-  direction             # Switch: Longitudinal Direction of travel of injected beam.
-  propagate_reference   # Boolian: Propagate reference species and energy?
+fork1:                      # [string] user-defined name
+  kind: ForkP
+  to_line: ""               # [string] Beam line to fork to
+  to_ele: ""                # [string] Element forked to.
+  direction: FORWARDS       # [string] Switch: Longitudinal Direction of travel of injected beam.
+  propagate_reference: ...  # [Boolean] Propagate reference species and energy?  ... TODO: description, default ...
 ```
 The possible values of the optional `direction` switch are:
 ```{code} yaml
-FORWARDS            # Injected particle propagates in forward direction. Default.
-BACKWARDS           # Injected particle propagates in reverse direction.
+  direction: FORWARDS   # Injected particle propagates in forward direction. Default.
+  direction: BACKWARDS  # Injected particle propagates in reverse direction.
 ```
 
 See the [](#s:forking) chapter for more details.

@@ -137,7 +137,7 @@ The components of the `ForkP` group are:
   to_element            # Optional String: Element to fork to. Default is Beginning.
   direction             # Optional Switch: Longitudinal Direction of travel of injected beam.
   branch_name           # Optional String: Name to give created Branch.
-  propagate_reference   # Optional Boolian: Propagate reference species and energy? Default is False.
+  propagate_reference   # Optional Boolean: Propagate reference species and energy? Default is False.
 ```
 The possible values of the optional `direction` switch are:
 ```{code} yaml
