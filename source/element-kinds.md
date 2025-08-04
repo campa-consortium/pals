@@ -6,7 +6,7 @@ Note: `name`, `length`, and `s_position` parameters stand alone and not part of 
 Example:
 ```{code} yaml
 cleo:             # [string] user-defined name
-  kind: Solenoid  # [string] element kind
+  kind: Solenoid  # [string] element switch
   length: 3.74
   SolenoidP:
     Ksol: -0.15

@@ -12,8 +12,8 @@ fork1:              # [string] user-defined name
   x_offset: 0       # [m] Offset along x-axis
   y_offset: 0       # [m] Offset along y-axis
   z_offset: 0       # [m] Offset along z-axis
-  x_rot: 0          # [degrees] Rotation around x-axis
-  y_rot: 0          # [degrees] Rotation around y-axis
-  z_rot: 0          # [degrees] Rotation around z-axis
+  x_rot: 0          # [radian] Rotation around x-axis
+  y_rot: 0          # [radian] Rotation around y-axis
+  z_rot: 0          # [radian] Rotation around z-axis
 ```
 

@@ -24,7 +24,7 @@ does not affect simulations. Custom, program specific information should be stor
 Example:
 ```{code} yaml
 quad1:                  # [string] user-defined name
-  kind: Quadrupole      # [string] element kind
+  kind: Quadrupole      # [string] element switch
   MetaP:
     ID: 0137-85
     history:            # Custom information
