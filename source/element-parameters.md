@@ -19,10 +19,10 @@ and `s_position` (the longitudinal position of the element).
 For any given element, a given parameter group can only appear once. For example,
 the following is not allowed:
 ```{code} yaml
-q10w:
-  kind: Quadrupole
-  ApertureP: ...
-  ApertureP: ...    # Second instance not allowed!
+- q10w:
+    kind: Quadrupole
+    ApertureP: ...
+    ApertureP: ...    # Second instance not allowed!
 ```
 
 %---------------------------------------------------------------------------------------------------
@@ -32,14 +32,14 @@ Any group can be given a **name** and the values can be used in another group of
 using **import**.
 For example:
 ```{code} yaml
-ap1:
-  kind: ApertureP
+- ap1:
+    kind: ApertureP
   x_limit: [-0.03, 0.04]
 ```
 The above defines an aperture with the name **ap1**. 
 ```{code} yaml
-ap2:
-  kind: ApertureP
+- ap2:
+    kind: ApertureP
   inherit: ap1
   y_limit: [-0.02, 0.05]
 ```
@@ -47,33 +47,33 @@ And the above defines a new aperture group which inherits from **ap1**.
 
 Now we can use the aperture parameter group as follows:
 ```{code} yaml
-q0:
-  kind: Quadrupole
-  ApertureP:
-    inherit: ap2
+- q0:
+    kind: Quadrupole
+    ApertureP:
+        inherit: ap2
 ```
 
 Naming a parameter group is only needed if the parameter group is defined outside of an element.
 ```{code} yaml
-q1:
-  kind: Quadrupole
-  ApertureP: 
-    x_limit: [-0.03, 0.04]
-    y_limit: [-0.02, 0.03]
+- q1:
+    kind: Quadrupole
+    ApertureP: 
+        x_limit: [-0.03, 0.04]
+        y_limit: [-0.02, 0.03]
 ```
 And an element can inherit a parameter group from another element:
 ```{code} yaml
-q2:
-  kind: Quadrupole
-  ApertureP:
-    inherit: q1.ApertureP
+- q2:
+    kind: Quadrupole
+    ApertureP:
+        inherit: q1.ApertureP
 ```
 
 For an element to inherit all parameter groups from another element, just inherit the element itself:
 ```{code} yaml
-q3:
-  kind: Quadrupole
-  inherit: q2
+- q3:
+    kind: Quadrupole
+    inherit: q2
 ```
 
 %---------------------------------------------------------------------------------------------------
