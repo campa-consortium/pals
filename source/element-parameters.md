@@ -2,7 +2,7 @@
 # Element Parameters
 
 Lattice elements parameters are organized into **parameter groups**. 
-All groups are organized as dictionaries (structures).
+All groups are organized as dictionaries (structures) and lists.
 At the top level, there are the groups with names like 
 `MagneticMultipoleP`, `ElectricMultipoleP`, `MetaP`, `AlignmentP`, etc. 
 By convention, group names use upper camel case and it is highly recommended that this convention
