@@ -70,14 +70,14 @@ For a `RECTANGULAR` aperture the corresponding four conditions are:
 
 Default values for the limits are `[-Inf, Inf]` for both `x_limit` and `y_limit`.
 
-### misalignment_moves_aperture
+### aperture_shifts_with_body
 
-The `misalignment_moves_aperture` parameter determines whether misaligning an element 
+The `aperture_shifts_with_body` parameter determines whether misaligning an element 
 affects the placement of the aperture. The default is `False`. 
-A common case where `misalignment_moves_aperture` would be `False` is when a beam pipe,
+A common case where `aperture_shifts_with_body` would be `False` is when a beam pipe,
 which incorporates the aperture, is not physically touching the surrounding magnet element. 
 When tracking a particle, assuming that there are only apertures at the element ends, 
-the order of computation with `misalignment_moves_aperture` set to `False` could be
+the order of computation with `aperture_shifts_with_body` set to `False` could be
 ```{code} yaml
   1) Start at upstream end of element
   2) Check upstream aperture if there is one.
@@ -87,7 +87,7 @@ the order of computation with `misalignment_moves_aperture` set to `False` could
   6) Check downstream aperture if there is one.
   7) End at downstream end of element.
 ```
-With `misalignment_moves_aperture` set to `True`, the computation order could be
+With `aperture_shifts_with_body` set to `True`, the computation order could be
 ```{code} YAML
   1) Start at upstream end of element
   2) Convert from branch coordinates to body coordinates.
