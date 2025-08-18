@@ -8,7 +8,7 @@ at a point {math}`\bf r` in terms of the points polar coordinates {math}`(r, \th
 ```{math}
 :label: bbmult
 
-B_x({\bf r}) + i \, B_y({\bf r}) = 
+B_y({\bf r}) + i \, B_x({\bf r}) = 
 \frac{1}{N!}(B_n + i \, B_s) \, e^{-i(N+1)T} \, e^{iN\theta} \, r^N
 ```
 where {math}`T` is the "tilt" of the `N`{sup}`th` multipole and {Math}`B_n` and {math}`B_s` are
