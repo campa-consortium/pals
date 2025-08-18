@@ -5,22 +5,23 @@ The `BendP` group stores the parameters that characterize the shape of a [`Bend`
 The only relevant shape parameter that is not in the `BendP` is the
 length `length` parameter.
 
-The parameters of this group are:
 ```{code} yaml
-angle             # Reference bend angle.
-bend_field_ref    # Reference bend field.
-e1                # Entrance end pole face rotation with respect to a sector geometry.
-e2                # Exit end pole face rotation with respect to a sector geometry.
-e1_rect           # Entrance end pole face rotation with respect to a rectangular geometry.
-e2_rect           # Exit end pole face rotation with respect to a rectangular geometry.
-edge_int1         # Entrance end fringe field integral.
-edge_int2         # Exit end fringe field integral
-g                 # Reference bend strength = 1/radius.
-h1                # Entrance end pole face curvature.
-h2                # Exit end pole face curvature.
-L_chord           # Chord length.
-L_sagitta         # Sagitta length (output parameter).
-tilt_ref          # Reference tilt.
+fork1:               # [string] user-defined name
+  kind: BendP
+  angle: 0           # [radian] Reference bend angle
+  bend_field_ref: 0  # [T] Reference bend field
+  e1: 0              # [radian] Entrance end pole face rotation with respect to a sector geometry
+  e2: 0              # [radian] Exit end pole face rotation with respect to a sector geometry
+  e1_rect: 0         # [radian] Entrance end pole face rotation with respect to a rectangular geometry
+  e2_rect: 0         # [radian] Exit end pole face rotation with respect to a rectangular geometry
+  edge_int1: 0       # [T*m] Entrance end fringe field integral
+  edge_int2: 0       # [T*m] Exit end fringe field integral
+  g: 0               # [1/m] Reference bend strength = 1/radius
+  h1: 0              # [TODO] Entrance end pole face curvature
+  h2: 0              # [TODO] Exit end pole face curvature
+  L_chord: 0         # [m] Chord length
+  L_sagitta: 0       # [m] Sagitta length (output parameter)  TODO ??? output parameter??
+  tilt_ref: 0        # [radian] Reference tilt
 ```
 
 ```{figure} figures/bend.svg

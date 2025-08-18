@@ -5,13 +5,15 @@ Parameters describing where the physical element is with respect to its nominal 
 This parameters group can be used to simulate positional errors. See section [](#s:lab.body.transform)
 for documentation on the body shift transformation.
 
-The parameters of this group are:
+The components of this group and their defaults are:
 ```{code} yaml
-  x_offset    # Offset along x-axis.
-  y_offset    # Offset along y-axis.
-  z_offset    # Offset along z-axis.
-  x_rot       # Rotation around x-axis.
-  y_rot       # Rotation around y-axis.
-  z_rot       # Rotation around z-axis.
+fork1:              # [string] user-defined name
+  kind: BodyShiftP
+  x_offset: 0       # [m] Offset along x-axis
+  y_offset: 0       # [m] Offset along y-axis
+  z_offset: 0       # [m] Offset along z-axis
+  x_rot: 0          # [radian] Rotation around x-axis
+  y_rot: 0          # [radian] Rotation around y-axis
+  z_rot: 0          # [radian] Rotation around z-axis
 ```
 

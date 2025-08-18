@@ -22,22 +22,25 @@ to represent rotational errors.
 
 The components of `ElectricMultipoleP` for specifying a multipolar field of order `N` is:
 ```{code} yaml
-tiltN     # Tilt
-EnN       # Normal component 
-EsN       # Skew component
+emp1:                       # [string] user-defined name
+  kind: ElectricMultipoleP
+  tiltN: 0                  # [unitles] Tilt
+  EnN: 0                    # [unitles] Normal component 
+  EsN: 0                    # [unitles] Skew component
 ```
 
 The field and normalized values can be given in terms of the integrated strength.
 Integrated values are specified with the letter 
 `length` appended at the end of the name. Example:
 ```{code} yaml
-ElectricMultipoleP:
-  tilt7: 0.7        # Tilt of 7th order multiple
-  En3: 27.3         # Normal multipole component of order 3.
-  En3L: 3.47e1      # length integrated normal multipole component of order 3.
+emp1:
+  kind: ElectricMultipoleP
+  tilt7: 0.7        # [unitles] Tilt of 7th order multiple
+  En3: 27.3         # [unitles] Normal multipole component of order 3
+  En3L: 3.47e1      # [unitles] length integrated normal multipole component of order 3
 ```
 The length integrated values are related to the non-integrated values via
-```{code} yaml
+```{code} math
   (EnL, EsL) = length * (En, Es)
 ```
 where `length` is the length of the element.
@@ -52,11 +55,11 @@ complicated by the curvilinear coordinate system.
 The `geometry` component switch can be used to specify how to calculate the multipole fields. 
 Possible settings for this component are:
 ```{code} yaml
-vertically_pure
-horizontally_pure
-entrance_tangent
-exit_tangent
-chord_tangent
+  geometry: vertically_pure    # [string] TODO: description
+  geometry: horizontally_pure  # [string] TODO: description
+  geometry: entrance_tangent   # [string] TODO: description
+  geometry: exit_tangent       # [string] TODO: description
+  geometry: chord_tangent      # [string] TODO: description
 ```
 The `entrance_tangent` setting is used when the [reference curve](#s:coords) for the 
 multipole coordinate system is the straight line tangent to the entrance coordinates of the bend. 

@@ -2,28 +2,30 @@
 ## ApertureP: Aperture Parameters
 
 The `ApertureP` parameter group contains parameters for describing an aperture. 
-The components of this group are:
+The components of this group and their defaults are:
 ```{code} yaml
-x_limits                     # [m] Vector of two real numbers
-y_limits                     # [m] Vector of two real numbers
-shape                        # Switch
-location                     # Switch
-aperture_shifts_with_body    # Boolian
-vertices                     # Structure
-material                     # String
-thickness                    # [m] Real number
+refp1:                            # [string] user-defined name
+  kind: ApertureP
+  x_limits: 0                     # [m] Vector of two real numbers
+  y_limits: 0                     # [m] Vector of two real numbers
+  shape: ""                       # [string] Aperture shape switch
+  location: ENTRANCE_END          # [string] Aperture location switch
+  aperture_shifts_with_body: ...  # [Boolean] ... TODO: describe ... TODO: default
+  vertices: {}                    # [Dictionary] ... TODO: describe ...
+  material: ""                    # [string] Material of the Aperture
+  thickness: 0                    # [m] Real number
 ```
 
 ### Location component
 
 The aperture location is set by the `location` parameter. Possible values are
 ```{code} yaml
-ENTRANCE_END   # Body entrance end (default)
-CENTER         # Element center
-EXIT_END       # Body exit end
-BOTH_ENDS      # Both ends
-NOWHERE        # No location
-EVERYWHERE     # Everywhere
+  location: ENTRANCE_END   # Body entrance end (default)
+  location: CENTER         # Element center
+  location: EXIT_END       # Body exit end
+  location: BOTH_ENDS      # Both ends
+  location: NOWHERE        # No location
+  location: EVERYWHERE     # Everywhere
 ```
 The default is `ENTRANCE_END`.
 
@@ -40,10 +42,10 @@ by a set of vertices.
 
 The `shape` parameter selects the shape of the aperture. Possible values are:
 ```{code} yaml
-RECTANGULAR   # Rectangular shape.
-ELLIPTICAL    # Elliptical shape.
-VERTICES      # Shape defined by set of vertices.
-CUSTOM_SHAPE  # Shape defined outside of the lattice standard.
+  shape: RECTANGULAR   # Rectangular shape.
+  shape: ELLIPTICAL    # Elliptical shape.
+  shape: VERTICES      # Shape defined by set of vertices.
+  shape: CUSTOM_SHAPE  # Shape defined outside of the lattice standard.
 ```
 
 ### x_limit and y_limit components
@@ -68,14 +70,14 @@ For a `RECTANGULAR` aperture the corresponding four conditions are:
 
 Default values for the limits are `[-Inf, Inf]` for both `x_limit` and `y_limit`.
 
-### misalignment_moves_aperture
+### aperture_shifts_with_body
 
-The `misalignment_moves_aperture` parameter determines whether misaligning an element 
+The `aperture_shifts_with_body` parameter determines whether misaligning an element 
 affects the placement of the aperture. The default is `False`. 
-A common case where `misalignment_moves_aperture` would be `False` is when a beam pipe,
+A common case where `aperture_shifts_with_body` would be `False` is when a beam pipe,
 which incorporates the aperture, is not physically touching the surrounding magnet element. 
 When tracking a particle, assuming that there are only apertures at the element ends, 
-the order of computation with `misalignment_moves_aperture` set to `False` could be
+the order of computation with `aperture_shifts_with_body` set to `False` could be
 ```{code} yaml
   1) Start at upstream end of element
   2) Check upstream aperture if there is one.
@@ -85,7 +87,7 @@ the order of computation with `misalignment_moves_aperture` set to `False` could
   6) Check downstream aperture if there is one.
   7) End at downstream end of element.
 ```
-With `misalignment_moves_aperture` set to `True`, the computation order could be
+With `aperture_shifts_with_body` set to `True`, the computation order could be
 ```{code} YAML
   1) Start at upstream end of element
   2) Convert from branch coordinates to body coordinates.
@@ -111,9 +113,10 @@ Between vertex points, the aperture can follow a straight line or the arc of an 
 The vertex points are specified by setting the `vertices` parameter. This parameter has three
 subcomponents
 ```{code} yaml
-center              # [m] Vector of [x, y] center point.
-absolute_vertices   # Boolian. Default is False.
-list                # Struct. Ordered list of vertex points.
+  verticies:
+    center: 0                 # [m] Vector of (x, y) center point.
+    absolute_vertices: false  # [Boolean] Default is False.
+    list: [{}]                # [List of dictionaries] Ordered list of vertex points.
 ```
 The `list` vector can have the components:
 ```{code} yaml
