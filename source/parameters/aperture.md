@@ -4,8 +4,7 @@
 The `ApertureP` parameter group contains parameters for describing an aperture. 
 The components of this group and their defaults are:
 ```{code} yaml
-refp1:                            # [string] user-defined name
-  kind: ApertureP
+ApertureP:
   x_limits: [NaN, NaN]            # [m] Vector of two real numbers
   y_limits: [NaN, NaN]            # [m] Vector of two real numbers
   shape: ""                       # [string] Aperture shape switch

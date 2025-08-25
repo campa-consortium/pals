@@ -18,6 +18,7 @@ Also see [`ReferenceChangeP`](#s:ref.change.params) for the parameter group that
 to change reference time and/or energy. 
 The components of `PatchP` are:
 ```{code} yaml
+PatchP:
   x_offset          # Offset in x-direction.
   y_offset          # Offset in y-direction.
   z_offset          # Offset in z-direction.

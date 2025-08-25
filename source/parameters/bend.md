@@ -6,8 +6,7 @@ The only relevant shape parameter that is not in the `BendP` is the
 length `length` parameter.
 
 ```{code} yaml
-fork1:               # [string] user-defined name
-  kind: BendP
+BendP:
   rho_ref: 0       # [radian] Reference bend angle
   bend_field_ref: 0  # [T] Reference bend field
   e1: 0              # [radian] Entrance end pole face rotation with respect to a sector geometry

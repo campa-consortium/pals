@@ -5,8 +5,9 @@ The `ReferenceChangeP` parameter group contains parameters for describing how th
 and time deviate from the nominal values from one end of an element to the other end.
 The components of this group are:
 ```{code} yaml
-extra_dtime_ref      # Reference time deviation from nominal.
-dE_ref               # Change in reference energy.
+ReferenceChangeP:
+  extra_dtime_ref      # Reference time deviation from nominal.
+  dE_ref               # Change in reference energy.
 ```
 The reference energy and time are stored in the [`ReferenceP`](#s:ref.params) group.
 
