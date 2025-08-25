@@ -6,14 +6,15 @@ The components of this group and their defaults are:
 ```{code} yaml
 refp1:                            # [string] user-defined name
   kind: ApertureP
-  x_limits: 0                     # [m] Vector of two real numbers
-  y_limits: 0                     # [m] Vector of two real numbers
+  x_limits: [NaN, NaN]            # [m] Vector of two real numbers
+  y_limits: [NaN, NaN]            # [m] Vector of two real numbers
   shape: ""                       # [string] Aperture shape switch
-  location: ENTRANCE_END          # [string] Aperture location switch
-  aperture_shifts_with_body: ...  # [Boolean] ... TODO: describe ... TODO: default
-  vertices: {}                    # [Dictionary] ... TODO: describe ...
+  location: ENTRANCE_END          # [enum] Aperture location switch
+  vertices: []                    # [array] Array of vertex points. See below.
   material: ""                    # [string] Material of the Aperture
   thickness: 0                    # [m] Real number
+  aperture_shifts_with_body: F    # [Boolean] See below.
+  aperture_active: T              # [Boolean] F implies aperture is not operating.
 ```
 
 ### Location component
@@ -48,27 +49,30 @@ The `shape` parameter selects the shape of the aperture. Possible values are:
   shape: CUSTOM_SHAPE  # Shape defined outside of the lattice standard.
 ```
 
-### x_limit and y_limit components
+### x_limits and y_limits components
 
-For `RECTANGULAR` and `ELLIPTICAL` shapes the `x_limit` and `y_limit` parameters are
+For `RECTANGULAR` and `ELLIPTICAL` shapes the `x_limits` and `y_limits` parameters are
 used to calculate the aperture as shown in {numref}`f:aperture`A. 
-For an `ELLIPTICAL` aperture, a particle with position {math}`(x, y)`
-is outside of the aperture if any one of the following four conditions is true:
+
+For an `ELLIPTICAL` aperture, all four limits must be set otherwise the aperture is not active.
+A particle with position {math}`(x, y)` is outside of the aperture if:
 ```{code}
-  1) x < 0 and y < 0 and (x/x_limit[1])^2 + (y/y_limit[1])^2 > 1 
-  2) x < 0 and y > 0 and (x/x_limit[1])^2 + (y/y_limit[2])^2 > 1
-  3) x > 0 and y < 0 and (x/x_limit[2])^2 + (y/y_limit[1])^2 > 1
-  4) x > 0 and y > 0 and (x/x_limit[2])^2 + (y/y_limit[2])^2 > 1
-```
-For a `RECTANGULAR` aperture the corresponding four conditions are:
-```{code}
-  1) x < x_limit[1]
-  2) x > x_limit[2]
-  3) y < y_limit[1]
-  4) y > y_limit[2]
+  ((x - x0) / xw)^2 + ((y - y0) / yw)^2 > 1 
+where
+  x0 = (x_limits[2] - x_limits[1]) / 2
+  y0 = (y_limits[2] - y_limits[1]) / 2
+  xw = (x_limits[2] - x_limits[1]) / 2
+  yw = (y_limits[2] + y_limits[1]) / 2
 ```
 
-Default values for the limits are `[-Inf, Inf]` for both `x_limit` and `y_limit`.
+For a `RECTANGULAR` aperture, a particle is outside of the aperture if any of the following
+four conditions is true:
+```{code}
+  1) x < x_limits[1] && x_limits[1] != NaN
+  2) x > x_limits[2] && x_limits[2] != NaN
+  3) y < y_limits[1] && y_limits[1] != NaN
+  4) y > y_limits[2] && y_limits[2] != NaN
+```
 
 ### aperture_shifts_with_body
 

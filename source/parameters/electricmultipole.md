@@ -1,4 +1,4 @@
-(s:elecmult.params)=
+(s:elec.mult.params)=
 ## ElectricMultipoleP:  Electric Multipole Parameters
 
 The `ElectricMultipoleP` parameter group describes electric multipoles associated with the lattice
@@ -40,7 +40,7 @@ emp1:
   En3L: 3.47e1      # [unitles] length integrated normal multipole component of order 3
 ```
 The length integrated values are related to the non-integrated values via
-```{code} math
+```{code} yaml
   (EnL, EsL) = length * (En, Es)
 ```
 where `length` is the length of the element.
@@ -73,4 +73,4 @@ is not the same as the [`branch` reference curve](#s:coords).
 
 If `geometry` is set to `vertically_pure` or `horizontally_pure`, the reference curve
 for the multipoles is the circular arc of the bend corresponding to the `branch` reference curve. 
-This is discussed in detail in [](#c:multipole.bend).
+This is discussed in detail in [](#s:bend.multipoles).

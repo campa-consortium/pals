@@ -120,8 +120,3 @@ Note: To provide flexibility, the `extra_dtime_ref` of the `ReferenceChageP` gro
 the change in reference time through a patch. The difference between using `t_offset` and
 `length` is that the reference time change using `extra_dtime_ref` is independent of the reference 
 velocity while with `length` there is a dependence upon the reference velocity. 
-
-When a lattice branch contains both normally oriented and reversed elements
-([](#s:ref.construct), a `Patch`, or series of `patches`, which reflects the {math}`z` direction
-must be placed in between. Such a `Patch`, (or patches) is called a `reflection` `Patch`.
-See Section~[](#s:reflect.patch) for more details on how a reflection patch is defined.

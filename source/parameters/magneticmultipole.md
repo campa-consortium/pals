@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:mag.mult.params)=
 ## MagneticMultipoleP: Magnetic Multipole Parameters
 
@@ -85,7 +84,7 @@ is not the same as the [`branch` reference curve](#s:coords).
 
 If `geometry` is set to `vertically_pure` or `horizontally_pure`, the reference curve
 for the multipoles is the circular arc of the bend corresponding to the `branch` reference curve. 
-This is discussed in detail in [](#c:multipole.bend).
+This is discussed in detail in [](#s:bend.multipoles).
 
 "Tapering parmeters" account for the fact that, due to synchrotron radiation, the energy of a 
 beam at a particular point can be different from the reference value. There is an

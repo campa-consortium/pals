@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:ref.change.params)=
 ## ReferenceChangeP: Change in Reference Parameters
 

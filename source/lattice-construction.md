@@ -17,7 +17,7 @@ Example:
             periodic: True
 ```
 In this example, `this_line` and `that_line` are the names of the root BeamLines
-for the two `Branches` that will be created when the lattice is [expanded](#s:expansion).
+for the two `Branches` that will be created when the lattice is [expanded](#s:expansion.intro).
 Branches created due to `Fork` elements also have root `BeamLines`. `Branches` specified
 in the `Lattice` structure are called `root branches` of the `lattice`. Non-root branches
 are those branches created due to `Fork` elements.
@@ -129,7 +129,7 @@ To avoid ambiguities, the kinds of `to-elements` are restricted to be one of:
 
 Notice that these kinds of elements have zero length and unit transfer maps.
 
-A `Fork` element has zero length and must always have a [`ForkP`](#fork.params) parameter group.
+A `Fork` element has zero length and must always have a [`ForkP`](#s:fork.params) parameter group.
 The components of the `ForkP` group are:
 ```{code} yaml
   to_beamline           # String: Name of BeamLine to fork to.

@@ -5,7 +5,7 @@
 (s:beamline.components)=
 ## BeamLine components
 
-A lattice [`branch`](#s:branches) is constructed from a `BeamLine`. A BeamLine is essentially 
+A lattice [`branch`](#s:branches.intro) is constructed from a `BeamLine`. A BeamLine is essentially 
 an ordered array of elements. 
 Each element of a `BeamLine` is either a lattice element or another `BeamLine`. 
 A BeamLine that is contained within another BeamLine is called a `subline`
@@ -126,8 +126,9 @@ A line item which is a lattice element can also be specified by defining the lat
     kind: BeamLine
     line:
       - octA:              # This is a new element not previously defined.
-          kind: Octupole    
-          Kn3L: 0.34
+          kind: Octupole
+          MultipoleP
+            Kn3L: 0.34
           ...
     ...
 ```
@@ -291,7 +292,7 @@ The `from_point` of `thingA` is placed `37.5` meters from the `to_point` point w
 the `to_point` being at the exit end of `thingA`.
 
 The value of `offset` may be negative as well as positive. With negative offsets, 
-the [lattice expansion](#s:expansion) calculation may become recursive but, in any case, plancement
+the [lattice expansion](#s:expansion.intro) calculation may become recursive but, in any case, plancement
 must be computable. That is, situations where there in infinite recursion is forbidden.
 
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves

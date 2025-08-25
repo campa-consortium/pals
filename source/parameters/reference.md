@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:ref.params)=
 ## ReferenceP: Reference Parameters
 
@@ -27,8 +26,8 @@ Except for `time_ref`, the reference parameters are generally the same at the
 upstream and downstream ends of the element. However, there are exceptions.
 For example, the upstream and downstream `species_ref` for a `Foil` element 
 will generally be different. And the reference energy will change if the
-`dE_ref` component of the [`ReferenceChangeP`](#s.ref.change.params) group is nonzero.
-See the [`ReferenceChangeP`](#s.ref.change.params) for details as how the reference
+`dE_ref` component of the [`ReferenceChangeP`](#s:ref.change.params) group is nonzero.
+See the [`ReferenceChangeP`](#s:ref.change.params) for details as how the reference
 energy and time is computed.
 
 For a `BeginningEle` element, parameters of this group are user settable.

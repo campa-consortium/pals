@@ -11,11 +11,6 @@ This is to distinguish between element kinds and parameter groups which might
 have similar names. For example, `Fork` is the name of an element kind and `ForkP`
 is the name of a parameter group which a `Fork` element will have.
 
-There are three element parameters that are so common, and do not fit into
-any of the parameter groups, that they are not grouped. 
-These element parameters are `length` (element length), `name` (name of element),
-and `s_position` (the longitudinal position of the element).
-
 For any given element, a given parameter group can only appear once. For example,
 the following is not allowed:
 ```{code} yaml
@@ -26,6 +21,26 @@ the following is not allowed:
 ```
 
 %---------------------------------------------------------------------------------------------------
+(s:non.params)=
+## Non-Parameter Group Parameters
+
+There are five element parameters that are so common, and do not fit into
+any of the parameter groups, that they are not grouped. 
+These element parameters are:
+```{code} yaml
+  field_master: NotSet  # [Boolean] See Below.
+  is_on: T              # [Bollean] Turns on or off the fields in an element. When off, the element looks like a drift.
+  length: 0             # [m] Length of element. For bends this is the arc length.
+  name: ""              # [string] The name of element.
+  s_position: 0         # [m] The longitudinal position of the element.
+```
+
+The setting of `field_master` matters when there is a change in reference energy during a simulation.
+In this case, if `field_master = T`, magnetic multipoles, RF, and Bend unnormalized fields will be held constant
+and normalized field strengths will be varied. And vice versa when `field_master` is `F`. 
+
+%---------------------------------------------------------------------------------------------------
+(s:inherit.params)=
 ## Naming and Inheriting Parameters
 
 Any group can be given a **name** and the values can be used in another group of the same type
@@ -34,14 +49,14 @@ For example:
 ```{code} yaml
 - ap1:
     kind: ApertureP
-  x_limit: [-0.03, 0.04]
+    x_limit: [-0.03, 0.04]
 ```
 The above defines an aperture with the name **ap1**. 
 ```{code} yaml
 - ap2:
     kind: ApertureP
-  inherit: ap1
-  y_limit: [-0.02, 0.05]
+    inherit: ap1
+    y_limit: [-0.02, 0.05]
 ```
 And the above defines a new aperture group which inherits from **ap1**.
 
@@ -124,6 +139,9 @@ element-by-element.
 ```
 
 ```{include} parameters/magneticmultipole.md
+```
+
+```{include} parameters/master.md
 ```
 
 ```{include} parameters/meta.md
