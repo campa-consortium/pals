@@ -91,14 +91,14 @@ beam at a particular point can be different from the reference value. There is a
 associated tapering parameter for all of the field parameters:
 ```{code} yaml
 Parameter       Associated Tapering Parameter
-  BnN             BtapnN
-  BsN             BtapsN
-  KnN             KtapnN
-  KsN             KtapsN
+  BnN             BnN_taper
+  BsN             BsN_taper
+  KnN             KnN_taper
+  KsN             KsN_taper
 ```
 Additionally, there are four length length integrated tapering parameters corresponding to the four
 length integrated field parameters. The actual (total) field is the sum of the field plus
 the tapering field. For example:
 ```{code} yaml
-Bs2 (actual) = Bs2 + Btaps2
+Bs2 (actual) = Bs2 + Bs2_taper
 ```

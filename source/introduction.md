@@ -94,7 +94,12 @@ Aperture:
 ```
 here `x_limit[1]` and `x_limit[2]` would refer to the first and second values of `x_limit` respectively.
 
-2. The standard defines the following symbols which can be used in place of a value: 
+2. Boolean parameters can be one of three values
+- `True` or `T`    # True value
+- `False` or `F`   # False value
+- `NotSet`         # Useful as a default value when neither `T` nor `F` is appropriate.
+
+3. The standard defines the following symbols which can be used in place of a value: 
 - `Inf`    # Infinity
 - `-Inf`   # Negative infinity
 - `NaN`    # Not a number or value has not been set.
