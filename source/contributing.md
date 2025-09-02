@@ -2,7 +2,7 @@
 
 ## Follow these steps **only once**
 
-1. Go to [https://github.com/campa-consortium/particle-accerator-lattice-standard](https://github.com/campa-consortium/pals).
+1. Go to [https://github.com/campa-consortium/pals](https://github.com/campa-consortium/pals).
 
 2. Click the pulldown arrow next to `Fork`, click `Create a new fork`, and specify your GitHub username in the `Owner` field (e.g., "username").
 
