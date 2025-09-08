@@ -24,12 +24,13 @@ the following is not allowed:
 (s:non.params)=
 ## Non-Parameter Group Parameters
 
-There are five element parameters that are so common, and do not fit into
+There are element parameters that are so common, and do not fit into
 any of the parameter groups, that they are not grouped. 
 These element parameters are:
 ```{code} yaml
   field_master: NotSet  # [Boolean] See Below.
   is_on: T              # [Bollean] Turns on or off the fields in an element. When off, the element looks like a drift.
+  kind: ""              # [enum] Kind of element (Quadrupole, etc.).
   length: 0             # [m] Length of element. For bends this is the arc length.
   name: ""              # [string] The name of element.
   s_position: 0         # [m] The longitudinal position of the element.
