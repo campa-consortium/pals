@@ -23,7 +23,7 @@ git remote rename origin mainline
 
 6.  Add your remote repository in order to track it locally:
 ```
-git remote add username git@github.com:campa-consortium/pals.git
+git remote add username git@github.com:username/pals.git
 ```
 
 ## Follow these steps **each time you submit a pull request**
