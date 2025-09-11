@@ -5,15 +5,15 @@ The `ApertureP` parameter group contains parameters for describing an aperture.
 The components of this group and their defaults are:
 ```{code} yaml
 ApertureP:
-  x_limits: [NaN, NaN]            # [m] Vector of two real numbers
-  y_limits: [NaN, NaN]            # [m] Vector of two real numbers
-  shape: ""                       # [string] Aperture shape switch
-  location: ENTRANCE_END          # [enum] Aperture location switch
-  vertices: []                    # [array] Array of vertex points. See below.
-  material: ""                    # [string] Material of the Aperture
-  thickness: 0                    # [m] Real number
-  aperture_shifts_with_body: F    # [Boolean] See below.
-  aperture_active: T              # [Boolean] F implies aperture is not operating.
+  x_limits: [NaN, NaN]             # [m] Vector of two real numbers
+  y_limits: [NaN, NaN]             # [m] Vector of two real numbers
+  shape: ""                        # [string] Aperture shape switch
+  location: ENTRANCE_END           # [enum] Aperture location switch
+  vertices: []                     # [array] Array of vertex points. See below.
+  material: ""                     # [string] Material of the Aperture
+  thickness: 0                     # [m] Real number
+  aperture_shifts_with_body: false # [Boolean] See below.
+  aperture_active: true            # [Boolean] false implies aperture is not operating.
 ```
 
 ### Location component
