@@ -90,7 +90,7 @@ the order of computation with `aperture_shifts_with_body` set to `False` could b
   6) Check downstream aperture if there is one.
   7) End at downstream end of element.
 ```
-With `aperture_shifts_with_body` set to `True`, the computation order could be
+With `aperture_shifts_with_body` set to `true`, the computation order could be
 ```{code} YAML
   1) Start at upstream end of element
   2) Convert from branch coordinates to body coordinates.
@@ -132,7 +132,7 @@ Example:
 ApertureP:
   vertices:
     center: [-0.045, 0.011]
-    absolute_vertices: True
+    absolute_vertices: true
     list:
       - point: [0.023, 0.069]      # V1
       - point: [-0.025, 0.067]     # V2
@@ -147,7 +147,7 @@ This corresponds roughly to what is shown in {numref}`f:aperture`.
 If the boolean `absolute_vertices` is set `False`, which is the default,
 the vertex point positions are with respect to the `center` point. 
 That is, the vertex point positions in absolute terms are the positions given with each vertex plus
-the position of the `center`. If `absolute_vertices` is `True`, the vertex point positions 
+the position of the `center`. If `absolute_vertices` is `true`, the vertex point positions 
 are independent of the `center` point. The default position of the `center` is the origin.
 
 The `list` component of `vertices` contains an ordered  list of vertex 

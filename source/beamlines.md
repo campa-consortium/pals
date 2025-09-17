@@ -36,14 +36,14 @@ The optional `zero_point` component is used to position sublines.
 The value of `zero_point` is the name of a line element that marks the reference point. 
 To make things unambiguous, the reference line element must have zero length.
 
-Setting optional `periodic` Boolean to `True` indicates that the `BeamLine` is something like a 
+Setting optional `periodic` Boolean to `true` indicates that the `BeamLine` is something like a 
 storage ring where the particle beam recirculates through the `BeamLine` multiple times.
 Setting `periodic` to `False` is used to indicate that the `BeamLine` is something like a 
 Linac or any other line that is "single pass". 
 
-Notice that a setting `periodic` to `True` does **not** mean that the downstream end of
+Notice that a setting `periodic` to `true` does **not** mean that the downstream end of
 the last element of the `BeamLine` has the same [floor](#s:floor) coordinates as the floor
-coordinates at the beginning. Setting `periodic` to `True` simply signals to a program that
+coordinates at the beginning. Setting `periodic` to `true` simply signals to a program that
 it may be appropriate to calculate periodic orbits and Twiss parameters
 as opposed to calculating orbits and Twiss
 parameters based upon orbit and Twiss parameters set by the User for the beginning of the `BeamLine`.  
@@ -80,7 +80,7 @@ Example with four items in `line`:
 
 - inj_line:
     kind: BeamLine
-    multipass: True
+    multipass: true
     length: 37.8
     zero_point: thingC
     line:
