@@ -505,7 +505,7 @@ the bend position. Furthermore, `ref_tilt` is calculated with respect to
 the coordinates at the beginning of the bend while, like straight elements, `roll`, offsets, and
 pitches are calculated with respect to the center of the bend. The different reference frame used
 for `ref_tilt` versus everything else means that five transformations are needed to get from the
-branch frame to the element body frame (see Eq. Eq. [](#llee). Symbolically:
+branch frame to the element body frame (see Eq. Eq. [](#llee)). Symbolically:
 ```{math}
   \Lambda_s \longrightarrow \Lambda_\text{mid-arc} \longrightarrow
   \Omega_\text{mid-chord} \longrightarrow \Omega_\text{offset} \longrightarrow \Omega_\text{tilt_ref}
