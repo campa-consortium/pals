@@ -373,7 +373,7 @@ Where {math}`L` is the length of the element.
 :width: 80%
 :name: f:tilt.bend
 
-A) Rotation axes (bold arrows) for four different `tilt_ref` angles of {math}`\theta_t = 0`, 
+A) Rotation axes (bold arrows) for four different `tilt_ref` angles of {math}`\theta_{tr} = 0`, 
 {math}`\pm \pi/2`, and {math}`\pi`. 
 {math}`(x_0, y_0, z_0)` are the branch coordinates at the entrance end of the bend with
 the {math}`z_0` axis being directed into the page. Any rotation axis will be displaced by a distance of
@@ -397,14 +397,14 @@ For a bend, {math}`\bf S` is given using Eq. [](#wctux2) with
 ```{math}
 :label: ustt
 \begin{align}
-  {\bf u} &= (-\sin\theta_t, -\cos\theta_t, 0) \\
+  {\bf u} &= (-\sin\theta_{tr}, -\cos\theta_{tr}, 0) \\
   \beta &= \alpha_b
 \end{align}
 ```
-where {math}`\theta_t` is the `tilt_ref` angle. The {math}`\bf L` vector for a `bend` is given by 
+where {math}`\theta_{tr}` is the `tilt_ref` angle. The {math}`\bf L` vector for a `bend` is given by 
 ```{math}
 :label: lrztt
-  {\bf L} = {\bf R}_{z}(\theta_t) \; {\bf \tilde L}, \quad
+  {\bf L} = {\bf R}_{z}(\theta_{tr}) \; {\bf \tilde L}, \quad
   {\bf \tilde L} = 
   \begin{pmatrix}
     \rho (\cos\alpha_b - 1) \\ 0 \\ \rho \, \sin\alpha_b
@@ -420,19 +420,19 @@ with branch coordinates the radial direction can point anywhere in the {math}`(x
 Note: An alternative equation for {math}`\bf S` for a bend is
 ```{math}
 :label: srrr
-  {\bf S} = {\bf R}_{z}(\theta_t) \; {\bf R}_{y}(-\alpha_b) \; {\bf R}_{z}(-\theta_t)
+  {\bf S} = {\bf R}_{z}(\theta_{tr}) \; {\bf R}_{y}(-\alpha_b) \; {\bf R}_{z}(-\theta_{tr})
 ```
 The bend transformation above is so constructed that the transformation is equivalent to rotating
 the branch coordinate system around an axis that is perpendicular to the plane of the bend. This
 rotation axis is invariant under the bend transformation. 
-For example, for {math}`\theta_t = 0` (or {math}`\pi`) the {math}`y`-axis is
+For example, for {math}`\theta_{tr} = 0` (or {math}`\pi`) the {math}`y`-axis is
 the rotation axis and the {math}`y`-axis of the branch coordinates before the bend will be
 parallel to the {math}`y`-axis of the branch coordinates after the bend as shown in {numref}`f:tilt.bend`. 
-That is, a lattice with only bends with {math}`\theta_t = 0` or {math}`\pi` will lie in the 
+That is, a lattice with only bends with {math}`\theta_{tr} = 0` or {math}`\pi` will lie in the 
 horizontal plane (this assuming that the {math}`y`-axis starts out pointing along 
 the {math}`Y`-axis as it does by default).
-For {math}`\theta_t = \pm\pi/2`, the bend axis is the {math}`x`-axis. 
-A value of {math}`\theta_t = +\pi/2` represents a downward pointing bend.
+For {math}`\theta_{tr} = \pm\pi/2`, the bend axis is the {math}`x`-axis. 
+A value of {math}`\theta_{tr} = +\pi/2` represents a downward pointing bend.
 
 %---------------------------------------------------------------------------------------------------
 (s:lab.body.transform)=
@@ -500,8 +500,9 @@ non-bend misaligned element depends only on the offsets, and is independent of t
 ### Bend Element Misalignment Transformation
 
 For `Bend` element positioning, besides the standard `BodyShiftP` parameters, there is the
-`tilt_ref` parameter [](#s:bend.params). The latter affects both the reference orbit and
-the bend position. Furthermore, `ref_tilt` is calculated with respect to
+`tilt_ref` ({math}`\theta_{tr}`) parameter (see [](#s:bend.params)). 
+The latter affects both the reference orbit and the bend position. 
+Furthermore, `ref_tilt` is calculated with respect to
 the coordinates at the beginning of the bend while, like straight elements, `roll`, offsets, and
 pitches are calculated with respect to the center of the bend. The different reference frame used
 for `ref_tilt` versus everything else means that five transformations are needed to get from the
@@ -524,7 +525,7 @@ Eq. [](#ustt) and Eq. [](#lrztt) with the substitution {math}`\alpha_b \rightarr
 This translates (no rotation) the origin of {math}`\Lambda_\text{mid-arc}` 
 to the center of the bend chord.
 For this transformation, {math}`\bf S` is the unit matrix and
-{math}`{\bf L} = \rho(\cos(\alpha_b/2) - 1) \, (\cos(\theta_{tr}), \sin(\theta_{tr}), 0)` 
+{math}`{\bf L} = \rho(\cos(\alpha_b/2) - 1) \, (\cos\theta_{tr}, \sin\theta_{tr}, 0)` 
 
 3. {math}`\Omega_\text{mid-chord} \longrightarrow \Omega_\text{offset}`: Element misalignment.
 This transformation uses Eqs. [](#swww2).
