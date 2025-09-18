@@ -434,6 +434,37 @@ the {math}`Y`-axis as it does by default).
 For {math}`\theta_{tr} = \pm\pi/2`, the bend axis is the {math}`x`-axis. 
 A value of {math}`\theta_{tr} = +\pi/2` represents a downward pointing bend.
 
+
+%---------------------------------------------------------------------------------------------------
+(s:position.transform)=
+## Position Transformation When Transforming Coordinates
+
+A point {math}`{\bf Q}_g = (X, Y, Z)` defined in the global coordinate system, when expressed in the
+coordinate system defined by {math}`({\bf V}, {\bf W})` is
+```{math}
+:label: rwrv
+  {\bf Q}_{VW} = {\bf W}^{-1} \left( {\bf Q}_g - {\bf V} \right)
+```
+This is essentially the inverse of Eq. {eq}`wws`. That is, vectors propagate inversely to the
+propagation of the coordinate system.
+
+Using Eq. {eq}`rwrv` with Eqs. {eq}`wws`, the transformation of a 
+particle's position {math}`{\bf q} = (x,y,z)` and momentum {math}`{\bf P} = (P_x, P_y, P_z)` 
+when the coordinate frame is transformed from frame
+{math}`({\bf V}_{i-1}, {\bf W}_{i-1})` to frame {math}`({\bf V}_i, {\bf W}_i)` is
+\begin{align}
+{\bf q}_i &= {\bf S}_i^{-1} \, \left( {\bf q}_{i-1} - {\bf L}_i \right),
+\label{rwlr} \\
+{\bf P}_i &= {\bf S}_i^{-1} \, {\bf P}_{i-1}
+\label{pps}
+\end{align}
+
+Notice that since {math}`{\bf S}` (and {math}`{\bf W}`) is the product of orthogonal 
+rotation matrices, {math}`{\bf S}` is itself orthogonal and its inverse is just the transpose
+```{math}
+  {\bf S}^{-1} = {\bf S}^T
+```
+
 %---------------------------------------------------------------------------------------------------
 (s:lab.body.transform)=
 ## Transformation Between Branch and Element Body Coordinates
