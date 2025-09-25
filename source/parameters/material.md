@@ -6,7 +6,7 @@ In the future all elements and materials in the [G4 Manual](https://geant4-userd
 
 Alternatively custom elements can be defined by
 
-```
+```{code} yaml
 ElementP:
 - name:      # [string] The name of the material
 - density:   # [g/cm^3] The density of the material
@@ -14,32 +14,32 @@ ElementP:
 - A:         # [int]    The mass number (equals Z+N)
 - N:         # [int]    The neutron number
 - m:         # [g/mol]  The atomic mass
-```
+```{code} yaml
 
 and compunds by
 
-```
+```{code} yaml
 CompundP:
 - name:      # [string] The name of the material
 - density:   # [g/cm^3] The density of the material
 - elements:  # List of MaterialP
 - ratio:    # List of ratios of the elements
-```
+```{code} yaml
 
 ### Examples
 `MaterialP: "G4_Cu"` or `MaterialP: "G4_STAINLESS-STEEL"` or define a new material.
 
 Liquid deuterium can be defined with the `ElementP` parameters:
-```
+```{code} yaml
 MaterialP:
 - name: "Deuterium(l)"
 - density: 0.16
 - Z: 1
 - A: 1
 - m: 2.01
-```
+```{code} yaml
 and deuterated polyethylene (C2H4) can be defined based on the previous definition
-```
+```{code} yaml
 MaterialP:
 - name: "deutPE"
 - density: 1.05
@@ -49,6 +49,6 @@ MaterialP:
 - ratio:
   - 2
   - 4
-```
+```{code} yaml
 
 
