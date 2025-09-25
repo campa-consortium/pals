@@ -215,22 +215,24 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 
 %---------------------------------------------------------------------------------------------------
-(s:foil)=
-## Foil Element
+(s:matter)=
+## Matter Element
 
+Materials which fully occupy the beamline, like targets, (stripper-)foils, vacuum windows, gas cells or degraders
 Material that can strip electrons from a particle.
 Will also cause energy loss and diffusion.
 
 Under Construction...
 
 Element parameter groups associated with this element kind are:
-- [**ApertureP**](#s:aperture.params): Aperture parameters.
+- [**ApertureP**](#s:aperture.params): Aperture parameters of the outer (blocking) aperture.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
 - [**MetaP**](#s:meta.params): Meta parameters.
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
+- [**MatterP**](#s:matter.params)
 
 The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
