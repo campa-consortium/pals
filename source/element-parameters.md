@@ -126,6 +126,9 @@ element-by-element.
 ```{include} parameters/magneticmultipole.md
 ```
 
+```{include} parameters/material.md
+```
+
 ```{include} parameters/meta.md
 ```
 
