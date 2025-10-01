@@ -12,7 +12,7 @@ refp1:                            # [string] user-defined name
   location: ENTRANCE_END          # [string] Aperture location switch
   aperture_shifts_with_body: ...  # [Boolean] ... TODO: describe ... TODO: default
   vertices: {}                    # [Dictionary] ... TODO: describe ...
-  material: ""                    # [string] Material of the Aperture
+  material: ""                    # [MaterialP] Material of the Aperture
   thickness: 0                    # [m] Real number
 ```
 
@@ -103,7 +103,6 @@ The difference between the two lists is simply that lines 2 and 3 are switched a
 ### material
 
 The `material` parameter sets the material of the aperture. 
-Using chemical formulas like `Cu` and `Fe` is the most portable.
 
 ### vertices component
 
