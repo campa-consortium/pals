@@ -74,7 +74,7 @@ without any lattice expansions or expression evaluations.
 The **expanded** representation has, among other things, all lines expanded into branches 
 and all expressions evaluated. 
 
-Note: The documentation for the file format part of the PALS standard is contained [here](#c:file.std).
-Since the schema and translator parts are logically intertwined, there has been no attempt
-to separate these in the documentation.
+Note: Since the schema and translator parts are logically intertwined, there has been no attempt
+to separate these in the PALS documentation here.
+The file formats for the various languages like YAML, etc. are separately documented.
 

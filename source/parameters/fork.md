@@ -5,8 +5,7 @@
 The `ForkP` parameter group holds parameters for a `Fork` element.
 The components of this group and their defaults are:
 ```{code} yaml
-fork1:                      # [string] user-defined name
-  kind: ForkP
+ForkP:
   to_line: ""               # [string] Beam line to fork to
   to_ele: ""                # [string] Element forked to.
   direction: FORWARDS       # [string] Switch: Longitudinal Direction of travel of injected beam.

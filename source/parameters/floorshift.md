@@ -1,4 +1,4 @@
-(s:floorshift.params)=
+(s:floor.shift.params)=
 ## FloorShiftP:  FloorShift Parameters
 
 The `FloorShiftP` parameter group describes the shift the reference curve of a `FloorShift` element.

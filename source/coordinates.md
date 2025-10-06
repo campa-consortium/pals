@@ -25,7 +25,7 @@ accelerator is in  may be described using `floor` coordinates.
 
 It is inconvenient to describe the position lattice elements and the position of a 
 particle beam using the `floor` coordinate system so, for each branch,
-a "[branch](#s:branch.coords)" coordinate system is used. This curvilinear coordinate
+a "[branch](#s:ref.construct)" coordinate system is used. This curvilinear coordinate
 system defines the nominal position of the lattice elements. The relationship between the
 `branch` and `floor` coordinate systems is described in section [](#s:floor). 
 
@@ -39,7 +39,7 @@ most machines are essentially horizontal, the {math}`x` coordinate is typically 
 coordinate.
  
 The "nominal" position of a lattice element is the position of the element without any
-[position and orientation shifts](#s:align.g)
+[position and orientation shifts](#s:bodyshift.params)
 (which are sometimes referred to as "misalignments"). 
 Each lattice element has "`element body`"
 coordinates which are attached to the physical element, and the electric and magnetic
@@ -84,10 +84,10 @@ are not included in any branch.
 Most element kinds have a "straight" geometry as shown in
 {numref}`f:ele.coord.frame`A. That is, the reference curve through the element is a straight line
 segment with the {math}`x` and {math}`y` axes always pointing in the same direction.
-For a [Bend](#s:bend}) element the reference curve is a segment of a circular arc as shown in
+For a [Bend](#s:bend) element the reference curve is a segment of a circular arc as shown in
 {numref}`f:ele.coord.frame`B. With the `tilt_ref` parameter of a bend set to zero, the rotation axis
-between the entrance and exit frames is parallel to the {math}`y`-axis ([xxx](#s:floor})).
-For [Patch](#s:patch}) and [floor_shift](#s:floorshift)
+between the entrance and exit frames is parallel to the {math}`y`-axis ([xxx](#s:floor)).
+For [Patch](#s:patch) and [floor_shift](#s:floorshift)
 elements ({numref}`f:ele.coord.frame`C), the exit face can be
 arbitrarily oriented with respect to the entrance end.
 For `FloorShift` elements the interior reference curve between the
@@ -119,11 +119,11 @@ The {math}`y` coordinate is always out of the page for this example.
 %---------------------------------------------------------------------------------------------------
 
 Assuming for the moment that there are no [Fiducial](#s:fiducial) elements present,
-the construction of a branch coordinate system starts at the [BeginningEle](#s:begin.ele) element 
+the construction of a branch coordinate system starts at the [BeginningEle](#s:beginningele) element 
 at the start of a branch. 
-If the branch is a [root](#s:lattice.def) branch, the orientation of the beginning
+If the branch is a [root](#s:lattice.construct) branch, the orientation of the beginning
 element within the [floor coordinate system](#s:coords) can be fixed by setting 
-[FloorOrientation](#s:orientationition.g) parameters in the `BeginningEle` element.
+[FloorP](#s:floor.params) parameters in the `BeginningEle` element.
 If the branch is not a `root` branch, the position
 of the beginning element is determined by the position of the `Fork` element
 from which the branch forks from. The default value of {math}`s` at the `BeginningEle` element is zero
@@ -142,7 +142,7 @@ elements working both forwards and backwards along the branch.
 If there are multiple `Fiducial` elements in a branch, there must be a flexible [Patch](#s:patch)
 element between them.
 
-If an element is not [reversed](#s:ele.reverse),
+If an element is not [reversed](#s:ref.construct),
 the element's `upstream` end is the same as the element's `entrance` end 
 ({numref}`f:ele.coord.frame`) and the `downstream` end is the same 
 as the element's `exit`. If the element is reversed, the `entrance` and `exit` ends are switched.
@@ -165,7 +165,7 @@ with an normal (unreversed) orientation drift named `dft1` connected to a normal
 This gives an unphysical situation since a
 particle traveling through `dft1` will "fall off" when it gets to the drift's end.
 {numref}`f:patch.between`D shows the same line as in {numref}`f:patch.between`C with the addition
-of a [`reflection patch`](#s:reflect.patch) `P` between `dft1` and `bnd1` to give a plausible geometry. 
+of a [`reflection patch`](#s:patch.params) `P` between `dft1` and `bnd1` to give a plausible geometry. 
 In this case, the patch rotates the coordinate system around the {math}`y`-axis by 180{math}`^o` 
 (in this example leaving the {math}`y`-axis invariant). This illustrates why
 a reflection patch is always needed between normal and reversed elements.
@@ -186,6 +186,32 @@ That is, to get a particle going forward through the bend in {numref}`f:patch.be
 - A `reflection Patch` that rotated the coordinates, for example, 
 around the {math}`x`-axis by 180{math}`^o`  would also produce a plausible geometry.
 \end{itemize}
+
+%---------------------------------------------------------------------------------------------------
+(s:reflect.patch)=
+## Reflection Patch
+
+When a lattice branch contains both normally oriented and reversed elements
+([](#s:ref.construct)), a `Patch`, or series of `patches`, which reflects the {math}`z` direction
+must be placed in between. Such a `Patch`, (or patches) is called a `reflection` `Patch`.
+Specifically, a `reflection` `patch` reflects the direction of the `z`-axis.
+By "reflected direction" it is meant that the dot product 
+{math}`{\bf z}_1 \cdot {\bf z}_2` is negative where {math}`{\bf z}_1` is the {math}`z`-axis 
+vector at the `entrance` face and {math}`{\bf z}_2` is the {math}`z`-axis vector at the `exit` face. 
+This condition is equivalent to the condition
+that the associated {math}`\bf S` matrix (Eq. {eq}`wws`) satisfy:
+```{math}
+:label: s330
+
+  S(3,3) < 0
+```
+Using Eq. {eq}`wws` gives, after some simple algebra, this condition is equivalent to
+```{math}
+
+  \cos(\text{x_rot}) \, \cos(\text{y_rot}) < 0
+```
+When there are a series of patches, The transformations of all the patches are concatenated together
+to form an effective {math}`\bf S` which can then be used with Eq. {eq}`s330`.
 
 %---------------------------------------------------------------------------------------------------
 (s:floor)=
@@ -238,7 +264,7 @@ In this case, {math}`\theta` decreases as one follows the branch reference curve
 horizontal bend with a positive bending angle. This corresponds to {math}`x` pointing radially
 outward. Without any vertical bends, the {math}`Y` and {math}`y` axes will coincide, and {math}`\phi` 
 and {math}`\psi` will both be zero. 
-Parameters of the [BeginningEle](#s:beginning}) element can be used to override these defaults.
+Parameters of the [BeginningEle](#s:beginningele) element can be used to override these defaults.
 
 Following MAD, the floor position of an element is characterized by a vector {math}`\bf V`
 ```{math}
@@ -308,7 +334,7 @@ axis {math}`\bf u` (normalized to 1) and angle of rotation {math}`\beta`
 
 %---------------------------------------------------------------------------------------------------
 (s:ele.pos)=
-### Lattice Element Positioning
+## Lattice Element Positioning
 
 The lattice standard, again following MAD, computes {math}`\bf V` and {math}`\bf W` 
 by starting at the first element of the lattice and iteratively using the equations
@@ -347,7 +373,7 @@ Where {math}`L` is the length of the element.
 :width: 80%
 :name: f:tilt.bend
 
-A) Rotation axes (bold arrows) for four different `tilt_ref` angles of {math}`\theta_t = 0`, 
+A) Rotation axes (bold arrows) for four different `tilt_ref` angles of {math}`\theta_{tr} = 0`, 
 {math}`\pm \pi/2`, and {math}`\pi`. 
 {math}`(x_0, y_0, z_0)` are the branch coordinates at the entrance end of the bend with
 the {math}`z_0` axis being directed into the page. Any rotation axis will be displaced by a distance of
@@ -357,7 +383,7 @@ for the same four `tilt_ref` angles. In this case the bend angle is taken to be 
 
 %---------------------------------------------------------------------------------------------------
 
-For a `bend`, the axis of rotation is dependent upon the bend's [`tilt_ref`](#s:offset) angle
+For a `bend`, the axis of rotation is dependent upon the bend's [`tilt_ref`](#s:bend.params) angle
 as shown in {numref}`f:tilt.bend`A. The axis of rotation points in the negative {math}`y_0`
 direction for `tilt_ref` = 0 and is offset by the bend radius `rho`. Here {math}`(x_0, y_0, z_0)`
 are the branch coordinates at the entrance end of the bend with the {math}`z_0` axis being directed into
@@ -371,14 +397,14 @@ For a bend, {math}`\bf S` is given using Eq. [](#wctux2) with
 ```{math}
 :label: ustt
 \begin{align}
-  {\bf u} &= (-\sin\theta_t, -\cos\theta_t, 0) \\
+  {\bf u} &= (-\sin\theta_{tr}, -\cos\theta_{tr}, 0) \\
   \beta &= \alpha_b
 \end{align}
 ```
-where {math}`\theta_t` is the `tilt_ref` angle. The {math}`\bf L` vector for a `bend` is given by 
+where {math}`\theta_{tr}` is the `tilt_ref` angle. The {math}`\bf L` vector for a `bend` is given by 
 ```{math}
 :label: lrztt
-  {\bf L} = {\bf R}_{z}(\theta_t) \; {\bf \tilde L}, \quad
+  {\bf L} = {\bf R}_{z}(\theta_{tr}) \; {\bf \tilde L}, \quad
   {\bf \tilde L} = 
   \begin{pmatrix}
     \rho (\cos\alpha_b - 1) \\ 0 \\ \rho \, \sin\alpha_b
@@ -394,26 +420,57 @@ with branch coordinates the radial direction can point anywhere in the {math}`(x
 Note: An alternative equation for {math}`\bf S` for a bend is
 ```{math}
 :label: srrr
-  {\bf S} = {\bf R}_{z}(\theta_t) \; {\bf R}_{y}(-\alpha_b) \; {\bf R}_{z}(-\theta_t)
+  {\bf S} = {\bf R}_{z}(\theta_{tr}) \; {\bf R}_{y}(-\alpha_b) \; {\bf R}_{z}(-\theta_{tr})
 ```
 The bend transformation above is so constructed that the transformation is equivalent to rotating
 the branch coordinate system around an axis that is perpendicular to the plane of the bend. This
 rotation axis is invariant under the bend transformation. 
-For example, for {math}`\theta_t = 0` (or {math}`\pi`) the {math}`y`-axis is
+For example, for {math}`\theta_{tr} = 0` (or {math}`\pi`) the {math}`y`-axis is
 the rotation axis and the {math}`y`-axis of the branch coordinates before the bend will be
 parallel to the {math}`y`-axis of the branch coordinates after the bend as shown in {numref}`f:tilt.bend`. 
-That is, a lattice with only bends with {math}`\theta_t = 0` or {math}`\pi` will lie in the 
+That is, a lattice with only bends with {math}`\theta_{tr} = 0` or {math}`\pi` will lie in the 
 horizontal plane (this assuming that the {math}`y`-axis starts out pointing along 
 the {math}`Y`-axis as it does by default).
-For {math}`\theta_t = \pm\pi/2`, the bend axis is the {math}`x`-axis. 
-A value of {math}`\theta_t = +\pi/2` represents a downward pointing bend.
+For {math}`\theta_{tr} = \pm\pi/2`, the bend axis is the {math}`x`-axis. 
+A value of {math}`\theta_{tr} = +\pi/2` represents a downward pointing bend.
+
+
+%---------------------------------------------------------------------------------------------------
+(s:position.transform)=
+## Position Transformation When Transforming Coordinates
+
+A point {math}`{\bf Q}_g = (X, Y, Z)` defined in the global coordinate system, when expressed in the
+coordinate system defined by {math}`({\bf V}, {\bf W})` is
+```{math}
+:label: rwrv
+  {\bf Q}_{VW} = {\bf W}^{-1} \left( {\bf Q}_g - {\bf V} \right)
+```
+This is essentially the inverse of Eq. {eq}`wws`. That is, vectors propagate inversely to the
+propagation of the coordinate system.
+
+Using Eq. {eq}`rwrv` with Eqs. {eq}`wws`, the transformation of a 
+particle's position {math}`{\bf q} = (x,y,z)` and momentum {math}`{\bf P} = (P_x, P_y, P_z)` 
+when the coordinate frame is transformed from frame
+{math}`({\bf V}_{i-1}, {\bf W}_{i-1})` to frame {math}`({\bf V}_i, {\bf W}_i)` is
+\begin{align}
+{\bf q}_i &= {\bf S}_i^{-1} \, \left( {\bf q}_{i-1} - {\bf L}_i \right),
+\label{rwlr} \\
+{\bf P}_i &= {\bf S}_i^{-1} \, {\bf P}_{i-1}
+\label{pps}
+\end{align}
+
+Notice that since {math}`{\bf S}` (and {math}`{\bf W}`) is the product of orthogonal 
+rotation matrices, {math}`{\bf S}` is itself orthogonal and its inverse is just the transpose
+```{math}
+  {\bf S}^{-1} = {\bf S}^T
+```
 
 %---------------------------------------------------------------------------------------------------
 (s:lab.body.transform)=
-### Transformation Between Branch and Element Body Coordinates
+## Transformation Between Branch and Element Body Coordinates
 
 The `element body` coordinate system is the coordinate system attached to an element. Without any
-alignment shifts, the [`branch` coordinates](#s:ref) and `element body` coordinates
+alignment shifts, the [`branch` coordinates](#s:ref.construct) and `element body` coordinates
 are the same. With alignment shifts, the transformation between `branch` and `element body`
 coordinates depends upon whether the branch coordinate system is [straight](#s:straight.mis) or
 [bent](#s:bend.mis).
@@ -429,4 +486,98 @@ actual downstream face, the tracking to the nominal downstream end involves tran
 branch coordinates (using {math}`s = L` in the equations below) and then propagating the particle as
 in a field free drift space to the nominal downstream edge.
 
-In construction...
+%---------------------------------------------------------------------------------------------------
+(s:straight.mis)=
+### Straight Element Misalignment Transformation
+
+For straight line elements, given a branch coordinate frame {math}`\Lambda_s` with an origin a distance
+{math}`s` from the beginning of the element, misalignments will shift the coordinates to a new reference
+frame denoted {math}`E_s`. Since misalignments are defined with respect to the middle of the element, the
+transformation from {math}`\Lambda_s` and {math}`E_s` can be accomplished using a three step process:
+```{math}
+:label: llee
+  \Lambda_s \longrightarrow \Lambda_\text{mid} 
+  \longrightarrow E_\text{mid} \longrightarrow E_s
+```
+where {math}`\Lambda_\text{mid}` and {math}`E_\text{mid}` are the branch and element reference frames at the
+center of the element. All transformations use Eqs. [](#wws).
+
+The transformations are:
+1. {math}`\Lambda_s \longrightarrow \Lambda_\text{mid} `: Translation to the element midpoint.
+For this transformation, {math}`\bf S` is the unit matrix and {math}`{\bf L} = (0, 0, L/2 - s)`.
+
+1. {math}`\Lambda_\text{mid} \longrightarrow E_\text{mid}`: Misalignment transformation with
+```{math}
+:label: swww2
+
+
+\bf L =
+\begin{pmatrix}
+\text{x_offset} \\ \text{y_offset} \\ \text{z_offset}
+\end{pmatrix},
+\qquad
+\bf S = {\bf R}_y (\text{y_rot}) \; {\bf R}_x (\text{x_rot}) \; {\bf R}_z (\text{tilt})
+
+```
+
+1. {math}`E_\text{mid} \longrightarrow E_s`: Translation to body coordinates {math}`E_s`.
+For this transformation, {math}`\bf S` is the unit matrix and {math}`{\bf L} = (0, 0, s - L/2)`.
+
+Notice that with this definition of how elements are misaligned, the position of the center of a
+non-bend misaligned element depends only on the offsets, and is independent of the pitches and tilt.
+
+%-----------------------------------------------------------------------------
+(s:bend.mis)=
+### Bend Element Misalignment Transformation
+
+For `Bend` element positioning, besides the standard `BodyShiftP` parameters, there is the
+`tilt_ref` ({math}`\theta_{tr}`) parameter (see [](#s:bend.params)). 
+The latter affects both the reference orbit and the bend position. 
+Furthermore, `ref_tilt` is calculated with respect to
+the coordinates at the beginning of the bend while, like straight elements, `roll`, offsets, and
+pitches are calculated with respect to the center of the bend. The different reference frame used
+for `ref_tilt` versus everything else means that five transformations are needed to get from the
+branch frame to the element body frame (see Eq. Eq. [](#llee)). Symbolically:
+```{math}
+  \Lambda_s \longrightarrow \Lambda_\text{mid-arc} \longrightarrow
+  \Omega_\text{mid-chord} \longrightarrow \Omega_\text{offset} \longrightarrow \Omega_\text{tilt_ref}
+  \longrightarrow E_\text{mid-arc} \longrightarrow E_s
+```
+All transformations use Eqs. [](#wws).
+
+The transformations are:
+1. {math}`\Lambda_s \longrightarrow \Lambda_\text{mid-arc}`: Transformation from the starting 
+branch coordinate system at a longitudinal position along the bend arc of {math}`s` from the upstream 
+end of the bend to the branch coordinates at the center point of the arc.
+This is a rotation around the center of curvature of the bend and is given by 
+Eq. [](#ustt) and Eq. [](#lrztt) with the substitution {math}`\alpha_b \rightarrow (L/2 - s)/\rho`.
+
+2. {math}`\Lambda_\text{mid-arc} \longrightarrow \Omega_\text{mid-chord}`:
+This translates (no rotation) the origin of {math}`\Lambda_\text{mid-arc}` 
+to the center of the bend chord.
+For this transformation, {math}`\bf S` is the unit matrix and
+{math}`{\bf L} = \rho(\cos(\alpha_b/2) - 1) \, (\cos\theta_{tr}, \sin\theta_{tr}, 0)` 
+
+3. {math}`\Omega_\text{mid-chord} \longrightarrow \Omega_\text{offset}`: Element misalignment.
+This transformation uses Eqs. [](#swww2).
+
+4. {math}`\Omega_\text{offset} \longrightarrow \Omega_\text{tilt_ref}`: Rotation by `tilt_ref`
+to get the coordinate system aligned with body coordinates. This transformation uses
+{math}`{\bf L} = 0` and {math}`{\bf S} = {\bf R}_z(\theta_{tr})`.
+
+5. {math}`\Omega_\text{tilt_ref} \longrightarrow E_\text{mid-arc}`: Translation to the mid point
+on the arc. For this transformation, {math}`\bf S` is the unit matrix and
+{math}`{\bf L} = \rho(\cos(\alpha_b/2) - 1) \, (1, 0, 0)` 
+
+6. {math}` E_\text{mid-arc} \longrightarrow E_s`: Transformation along the bend arc to {math}`E_s`.
+This is a rotation around the center of curvature of the bend and is given by 
+Eq. [](#ustt) and Eq. [](#lrztt) with the substitution {math}`\alpha_b = (s - L/2)/\rho`
+and {math}`\theta_{tr} = 0`.
+
+Notice that with this definition of how elements are misaligned, the position of the center of a
+misaligned element depends only on the offsets and is independent of the rotations.
+
+
+
+
+

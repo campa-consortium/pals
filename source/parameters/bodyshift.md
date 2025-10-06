@@ -7,8 +7,7 @@ for documentation on the body shift transformation.
 
 The components of this group and their defaults are:
 ```{code} yaml
-fork1:              # [string] user-defined name
-  kind: BodyShiftP
+BodyShiftP:
   x_offset: 0       # [m] Offset along x-axis
   y_offset: 0       # [m] Offset along y-axis
   z_offset: 0       # [m] Offset along z-axis

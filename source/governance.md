@@ -30,7 +30,7 @@ In tie situations, the chair of the SC acts as the tie breaker.
 
 ### Appointment Process
 
-Appointed by current SC members in an unanimous vote.
+Appointed by current SC members in a unanimous vote.
 As a SC member, regularly attending and contributing to the weekly developer meetings is expected.
 
 SC members can resign or be removed by majority vote, e.g., due to inactivity, bad acting or other reasons.

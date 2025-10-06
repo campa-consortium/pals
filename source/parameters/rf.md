@@ -1,11 +1,9 @@
-%---------------------------------------------------------------------------------------------------
 (s:rf.params)=
 ## RFP: RF Parameters
 
 The components of this group and their defaults are:
 ```{code} yaml
-sol1:                           # [string] user-defined name
-  kind: Solenoid
+RFP:
   frequency: 0                  # [Hz] RF frequency
   harmon: 0                     # [unitless] RF frequency harmonic number
   voltage: 0                    # [V] RF voltage
@@ -17,5 +15,5 @@ sol1:                           # [string] user-defined name
 ```
 
 Whether `voltage` or `gradient` is kept constant with length changes is determined by
-the setting of `field_master` ([](#s:master.g)). If `field_master` is `true`, the
+the setting of `field_master` ([](#s:non.params)). If `field_master` is `true`, the
 `gradient` is kept constant and vice versa.

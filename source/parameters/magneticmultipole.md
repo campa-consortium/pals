@@ -1,4 +1,3 @@
-%---------------------------------------------------------------------------------------------------
 (s:mag.mult.params)=
 ## MagneticMultipoleP: Magnetic Multipole Parameters
 
@@ -85,21 +84,21 @@ is not the same as the [`branch` reference curve](#s:coords).
 
 If `geometry` is set to `vertically_pure` or `horizontally_pure`, the reference curve
 for the multipoles is the circular arc of the bend corresponding to the `branch` reference curve. 
-This is discussed in detail in [](#c:multipole.bend).
+This is discussed in detail in [](#s:bend.multipoles).
 
 "Tapering parmeters" account for the fact that, due to synchrotron radiation, the energy of a 
 beam at a particular point can be different from the reference value. There is an
 associated tapering parameter for all of the field parameters:
 ```{code} yaml
 Parameter       Associated Tapering Parameter
-  BnN             BtapnN
-  BsN             BtapsN
-  KnN             KtapnN
-  KsN             KtapsN
+  BnN             BnN_taper
+  BsN             BsN_taper
+  KnN             KnN_taper
+  KsN             KsN_taper
 ```
 Additionally, there are four length length integrated tapering parameters corresponding to the four
 length integrated field parameters. The actual (total) field is the sum of the field plus
 the tapering field. For example:
 ```{code} yaml
-Bs2 (actual) = Bs2 + Btaps2
+Bs2 (actual) = Bs2 + Bs2_taper
 ```
