@@ -5,12 +5,12 @@
 `MetaP` has four standard components
 ```{code} yaml
 MetaP:
-  alias: ""         # [string] alternate name, use like a hashtag (not an alias for name attribute)
-  ID: ""            # [string] ... TODO: describe ...
-  label: ""         # [string] ... TODO: describe ...
-  description: ""   # [string] ... TODO: describe ...
+  alias: ""         # [string] An alternate name for the element.
+  ID: ""            # [string] An Identification string.
+  label: ""         # [string] A label string
+  description: ""   # [string] A descriptive string
 ```
-In addition to an element's name, these strings can be used for pattern matching
+In addition to an element's `name`, these four strings can be used for pattern matching
 when trying to locate all elements of a given type.
 
 Besides the four standard strings, the `MetaP` parameter group can be used to store metadata 
