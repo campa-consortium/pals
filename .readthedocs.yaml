@@ -18,5 +18,5 @@ conda:
 
 formats:
   - htmlzip
-  - pdf
   - epub
+#  - pdf
