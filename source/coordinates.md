@@ -341,15 +341,15 @@ by starting at the first element of the lattice and iteratively using the equati
 ```{math}
 :label: wws
 \begin{align}
-  {\bf V}_i &= {\bf W}_{i-1} \; {\bf L}_i + {\bf V}_{i-1}, 
+  {\bf V}_i &= {\bf W}_{i-1} \; {\bf L} + {\bf V}_{i-1}, 
     \\
-  {\bf W}_i &= {\bf W}_{i-1} \; {\bf S}_i
+  {\bf W}_i &= {\bf W}_{i-1} \; {\bf S}
 \end{align}
 ```
-{math}`{\bf L}_i` is the displacement vector for the {math}`i^{th}` element and matrix 
-{math}`{\bf S}_i` is the rotation of
-the branch coordinate system of the exit end with respect to the entrance end. For clarity, the
-subscript {math}`i` in the equations below will be dripped. For all elements whose reference curve 
+{math}`{\bf L}` is the displacement vector for the {math}`i^{th}` element and matrix 
+{math}`{\bf S}` is the rotation of
+the branch coordinate system of the exit end with respect to the entrance end. 
+For all elements whose reference curve 
 through them is a straight line, the corresponding {math}`\bf L` and {math}`\bf S` are
 ```{math}
 :label: l00l
@@ -437,7 +437,7 @@ A value of {math}`\theta_{tr} = +\pi/2` represents a downward pointing bend.
 
 %---------------------------------------------------------------------------------------------------
 (s:position.transform)=
-## Position Transformation When Transforming Coordinates
+## Particle Position Transformation
 
 A point {math}`{\bf Q}_g = (X, Y, Z)` defined in the global coordinate system, when expressed in the
 coordinate system defined by {math}`({\bf V}, {\bf W})` is
@@ -445,7 +445,7 @@ coordinate system defined by {math}`({\bf V}, {\bf W})` is
 :label: rwrv
   {\bf Q}_{VW} = {\bf W}^{-1} \left( {\bf Q}_g - {\bf V} \right)
 ```
-This is essentially the inverse of Eq. {eq}`wws`. That is, vectors propagate inversely to the
+This is essentially the inverse of Eq. {eq}`wws`. That is, position vectors propagate inversely to the
 propagation of the coordinate system.
 
 Using Eq. {eq}`rwrv` with Eqs. {eq}`wws`, the transformation of a 
