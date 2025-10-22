@@ -1,5 +1,4 @@
-
-(s:field.exact)=
+(s:bend.multipoles)=
 # Exact Multipole Fields in a Bend
 For static magnetic and electric multipole fields in a bend, the spatial dependence of the
 field is different from multipole fields in an element with a straight geometry as given

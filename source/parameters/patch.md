@@ -18,6 +18,7 @@ Also see [`ReferenceChangeP`](#s:ref.change.params) for the parameter group that
 to change reference time and/or energy. 
 The components of `PatchP` are:
 ```{code} yaml
+PatchP:
   x_offset          # Offset in x-direction.
   y_offset          # Offset in y-direction.
   z_offset          # Offset in z-direction.
@@ -25,7 +26,7 @@ The components of `PatchP` are:
   y_rot             # Rotation around y-axis.
   z_rot             # Rotation around z-axis.
   flexible          # Default is False.
-                    #    True -> User sets offsets and rot. 
+                    #    true -> User sets offsets and rot. 
                     #    False -> Offsets and rot from branch layout. 
   ref_coords        # Coordinate system defining the length
   user_sets_length  # Default is False. Is the element length User set? 
@@ -63,7 +64,7 @@ parameters. This type of `Patch` is called
       z_offset: 3.2   # Equivalent to a drift.
 ```
 
-With `flexible` set to `True`, the exit face is taken to be the reference frame of the
+With `flexible` set to `true`, the exit face is taken to be the reference frame of the
 entrance face of the next element in the lattice. In this case, it must be possible to compute the
 reference coordinates of the next element before the reference coordinates of the `Patch` are
 computed. A `flexible` `Patch` will have its offsets, pitches, and tilt as dependent
@@ -107,7 +108,7 @@ set by the exit end coordinate system (see {numref}`f:patch`). If `ref_coords` i
 
 Unfortunately, there is no intuitive way to define the "`length`" of a patch. This is
 important since the reference transit time is the element length divided by the
-reference velocity. If the parameter `user_sets_length` is set to True, the
+reference velocity. If the parameter `user_sets_length` is set to true, the
 value of `length` set in the lattice file will be used (default is zero). `user_sets_length` is set
 to False (the default), the length of a patch is calculated depending upon the setting of
 `ref_coords`.  If `ref_coords` is set to `exit_end`, the length of the patch is calculated
@@ -120,8 +121,3 @@ Note: To provide flexibility, the `extra_dtime_ref` of the `ReferenceChageP` gro
 the change in reference time through a patch. The difference between using `t_offset` and
 `length` is that the reference time change using `extra_dtime_ref` is independent of the reference 
 velocity while with `length` there is a dependence upon the reference velocity. 
-
-When a lattice branch contains both normally oriented and reversed elements
-([](#s:ref.construct), a `Patch`, or series of `patches`, which reflects the {math}`z` direction
-must be placed in between. Such a `Patch`, (or patches) is called a `reflection` `Patch`.
-See Section~[](#s:reflect.patch) for more details on how a reflection patch is defined.

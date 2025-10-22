@@ -5,7 +5,7 @@
 (s:beamline.components)=
 ## BeamLine components
 
-A lattice [`branch`](#s:branches) is constructed from a `BeamLine`. A BeamLine is essentially 
+A lattice [`branch`](#s:branches.intro) is constructed from a `BeamLine`. A BeamLine is essentially 
 an ordered array of elements. 
 Each element of a `BeamLine` is either a lattice element or another `BeamLine`. 
 A BeamLine that is contained within another BeamLine is called a `subline`
@@ -36,14 +36,14 @@ The optional `zero_point` component is used to position sublines.
 The value of `zero_point` is the name of a line element that marks the reference point. 
 To make things unambiguous, the reference line element must have zero length.
 
-Setting optional `periodic` Boolean to `True` indicates that the `BeamLine` is something like a 
+Setting optional `periodic` Boolean to `true` indicates that the `BeamLine` is something like a 
 storage ring where the particle beam recirculates through the `BeamLine` multiple times.
 Setting `periodic` to `False` is used to indicate that the `BeamLine` is something like a 
 Linac or any other line that is "single pass". 
 
-Notice that a setting `periodic` to `True` does **not** mean that the downstream end of
+Notice that a setting `periodic` to `true` does **not** mean that the downstream end of
 the last element of the `BeamLine` has the same [floor](#s:floor) coordinates as the floor
-coordinates at the beginning. Setting `periodic` to `True` simply signals to a program that
+coordinates at the beginning. Setting `periodic` to `true` simply signals to a program that
 it may be appropriate to calculate periodic orbits and Twiss parameters
 as opposed to calculating orbits and Twiss
 parameters based upon orbit and Twiss parameters set by the User for the beginning of the `BeamLine`.  
@@ -80,7 +80,7 @@ Example with four items in `line`:
 
 - inj_line:
     kind: BeamLine
-    multipass: True
+    multipass: true
     length: 37.8
     zero_point: thingC
     line:
@@ -126,8 +126,9 @@ A line item which is a lattice element can also be specified by defining the lat
     kind: BeamLine
     line:
       - octA:              # This is a new element not previously defined.
-          kind: Octupole    
-          Kn3L: 0.34
+          kind: Octupole
+          MultipoleP
+            Kn3L: 0.34
           ...
     ...
 ```
@@ -291,7 +292,7 @@ The `from_point` of `thingA` is placed `37.5` meters from the `to_point` point w
 the `to_point` being at the exit end of `thingA`.
 
 The value of `offset` may be negative as well as positive. With negative offsets, 
-the [lattice expansion](#s:expansion) calculation may become recursive but, in any case, plancement
+the [lattice expansion](#s:expansion.intro) calculation may become recursive but, in any case, plancement
 must be computable. That is, situations where there in infinite recursion is forbidden.
 
 In a section of a line where the lattice elements are not reversed, a positive `offset` moves

@@ -14,10 +14,10 @@ Example:
         - this_line    # this_line is the root beamline for the branch.
         - that_line:
             inherit: that_ring    # Inherit from that_ring BeamLine
-            periodic: True
+            periodic: true
 ```
 In this example, `this_line` and `that_line` are the names of the root BeamLines
-for the two `Branches` that will be created when the lattice is [expanded](#s:expansion).
+for the two `Branches` that will be created when the lattice is [expanded](#s:expansion.intro).
 Branches created due to `Fork` elements also have root `BeamLines`. `Branches` specified
 in the `Lattice` structure are called `root branches` of the `lattice`. Non-root branches
 are those branches created due to `Fork` elements.
@@ -129,7 +129,7 @@ To avoid ambiguities, the kinds of `to-elements` are restricted to be one of:
 
 Notice that these kinds of elements have zero length and unit transfer maps.
 
-A `Fork` element has zero length and must always have a [`ForkP`](#fork.params) parameter group.
+A `Fork` element has zero length and must always have a [`ForkP`](#s:fork.params) parameter group.
 The components of the `ForkP` group are:
 ```{code} yaml
   to_beamline           # String: Name of BeamLine to fork to.
@@ -163,7 +163,7 @@ If not present, the default is the `Beginning` element.
 The names given by `to_element` must be unique.
 The `to-element` may inherit the reference species and energy of the `Fork` element 
 if and only if the `to-element` is the `Beginning` element and
-the `propagate_reference` component is set to `True` (the default is `False`).
+the `propagate_reference` component is set to `true` (the default is `False`).
 Reference propagation override any reference setting in the `to-element`.
 
 Example `Fork` element:
@@ -174,7 +174,7 @@ Example `Fork` element:
       to_beamline: generic_dump
       to_element: dump_beginning
       branch_name: this_dump
-      propagate_reference: True
+      propagate_reference: true
 ```
 In this example, a `Fork` element connects to a new branch which will be instantiated using
 a `BeamLine` called `generic_dump`. In the expanded lattice, the branch will be called

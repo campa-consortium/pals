@@ -23,7 +23,8 @@ CompundP:
 - name:      # [string] The name of the material
 - density:   # [kg/cm^3] The density of the material
 - elements:  # List of MaterialP
-- ratio:    # List of ratios of the elements
+- ratio:     # List of ratios of the elements
+- mass_ratio:# List of mass-ratios of the elements
 ```
 
 ### Examples
