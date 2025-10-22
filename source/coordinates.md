@@ -445,8 +445,8 @@ coordinate system defined by {math}`({\bf V}, {\bf W})` is
 :label: rwrv
   {\bf Q}_{VW} = {\bf W}^{-1} \left( {\bf Q}_g - {\bf V} \right)
 ```
-This is essentially the inverse of Eq. {eq}`wws`. That is, position vectors propagate inversely to the
-propagation of the coordinate system.
+This is essentially the inverse of Eq. {eq}`wws`. That is, position vectors transform inversely to the
+transformation of the coordinate system.
 
 Using Eq. {eq}`rwrv` with Eqs. {eq}`wws`, the transformation of a 
 particle's position {math}`{\bf q} = (x,y,z)` and momentum {math}`{\bf P} = (P_x, P_y, P_z)` 
