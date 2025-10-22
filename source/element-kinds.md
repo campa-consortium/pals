@@ -353,8 +353,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:refchange.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
-- [**MatterP**](#s:matter.params): Matter parameters.
-
+- [**MaterialP**](#s:material.params): Matter parameters. 
 
 %---------------------------------------------------------------------------------------------------
 (s:multipole)=
