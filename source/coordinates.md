@@ -74,7 +74,7 @@ element in a branch and then building up the coordinate system element-by-elemen
 Most elements have an "`entrance`" and an "`exit`" coordinate frame as
 illustrated in the above figure.
 These coordinate frames are attached to the element and are part of the `element body coordinates`. 
-`Fiducial` elements ([xxx](#s:fiducial)) are an excption. 
+`Fiducial` elements ([xxx](#s:fiducial)) are an exception.
 `Fiducial` elements only have a single coordinate frame that is tied to floor coordinates 
 and construction of the branch coordinate system starts at this coordinate system. 
 See [xxx](#s:fiducial) for more details.

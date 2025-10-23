@@ -44,7 +44,7 @@ files is shown schematically below.
 :width: 70%
 :name: f:trans
 
-Schematic showing how a simulation program can interact with a PALS complient lattice file.
+Schematic showing how a simulation program can interact with a PALS compliant lattice file.
 ```
 The components here are:
 - **Simulation program:** A simulation program.
