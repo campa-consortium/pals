@@ -341,15 +341,18 @@ by starting at the first element of the lattice and iteratively using the equati
 ```{math}
 :label: wws
 \begin{align}
-  {\bf V}_i &= {\bf W}_{i-1} \; {\bf L} + {\bf V}_{i-1}, 
+  {\bf V}_1 &= {\bf W}_0 \; {\bf L} + {\bf V}_0, 
     \\
-  {\bf W}_i &= {\bf W}_{i-1} \; {\bf S}
+  {\bf W}_1 &= {\bf W}_0 \; {\bf S}
 \end{align}
 ```
-{math}`{\bf L}` is the displacement vector for the {math}`i^{th}` element and matrix 
-{math}`{\bf S}` is the rotation of
-the branch coordinate system of the exit end with respect to the entrance end. 
-For all elements whose reference curve 
+where {math}`({\bf V}_0, {\bf W}_0)` and {math}`({\bf V}_1, {\bf W}_1)` are respectively
+the position and orientation of the branch coordinates
+at the entrance and exit ends of an element,
+{math}`{\bf L}` is the displacement vector through the element, 
+and matrix {math}`{\bf S}` is the rotation of
+the branch coordinate system through the element.
+For all elements whose reference curve
 through them is a straight line, the corresponding {math}`\bf L` and {math}`\bf S` are
 ```{math}
 :label: l00l
