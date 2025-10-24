@@ -145,9 +145,7 @@ Element parameter groups associated with this element kind are:
 (s:drift)=
 ## Drift Element
 
-Field free region.
-
-Under Construction...
+A `Drift` element is a space free and clear of any fields.
 
 Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
@@ -157,6 +155,15 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:ref.change.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
+
+Example:
+```{code} yaml
+d01:
+  kind: Drift
+  length: 2.07
+  MetaP:
+    description: "Blueprint: 4596-32A"
+```
 
 %---------------------------------------------------------------------------------------------------
 (s:egun)=
@@ -429,7 +436,9 @@ This matters due to the dependence of the reference velocity on the the referenc
 (s:quadrupole)=
 ## Quadrupole Element
 
-Under Construction...
+A `quadrupole` is an element whose major field has a linear field dependence .with transverse offset.
+Both electric and magnetic fields can be defined and the field is not restricted to be linear.
+In terms of functionality, a `quadrupole` is equivalent to a [`Multipole`](#s:multipole) element
 
 Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
@@ -441,6 +450,14 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:ref.change.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
+
+Example:
+```{code} yaml
+q01w:
+  kind: Quadrupole
+  length: 0.6
+  Kn1: 0.37
+```
 
 %---------------------------------------------------------------------------------------------------
 (s:rfcavity)=
