@@ -95,7 +95,7 @@ The logical shape of a bend, in most situations, is irrelevant.
 The only case where the logical shape can be used by a program is when the bend angle is varied.
 In this case, for a `SBend`, the face angles `e1` and `e2` can be
 held constant and `e1_rect` and `e2_rect` can be varied to keep the relationship
-between `e1` and `e1_rect`, and `e2` and `e2_rect` satisfied as discussing in the
+between `e1` and `e1_rect`, and `e2` and `e2_rect` satisfied as discussed in the
 [`BendP`](#s:bend.params) documentation. Similarly, for a `RBend`,
 the face angles `e1_rect` and `e2_rect` can be
 held constant and `e1` and `e2` can be varied to keep the relationship

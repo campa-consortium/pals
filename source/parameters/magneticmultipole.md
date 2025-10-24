@@ -45,7 +45,7 @@ Integrated values are specified with the letter
 `length` appended at the end of the name. Example:
 ```{code} yaml
 MagneticMultipoleP:
-  tilt7: 0.7        # Tilt of 7th order multiple
+  tilt7: 0.7        # Tilt of 7th order multipole
   Bn3: 27.3         # Normal multipole component of order 3.
   Bn3L: 3.47e1      # length integrated normal multipole component of order 3.
 ```
@@ -86,7 +86,7 @@ If `geometry` is set to `vertically_pure` or `horizontally_pure`, the reference 
 for the multipoles is the circular arc of the bend corresponding to the `branch` reference curve. 
 This is discussed in detail in [](#s:bend.multipoles).
 
-"Tapering parmeters" account for the fact that, due to synchrotron radiation, the energy of a 
+"Tapering parameters" account for the fact that, due to synchrotron radiation, the energy of a
 beam at a particular point can be different from the reference value. There is an
 associated tapering parameter for all of the field parameters:
 ```{code} yaml
@@ -96,7 +96,7 @@ Parameter       Associated Tapering Parameter
   KnN             KnN_taper
   KsN             KsN_taper
 ```
-Additionally, there are four length length integrated tapering parameters corresponding to the four
+Additionally, there are four length integrated tapering parameters corresponding to the four
 length integrated field parameters. The actual (total) field is the sum of the field plus
 the tapering field. For example:
 ```{code} yaml

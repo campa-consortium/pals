@@ -94,7 +94,7 @@ The field integral for the entrance pole face `edge_int1` is given by
   B_y(s) = \frac{B_{y0}}{1 + \exp[P(s)]}
   ```
   ```{math}
-  P(s) = C_0 + C_1 , s + C_2 , s^2 + C_3 , s^3 + , \ldots
+  P(s) = C_0 + C_1 \cdot s + C_2 \cdot s^2 + C_3 \cdot s^3 + \ldots
   ```
   The {math}`C_0` term simply shifts where the edge of the bend is. If all the {math}`C_n` are zero except for
   {math}`C_0` and {math}`C_1` then
@@ -123,7 +123,7 @@ magnetic multipole. If the multipole `tilt0` and `Ks0` is zero, the total bend s
   Changing the multipole strength `Kn0` or `Ks0` leaves the Reference orbit and the positions of
 all downstream lattice elements
 unchanged but will vary a particle's orbit. One common mistake when designing lattices is to vary
-`g_ref` and not `Kn0` which results in downstream elements moving around. See Sref{s:ex.chicane}
+`g_ref` and not `Kn0` which results in downstream elements moving around. See {ref}`s:ex.chicane`
 for an example.
 
   Note: A positive `g_ref`, which will bend particles and the reference orbit in the {math}`-x` direction
