@@ -457,6 +457,7 @@ Element parameter groups associated with this element kind are:
 - [**MetaP**](#s:meta.params): Meta parameters.
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:ref.change.params): Reference energy change and/or reference time correction.
+- [**RFP**](#s:rf.params): RF parameters.
 - [**SolenoidP**](#s:solenoid.params): Solenoid field.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
