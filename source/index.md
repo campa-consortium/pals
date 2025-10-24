@@ -10,8 +10,8 @@ overview.md
 introduction.md
 definitions.md
 coordinates.md
-element-parameters.md
 element-kinds.md
+element-parameters.md
 beamlines.md
 lattice-construction.md
 multipass.md
