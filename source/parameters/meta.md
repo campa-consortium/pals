@@ -6,7 +6,7 @@
 ```{code} yaml
 MetaP:
   alias: ""         # [string] An alternate name for the element.
-  ID: ""            # [string] An Identification string.
+  ID: ""            # [string] An identification string.
   label: ""         # [string] A label string
   description: ""   # [string] A descriptive string
 ```
