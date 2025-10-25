@@ -341,15 +341,18 @@ by starting at the first element of the lattice and iteratively using the equati
 ```{math}
 :label: wws
 \begin{align}
-  {\bf V}_i &= {\bf W}_{i-1} \; {\bf L}_i + {\bf V}_{i-1}, 
+  {\bf V}_1 &= {\bf W}_0 \; {\bf L} + {\bf V}_0, 
     \\
-  {\bf W}_i &= {\bf W}_{i-1} \; {\bf S}_i
+  {\bf W}_1 &= {\bf W}_0 \; {\bf S}
 \end{align}
 ```
-{math}`{\bf L}_i` is the displacement vector for the {math}`i^{th}` element and matrix 
-{math}`{\bf S}_i` is the rotation of
-the branch coordinate system of the exit end with respect to the entrance end. For clarity, the
-subscript {math}`i` in the equations below will be dripped. For all elements whose reference curve 
+where {math}`({\bf V}_0, {\bf W}_0)` and {math}`({\bf V}_1, {\bf W}_1)` are respectively
+the position and orientation of the branch coordinates
+at the entrance and exit ends of an element,
+{math}`{\bf L}` is the displacement vector through the element, 
+and matrix {math}`{\bf S}` is the rotation of
+the branch coordinate system through the element.
+For all elements whose reference curve
 through them is a straight line, the corresponding {math}`\bf L` and {math}`\bf S` are
 ```{math}
 :label: l00l
@@ -437,7 +440,7 @@ A value of {math}`\theta_{tr} = +\pi/2` represents a downward pointing bend.
 
 %---------------------------------------------------------------------------------------------------
 (s:position.transform)=
-## Position Transformation When Transforming Coordinates
+## Particle Position Transformation
 
 A point {math}`{\bf Q}_g = (X, Y, Z)` defined in the global coordinate system, when expressed in the
 coordinate system defined by {math}`({\bf V}, {\bf W})` is
@@ -445,8 +448,8 @@ coordinate system defined by {math}`({\bf V}, {\bf W})` is
 :label: rwrv
   {\bf Q}_{VW} = {\bf W}^{-1} \left( {\bf Q}_g - {\bf V} \right)
 ```
-This is essentially the inverse of Eq. {eq}`wws`. That is, vectors propagate inversely to the
-propagation of the coordinate system.
+This is essentially the inverse of Eq. {eq}`wws`. That is, position vectors transform inversely to the
+transformation of the coordinate system.
 
 Using Eq. {eq}`rwrv` with Eqs. {eq}`wws`, the transformation of a 
 particle's position {math}`{\bf q} = (x,y,z)` and momentum {math}`{\bf P} = (P_x, P_y, P_z)` 
