@@ -544,6 +544,7 @@ The `UnionEle` element holds a set of overlapping elements.
 Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
+- **elements**: A list of contained element kinds.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
 - [**MetaP**](#s:meta.params): Meta parameters.
 - [**ReferenceP**](#s:ref.params): Reference parameters.
@@ -559,22 +560,23 @@ Any contained element can be shifted from the nominal position by setting the co
 
 Example:
 ```{code} yaml
-UnionEle:
-  name: MMM
+MMM:
+  kind: UnionEle
   length: 2.1
-  Solenoid:
-    name: Sa      # Contained elements can be named.
-    length: 1.3
-    BodyShiftP:          # Orient the Solenoid
-      x_offset: 0.03
-      ...
-  RFCavity:
-    name: Ra
-    BodyShiftP:          # Orient the RFCavity
-      y_rot: 0.012
-      ...
   BodyShiftP:           # The UnionEle itself can be oriented.
     ...
+  elements:
+    Sa:
+      kind: Solenoid    # Contained elements can be named.
+      length: 1.3
+      BodyShiftP:       # Orient the Solenoid
+        x_offset: 0.03
+        ...
+    Ra:
+      kind: RFCavity
+      BodyShiftP:       # Orient the RFCavity
+        y_rot: 0.012
+        ...
 ```
 
 Note: `UnionEle` shares the feature of describing elements that overlap physically, 
