@@ -99,10 +99,11 @@ here `x_limit[1]` and `x_limit[2]` would refer to the first and second values of
 - `false`
 - `null`          # Useful as a default value when neither `true` nor `false` is appropriate.
 
-3. The standard defines the following symbols which can be used in place of a value: 
+3. The standard defines the following symbols which can be used in place of a value:
+- `null`   # Value has not been set: use for open limits, etc.
 - `Inf`    # Infinity
 - `-Inf`   # Negative infinity
-- `NaN`    # Not a number or value has not been set.
+- `NaN`    # Not a number
 
 Note: There is a difference between
 ```{code} yaml

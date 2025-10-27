@@ -5,8 +5,8 @@ The `ApertureP` parameter group contains parameters for describing an aperture.
 The components of this group and their defaults are:
 ```{code} yaml
 ApertureP:
-  x_limits: [NaN, NaN]             # [m] Vector of two real numbers
-  y_limits: [NaN, NaN]             # [m] Vector of two real numbers
+  x_limits: [null, null]           # [m] Vector of two real numbers
+  y_limits: [null, null]           # [m] Vector of two real numbers
   shape: ""                        # [string] Aperture shape switch
   location: ENTRANCE_END           # [enum] Aperture location switch
   vertices: []                     # [array] Array of vertex points. See below.
@@ -67,10 +67,10 @@ where
 For a `RECTANGULAR` aperture, a particle is outside of the aperture if any of the following
 four conditions is true:
 ```{code}
-  1) x < x_limits[1] && x_limits[1] != NaN
-  2) x > x_limits[2] && x_limits[2] != NaN
-  3) y < y_limits[1] && y_limits[1] != NaN
-  4) y > y_limits[2] && y_limits[2] != NaN
+  1) x < x_limits[1] && x_limits[1] != null
+  2) x > x_limits[2] && x_limits[2] != null
+  3) y < y_limits[1] && y_limits[1] != null
+  4) y > y_limits[2] && y_limits[2] != null
 ```
 
 ### aperture_shifts_with_body
