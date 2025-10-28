@@ -7,7 +7,7 @@ length `length` parameter.
 
 ```{code} yaml
 BendP:
-  rho_ref: 0       # [radian] Reference bend angle
+  rho_ref: 0         # [radian] Reference bend angle
   bend_field_ref: 0  # [T] Reference bend field
   e1: 0              # [radian] Entrance end pole face rotation with respect to a sector geometry
   e2: 0              # [radian] Exit end pole face rotation with respect to a sector geometry
