@@ -313,8 +313,7 @@ Element parameter groups associated with this element kind are:
 ## Marker Element
 
 Zero length element to mark a particular position.
-
-Under Construction...
+The main purpose of this element is to name a position in the beamline.
 
 Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
@@ -325,7 +324,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:ref.change.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `length` is specified, it must be zero.
+The `length` of this element must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:mask)=
