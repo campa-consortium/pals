@@ -47,7 +47,7 @@ Integrated values are specified with the letter
 MagneticMultipoleP:
   tilt7: 0.7        # Tilt of 7th order multipole
   Bn3: 27.3         # Normal multipole component of order 3.
-  Bn3L: 3.47e1      # length integrated normal multipole component of order 3.
+  Bn2L: 3.47e1      # length integrated normal multipole component of order 2.
 ```
 The length integrated values are related to the non-integrated values via
 ```{code} yaml
