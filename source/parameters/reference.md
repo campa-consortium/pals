@@ -17,6 +17,7 @@ The `location` component records where the reference parameters are evaluated at
 Possible values are
 ```{code} yaml
   location: UPSTREAM_END    # Upstream end of the element
+```
 and
 ```{code} yaml
   location: DOWNSTREAM_END  # Downstream end of the element
