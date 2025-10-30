@@ -42,7 +42,7 @@ reference momentum.
 
 Furthermore, the field and normalized values can be given in terms of the integrated strength.
 Integrated values are specified with the letter 
-`length` appended at the end of the name. Example:
+`L` appended at the end of the name. Example:
 ```{code} yaml
 MagneticMultipoleP:
   tilt7: 0.7        # Tilt of 7th order multipole
