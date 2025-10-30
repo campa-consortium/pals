@@ -57,7 +57,7 @@ lattice information into an "expanded form".
 This includes expanding beam lines, evaluating expressions, etc.
 - **Reader / Writer:** Package to read/write files of a standard format (JSON, YAML, etc). 
 Packages to do this are widely available.
-- **Lattice File:** A lattice file in a standard format such as JSON, YAML, etc.
+- **Lattice File:** A PALS lattice file in a standard format such as JSON, YAML, etc.
 
 The PALS standard can be divided into several pieces:
 - **Schema standard:** The schema defines, in a language neutral manner, the information that 
