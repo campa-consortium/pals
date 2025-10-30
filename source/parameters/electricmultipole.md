@@ -37,7 +37,7 @@ emp1:
   kind: ElectricMultipoleP
   tilt7: 0.7        # [unitles] Tilt of 7th order multiple
   En3: 27.3         # [unitles] Normal multipole component of order 3
-  En3L: 3.47e1      # [unitles] length integrated normal multipole component of order 3
+  En2L: 3.47e1      # [unitles] length integrated normal multipole component of order 2
 ```
 The length integrated values are related to the non-integrated values via
 ```{code} yaml
