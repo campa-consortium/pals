@@ -387,12 +387,14 @@ Element parameter groups associated with this element kind are:
 (s:nullele)=
 ## NullEle Element
 
-Placeholder element used for bookkeeping when constructing the expanded lattice. 
-`NullEle` elements will be removed from the expanded lattice.
-This element can be used as a reference element for superpositions. 
-`NullEle` elements are not generally useful otherwise.
-
+Placeholder element used for bookkeeping when constructing the expanded lattice.
+This element is empty, thin and does nothing.
 This element does not have any associated parameter groups.
+
+It can be used as internal element, e.g., to describe an invalid element returned from a search/select operation, as the (invalid) element behind the last element, or as a reference element for superpositions.
+`NullEle` elements will be removed from the expanded lattice.
+
+For all other purposes, e.g., to replace other element kinds or mark reference points, use [Marker](#s.marker).
 
 %---------------------------------------------------------------------------------------------------
 (s:octupole)=
