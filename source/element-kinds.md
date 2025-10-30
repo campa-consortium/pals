@@ -323,7 +323,6 @@ Element parameter groups associated with this element kind are:
 - [**FloorP**](#s:floor.params): Floor position and orientation.
 - [**MetaP**](#s:meta.params): Meta parameters.
 - [**ReferenceP**](#s:ref.params): Reference parameters.
-- [**TrackingP**](#s:tracking.params): Tracking parameters.
 
 The `length` of this element must be zero.
 
