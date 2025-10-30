@@ -315,10 +315,9 @@ Element parameter groups associated with this element kind are:
 Zero length element to mark a particular position.
 The main purpose of this element is to name a position in the beamline.
 `Marker` elements has a unit transport map. That is, a particle's phase space coordinates
-are not altered when with passage through the element
+are not altered with passage through the element
 
 Element parameter groups associated with this element kind are:
-- [**ApertureP**](#s:aperture.params): Aperture parameters.
 - [**BodyShiftP**](#s:bodyshift.params): Orientation of element with respect to its nominal position.
 - [**FloorP**](#s:floor.params): Floor position and orientation.
 - [**MetaP**](#s:meta.params): Meta parameters.
