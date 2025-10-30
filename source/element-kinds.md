@@ -389,7 +389,6 @@ Element parameter groups associated with this element kind are:
 
 Placeholder element used for bookkeeping when constructing the expanded lattice.
 This element is empty, zero length and does nothing.
-`NullEle` elements will be removed from the expanded lattice.
 This element can be used as a [`base_item`](#s:placement) element for [superpositions](#s:superposition). 
 Additionally, this element can be used as an internal element, e.g., to describe an invalid element returned from a search/select operation, or as the (invalid) placeholder element behind the last element.
 
