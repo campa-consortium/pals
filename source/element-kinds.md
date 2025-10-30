@@ -388,6 +388,7 @@ Element parameter groups associated with this element kind are:
 ## NullEle Element
 
 Placeholder element used for bookkeeping when constructing the expanded lattice. 
+`NullEle` elements will be removed from the expanded lattice.
 This element can be used as a reference element for superpositions. 
 `NullEle` elements are not generally useful otherwise.
 
