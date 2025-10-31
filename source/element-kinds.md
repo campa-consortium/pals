@@ -390,7 +390,8 @@ Element parameter groups associated with this element kind are:
 Placeholder element used for bookkeeping when constructing the expanded lattice.
 This element is empty, zero length and does nothing.
 This element can be used as a [`base_item`](#s:placement) element for [superpositions](#s:superposition). 
-Additionally, this element can be used as an internal element, e.g., to describe an invalid element returned from a search/select operation, or as the (invalid) placeholder element behind the last element.
+Additionally, this element can be used, for example, to denote an invalid element in the internal
+structures defined by a program.
 
 `NullEle` elements present in a lattice file will, as a part of lattice expansion, be removed.
 That is, `NullEle` elements will never be present in the final expanded lattice and
@@ -398,7 +399,7 @@ tracking through a `NullEle` will never be needed.
 
 This element does not have any associated parameter groups.
 
-For all other purposes, for example, to mark reference points, use [Marker](#s.marker) elements.
+For other purposes, for example, to mark reference points, [Marker](#s.marker) elements may be used.
 
 %---------------------------------------------------------------------------------------------------
 (s:octupole)=
