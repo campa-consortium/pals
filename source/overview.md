@@ -31,8 +31,8 @@ how to organize lattice elements into lines which beams of particles or photons 
 %---------------------------------------------------------------------------------------------------
 ## What PALS Is Not
 
-PALS does not define how particles are to be tracked through a lattice. PALS is for describing machines and
-not for defining how to simulate particle motion. 
+PALS does not do simulations and, in particular, does not do tracking. That said, PALS lattice files
+can store parameters that can be used to configure simulations. 
 
 %---------------------------------------------------------------------------------------------------
 (s:std.components)=
