@@ -44,6 +44,7 @@ simulations.md
 :maxdepth: 2
 :caption: Extensions
 
+extensions.md
 ```
 
 ```{toctree}
