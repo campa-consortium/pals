@@ -13,6 +13,7 @@ cleo:             # [string] user-defined name
 ```
 
 %---------------------------------------------------------------------------------------------------
+---
 (s:ackicker)=
 ## ACKicker Element
 
@@ -31,6 +32,7 @@ Element parameter groups associated with this element kind are:
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
 %---------------------------------------------------------------------------------------------------
+---
 (s:beambeam)=
 ## BeamBeam Element
 
@@ -401,7 +403,7 @@ tracking through a `NullEle` will never be needed.
 
 This element does not have any associated parameter groups.
 
-For other purposes, for example, to mark reference points, [Marker](#s.marker) elements may be used.
+For other purposes, for example, to mark reference points, [Marker](#s:marker) elements may be used.
 
 %---------------------------------------------------------------------------------------------------
 (s:octupole)=
