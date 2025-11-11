@@ -386,18 +386,18 @@ Element parameter groups associated with this element kind are:
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
 %---------------------------------------------------------------------------------------------------
-(s:empy)=
-## Empty Element
+(s:placeholder)=
+## Placeholder Element
 
 Placeholder element used for bookkeeping when constructing the expanded lattice.
-This element is empty, zero length and does nothing.
+This element has zero length and does nothing.
 This element can be used as a [`base_item`](#s:placement) element for [superpositions](#s:superposition). 
 Additionally, this element can be used, for example, to denote an invalid element in the internal
 structures defined by a program.
 
-`Empty` elements present in a lattice file will, as a part of lattice expansion, be removed.
-That is, `Empty` elements will never be present in the final expanded lattice and
-tracking through a `Empty` will never be needed.
+`Placeholder` elements present in a lattice file will, as a part of lattice expansion, be removed.
+That is, `Placeholder` elements will never be present in the final expanded lattice and
+tracking through a `Placeholder` will never be needed.
 
 This element does not have any associated parameter groups.
 
