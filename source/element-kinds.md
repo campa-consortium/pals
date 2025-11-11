@@ -528,7 +528,7 @@ s01w:
 (s:solenoid)=
 ## Solenoid Element
 
-A `solenoid` is an element whose magnetic field is dominated by a uniform field whose direction is aligned with the magnetic axis.
+A `solenoid` is an element whose magnetic field is dominated by a field whose direction is aligned with the magnetic axis.
 Additional magnetic (or electric) multipole contributions are allowed.
 
 Element parameter groups associated with this element kind are:
