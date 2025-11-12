@@ -20,6 +20,7 @@ BendP:
   h2: 0              # [TODO] Exit end pole face curvature
   L_chord: 0         # [m] Chord length
   L_sagitta: 0       # [m] Sagitta length (output parameter)  TODO ??? output parameter??
+  multipole_type:    # [switch]. Optional. Default is VERTICALLY_PURE. Type of bend multipole.
   tilt_ref: 0        # [radian] Reference tilt
 ```
 
@@ -138,6 +139,13 @@ The attributes `h1` and `h2` are the curvature of the entrance and exit pole fac
   The `L_sagitta` parameter is the sagitta length (The sagitta is the distance
 from the midpoint of the arc to the midpoint of the chord). `L_sagitta` can be negative and will have
 the same sign as the `g_ref` parameter. `L_sagitta` is an output parameter
+%
+- **multipole_type**
+Type of magnetic and/or electric [bend multipoles](#s:bend.multipoles) used. Possibilities are:
+```{code} yaml
+HORIZONTALLY_PURE
+VERTICALLY_PURE       # Default.
+```
 %
 - **tilt_ref**
 The `tilt_ref` attribute rotates a bend about the longitudinal axis at the entrance face of the
