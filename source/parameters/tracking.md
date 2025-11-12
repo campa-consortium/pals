@@ -7,7 +7,7 @@ so that such program specific parameters can be clearly identified.
 
 Example:
 ```{code} yaml
-ParameterP:
+TrackingP:
   SciBmad:
     ds_step: 0.3
     tracking_method: scibmad_standard
