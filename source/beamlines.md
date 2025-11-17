@@ -367,7 +367,7 @@ to position the element within the beamline. Example:
 ```
 In this example, the superposition places an element named `q10w` with respect to the
 element `markerA`. This superposition will apply to any `markerA` elements that exist in
-any beamline. To restrict where the superposition is applied, the appropriate 
+any beamline. To restrict where the superposition is applied, use the appropriate 
 [qualified name](#s:element.matching). For example:
 ```{code} yaml
 superimpose:
