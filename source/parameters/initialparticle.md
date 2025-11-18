@@ -7,7 +7,7 @@ initial beam particle distribution.
 The components of this group are:
 ```{code} yaml
 InitialParticleP:
-  Distype: ""    # [string] name of initial distribution type
+  distribution_type: ""    # [string] name of initial distribution type
   sigx           # RMS x = sqrt(<x^2>)
   sigpx          # RMS px = sqrt(<px^2>)
   muxpx          # <xpx>

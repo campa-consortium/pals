@@ -11,8 +11,6 @@ The components of this group are:
 ```{code} yaml
 ReferenceP:
   tracking_type: "" # [string] type of tracking
-  start_loc: ""     # [string] Where tracking starts
-  end_loc: ""       # [string] Where tracking ends
   ...
 ```
 In Construction...
