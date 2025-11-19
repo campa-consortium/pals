@@ -16,9 +16,8 @@ cleo:             # [string] user-defined name
 (s:ackicker)=
 ## ACKicker Element
 
-Time varying kicker element
-
-Under Construction...
+An ACKicker element simulates a time-dependent kicker.
+It is like a Kicker element except that the field varies in time.
 
 Element parameter groups associated with this element kind are:
 - [**ACKickerP**](#s:ackicker.params): AC kicker parameters.
@@ -30,13 +29,22 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:ref.change.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
+Example:
+```{code} yaml
+ack1:
+  kind: ACKicker
+  length: 0.3
+  t_offset: 0.1e-8
+  scale_multipoles: = F
+  b1: = 0.27
+  amplitude_vs_time: = {(-1.2e-6, 0.02), ... }
+
 %---------------------------------------------------------------------------------------------------
 (s:beambeam)=
 ## BeamBeam Element
 
 Element for simulating colliding beams.
-
-Under Construction...
+A BeamBeam element defines the parameters of a oppositely moving "strong" beam that generates electromagnetic fields at the interaction point. This strong beam is assumed to have a three-dimensional (3D) Gaussian density distribution.
 
 Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
@@ -48,7 +56,15 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceChangeP**](#s:ref.change.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
-The length of this element is considered to be zero so if `length` is specified, it must be zero.
+Example:
+```{code} yaml
+bb1:
+  kind: BeamBeam
+  sigma_x: 0.1e-3
+  sigma_y: 0.1e-3
+  sigma_z: 5.0e-2
+  energy: 1.0e10
+  N_particle: 1.0e11
 
 %---------------------------------------------------------------------------------------------------
 (s:beginningele)=
@@ -126,9 +142,8 @@ The length of this element is considered to be zero so if `length` is specified,
 (s:crabcavity)=
 ## CrabCavity Element
 
-RF crab cavity
-
-Under Construction...
+A CrabCavity element is an zero length RF cavity that gives a longitudinal dependent
+transverse kick. 
 
 Element parameter groups associated with this element kind are:
 - [**ApertureP**](#s:aperture.params): Aperture parameters.
@@ -140,6 +155,14 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**ReferenceChangeP**](#s:ref.change.params): Reference energy change and/or reference time correction.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
+
+Example:
+```{code} yaml
+cc1:
+  kind: CrabCavity
+  frequency: 394.0e6 
+  phase: 0.0
+  voltage: 1.0e6
 
 %---------------------------------------------------------------------------------------------------
 (s:drift)=
