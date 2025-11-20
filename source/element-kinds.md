@@ -309,7 +309,7 @@ Note: This element does not have a `length` nor an `s_position`.
 (s:instrument)=
 ## Instrument Element
 
-Measurement element.
+An Instrument element is a measurement element for diagnostics.
 
 Under Construction...
 
@@ -328,7 +328,9 @@ Element parameter groups associated with this element kind are:
 (s:kicker)=
 ## Kicker Element
 
-Particle kicker element.
+A kicker element is an element that can deflect a beam in both planes. 
+It uses the hkick and vkick parameters to deflect the beam in
+horizontal and vertical directions.
 
 Under Construction...
 
@@ -519,6 +521,10 @@ q01w:
 %---------------------------------------------------------------------------------------------------
 (s:rfcavity)=
 ## RFCavity Element
+
+An RFCavity element is an RF cavity without acceleration generally used in a storage ring. The main difference
+between an rfcavity and an lcavity is that, unlike an lcavity, the reference energy through
+an rfcavity is constant.
 
 Under Construction...
 
