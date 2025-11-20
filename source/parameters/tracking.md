@@ -10,7 +10,6 @@ tracking.
 The components of this group are:
 ```{code} yaml
 ReferenceP:
-  tracking_type: "" # [string] type of tracking
   ...
 ```
 In Construction...
