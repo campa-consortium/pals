@@ -227,7 +227,7 @@ Note: This element does not have a `length` nor an `s_position`.
 
 A Fiducial element is used to fix the position and orientation of the reference orbit within the global
 coordinate system at the location of the fiducial element. A fiducial element will affect the global
-floor coordinates (§16.2) of elements both upstream and downstream of the fiducial element.
+floor coordinates of elements both upstream and downstream of the fiducial element.
 
 Under Construction...
 
@@ -522,9 +522,7 @@ q01w:
 (s:rfcavity)=
 ## RFCavity Element
 
-An RFCavity element is an RF cavity without acceleration generally used in a storage ring. The main difference
-between an rfcavity and an lcavity is that, unlike an lcavity, the reference energy through
-an rfcavity is constant.
+An RFCavity element represents an RF cavity that accelerates or decelerates, and focuses or defocuses, a charged particle beam longitudinally and transversely using RF fields.
 
 Under Construction...
 
