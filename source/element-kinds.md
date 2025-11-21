@@ -328,7 +328,7 @@ Element parameter groups associated with this element kind are:
 (s:kicker)=
 ## Kicker Element
 
-A kicker element is an element that can deflect a beam in both planes. 
+A kicker element is an element that can deflect a beam transversely in both planes. 
 It uses the hkick and vkick parameters to deflect the beam in
 horizontal and vertical directions.
 
