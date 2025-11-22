@@ -43,7 +43,6 @@ ack1:
 (s:beambeam)=
 ## BeamBeam Element
 
-Element for simulating colliding beams.
 A BeamBeam element defines the parameters of a oppositely moving "strong" beam that generates electromagnetic fields at the interaction point. This strong beam is assumed to have a three-dimensional (3D) Gaussian density distribution.
 
 Element parameter groups associated with this element kind are:
@@ -210,7 +209,7 @@ Element parameter groups associated with this element kind are:
 (s:feedback)=
 ## Feedback Circuit 
 
-A Feedback element is a lord element used to simulate a feedback circuit.
+A Feedback element is an element used to simulate a feedback circuit.
 It gathers information about particle trajectories from the inputs
 and uses this
 to either adjust beam trajectories in the outputs and/or adjust parameters in the outputs.
@@ -600,7 +599,7 @@ sol01w:
 ## Taylor Element
 
 A Taylor element is a Taylor map that maps the input orbital phase space and possibly spin coordinates
-of a particle at the entrance end of the element to the output orbital and spin coordinates at the exit
+of a particle at the entrance end of the element to the output orbital phase space and spin coordinates at the exit
 end of the element. 
 
 Under Construction...
