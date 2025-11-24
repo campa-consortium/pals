@@ -328,7 +328,7 @@ Element parameter groups associated with this element kind are:
 ## Kicker Element
 
 A kicker element is an element that can deflect a beam transversely in both planes. 
-It uses the hkick and vkick parameters to deflect the beam in
+It uses a zero-order (electric or magnetic) multipole field, determined by parameters in MagneticMultipoleP or ElectricMultipoleP such as Kn0, to deflect the beam in
 horizontal and vertical directions.
 
 Under Construction...
