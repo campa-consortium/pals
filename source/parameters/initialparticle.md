@@ -20,7 +20,7 @@ InitialParticleP:
   sigma_pypy: null         # <py^2>
   sigma_zz:   null         # <z^2>
   sigma_pzpz: null         # <pz^2>
-  mu_xpx:     null         # <xpx> 
+  sigma_xpx:     null         # <xpx> 
   mu_xy:      null         # <xy> 
   mu_xpy:     null         # <xpy> 
   mu_xz:      null         # <xz> 
