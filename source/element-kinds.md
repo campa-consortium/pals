@@ -80,6 +80,7 @@ Element parameter groups associated with this element kind are:
 - [**ReferenceP**](#s:ref.params): Reference parameters.
 - [**TrackingP**](#s:tracking.params): Tracking parameters.
 
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 %---------------------------------------------------------------------------------------------------
 (s:bend)=
 ##  Bend Elements: RBend and SBend
