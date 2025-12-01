@@ -65,6 +65,8 @@ bb1:
   energy: 1.0e10
   N_particle: 1.0e11
 
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
+
 %---------------------------------------------------------------------------------------------------
 (s:beginningele)=
 ## BeginningEle Element
@@ -230,6 +232,8 @@ coordinate system at the location of the fiducial element. A fiducial element wi
 floor coordinates of elements both upstream and downstream of the fiducial element.
 
 Under Construction...
+
+The length of this element is considered to be zero so if `length` is specified, it must be zero.
 
 %---------------------------------------------------------------------------------------------------
 (s:floorshift)=
