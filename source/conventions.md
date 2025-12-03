@@ -196,7 +196,7 @@ Example:
 Qa.*>MagneticMultipoleP.Ks2L
 ```
 This will match the `Ks2L` component of all elements whose name begins with `Qa`. Notice that
-since only `<beamline>` and `<element>` use PCRE2 syntax, the dot separatingthe parameter group
+since only `<beamline>` and `<element>` use PCRE2 syntax, the dot separating the parameter group
 and the parameter is unambiguous.
 
 %---------------------------------------------------------------------------------------------------
