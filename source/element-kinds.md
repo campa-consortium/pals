@@ -18,6 +18,7 @@ cleo:             # [string] user-defined name
 
 An ACKicker element simulates a time-dependent kicker.
 It is like a Kicker element except that the field varies in time.
+This element requires a user supplied time-dependent expression.
 
 Element parameter groups associated with this element kind are:
 - [**ACKickerP**](#s:ackicker.params): AC kicker parameters.
@@ -34,10 +35,8 @@ Example:
 ack1:
   kind: ACKicker
   length: 0.3
-  t_offset: 0.1e-8
-  scale_multipoles: = F
-  b1: = 0.27
-  amplitude_vs_time: = {(-1.2e-6, 0.02), ... }
+  t_0: 0.0
+  t : 1e-8 
 
 %---------------------------------------------------------------------------------------------------
 (s:beambeam)=
