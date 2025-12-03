@@ -22,7 +22,7 @@ to represent rotational errors.
 
 The components of `ElectricMultipoleP` for specifying a multipolar field of order `N` is:
 ```{code} yaml
-  tiltN: 0                  # [unitles] Tilt
+  tiltN: 0                  # [Radians] Tilt
   EnN: 0                    # [V/m^(N+1)] Normal component
   EsN: 0                    # [V/m^(N+1)] Skew component
   EnNL: 0                   # [V/m^N] Length integrated normal component 
@@ -37,9 +37,9 @@ emp1:
   kind: Bend
   length = 0.86
   ElectricMultipoleP:
-    tilt7: 0.7        # Tilt of 7th order multiple
-    En3: 27.3         # Normal multipole component of order 3
-    En2L: 3.47e1      # length integrated normal multipole component of order 2
+    tilt7: 0.7        # Tilt in raidians of 7th order multiple
+    En3: 27.3         # Normal multipole component of order 3 in V/m^4
+    En2L: 3.47e1      # Length integrated normal multipole component of order 2 in V/m^2
     geometry: vertically_pure   # See below
 ```
 The length integrated values are related to the non-integrated values via
