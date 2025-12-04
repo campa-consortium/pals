@@ -160,9 +160,10 @@ Example:
 ```{code} yaml
 cc1:
   kind: CrabCavity
-  frequency: 394.0e6 
-  phase: 0.0
-  voltage: 1.0e6
+  RFP:
+    frequency: 394.0e6 
+    phase: 0.0
+    voltage: 1.0e6
 
 %---------------------------------------------------------------------------------------------------
 (s:drift)=
@@ -331,7 +332,7 @@ Element parameter groups associated with this element kind are:
 (s:kicker)=
 ## Kicker Element
 
-A kicker element is an element that can deflect a beam transversely in both planes. 
+A Kicker element is an element that can deflect a beam transversely in both planes. 
 It uses a zero-order (electric or magnetic) multipole field, determined by parameters in MagneticMultipoleP or ElectricMultipoleP such as Kn0, to deflect the beam in
 horizontal and vertical directions.
 
@@ -352,7 +353,7 @@ Element parameter groups associated with this element kind are:
 (s:marker)=
 ## Marker Element
 
-Zero length element to mark a particular position.
+A Marker element is a zero length element to mark a particular position.
 The main purpose of this element is to name a position in the beamline.
 `Marker` elements has a unit transport map. That is, a particle's phase space coordinates
 are not altered with passage through the element
